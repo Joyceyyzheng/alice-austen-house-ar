@@ -49,7 +49,8 @@
             <!-- as a child of the a-nft entity, you can define the content to show. here's a GLTF model entity -->
             <a-entity gltf-model="assets/darkroom.gltf" scale="500 500 500" position="0 0 0">
             </a-entity>
-            <a-light type="directional" position="1 1 1"></a-light>
+            <a-light type="directional" position="1 1 1" intensity="1"></a-light>
+            <a-light type="ambient" color="#ffffff"></a-light>
         </a-nft>
         <!-- static camera that moves according to the device movemenents -->
         <a-entity camera></a-entity>
