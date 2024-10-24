@@ -84,11 +84,12 @@
             <a-light type="directional" position="1 1 1" intensity="0.5"></a-light>
             <a-light type="ambient" color="#ffffff"></a-light>
         </a-nft>
-        <a-nft type="nft" url="WebAR/assets/miniturefull" smooth="true" smoothCount="10" smoothTolerance=".01"
-            smoothThreshold="5">
+        <a-nft class="nft" type="nft" url="WebAR/assets/miniturefull" smooth="true" smoothCount="10"
+            smoothTolerance=".01" smoothThreshold="5">
             <!-- as a child of the a-nft entity, you can define the content to show. here's a GLTF model entity -->
-            <a-entity gltf-model="assets/darkroom.gltf" scale="800 800 800" position="0 0 0">
+            <a-entity class="model" gltf-model="assets/darkroom.gltf" scale="800 800 800" position="0 0 0">
             </a-entity>
+            <!-- can't add ids! that's causing problems. -->
             <a-light type="directional" position="1 1 1" intensity="0.5"></a-light>
             <a-light type="ambient" color="#ffffff"></a-light>
         </a-nft>
@@ -98,8 +99,8 @@
 
 
     <script>
-        document.querySelector('#marker1').addEventListener('markerFound', (e) => {
-            const model1 = document.querySelector('#model1');
+        document.querySelector('.nft').addEventListener('markerFound', (e) => {
+            const model1 = document.querySelector('.model');
             const clonedModel = model1.cloneNode(true);
             document.querySelector('a-scene').appendChild(clonedModel);
             console.log('Marker found', e);
