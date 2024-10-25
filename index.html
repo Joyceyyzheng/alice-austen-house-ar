@@ -102,7 +102,7 @@
         document.querySelector('.nft').addEventListener('markerFound', (e) => {
             const model1 = document.querySelector('.model');
             const clonedModel = model1.cloneNode(true);
-            //document.querySelector('.main-scene').appendChild(clonedModel);
+            document.querySelector('.main-scene').appendChild(clonedModel);
             console.log('Marker found', e);
             // Remove the model from marker to prevent re-disappearing
             // model1.remove();
