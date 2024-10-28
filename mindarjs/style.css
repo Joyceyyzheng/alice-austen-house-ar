@@ -1,6 +1,7 @@
 .buttons {
     z-index: 100;
-    background-color: red
+    background-color: red;
+    border-radius: 50%;
 }
 
 .a-canvas {
