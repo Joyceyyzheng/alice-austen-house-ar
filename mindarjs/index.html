@@ -39,12 +39,13 @@
 
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
         <a-entity mindar-image-target="targetIndex: 0">
-            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#bearModel"
-                animation-mixer>
+            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#bearModel" animation-mixer
+                bear-visibility>
         </a-entity>
     </a-scene>
 </body>
 <script>
+    let allowBearModel = false;
     console.log("this is the mindarjs test");
     function updateStayVisible(value) {
         const sceneEl = document.querySelector('a-scene');
@@ -56,6 +57,15 @@
     updateStayVisibleButton.addEventListener('click', () => {
         updateStayVisible(true);
         console.log("stayVisible BUTTON updated");
+        allowBearModel = !allowBearModel;
+    });
+
+    //bear visibility
+    AFRAME.registerComponent('bear-visibility', {
+        tick: function () {
+            const bearModel = document.querySelector('[mindar-image-target] a-gltf-model');
+            bearModel.setAttribute('visible', allowBearModel);
+        }
     });
 
     //lock axis
@@ -71,6 +81,8 @@
         ];
         targetPresent = false;
     }
+
+
 </script>
 
 </html>
