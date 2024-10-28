@@ -13,7 +13,7 @@
     <p>this is the mindarjs test</p>
     <button class="buttons" class="mindar-ui-overlay" id="updateStayVisibleButton">Update stayVisible</button>
     <a-scene
-        mindar-image="imageTargetSrc: assets/alice_one_fourth_up.mind; maxTrack: 2; stayVisible:true; stayVisibleScale:500 "
+        mindar-image="imageTargetSrc: assets/alice_one_fourth_up.mind; maxTrack: 2; stayVisible:true; stayVisibleScale:500;uiScanning:no "
         color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
         device-orientation-permission-ui="enabled: false">
 
@@ -30,7 +30,7 @@
         </a-entity>
     </a-scene>
     <a-scene
-        mindar-image="imageTargetSrc: assets/alice_one_fourth_bottom.mind;  stayVisible:true; stayVisibleScale:500 "
+        mindar-image="imageTargetSrc: assets/alice_one_fourth_bottom.mind;  stayVisible:true; stayVisibleScale:500;uiScanning:no "
         color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
         device-orientation-permission-ui="enabled: false">
         <a-assets>
@@ -71,19 +71,6 @@
         }
     });
 
-    //lock axis
-    if (this.stayVisible) {
-        const dimensions = this.markerDimensions[i];
-        const halfWidth = dimensions[0] / 2;
-        const halfHeight = dimensions[1] / 2;
-        worldMatrix = [
-            1, 0, 0, 0,
-            0, 1, 0, 0,
-            0, 0, 1, 0,
-            -halfWidth, -halfHeight, -(dimensions[0] * dimensions[1]) / (100 + this.stayVisibleScale), 1
-        ];
-        targetPresent = false;
-    }
 
 
 </script>
