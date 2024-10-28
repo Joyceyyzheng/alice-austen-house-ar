@@ -2,14 +2,16 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="style.css" rel="stylesheet">
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.0.0/dist/aframe-extras.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
 </head>
 
+
 <body>
     <p>this is the mindarjs test</p>
-    <button id="updateStayVisibleButton">Update stayVisible</button>
+    <button class="buttons" id="updateStayVisibleButton">Update stayVisible</button>
     <a-scene mindar-image="imageTargetSrc: assets/targets.mind; maxTrack: 2;stayVisible:true;stayVisibleScale:50 "
         color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
         device-orientation-permission-ui="enabled: false">
