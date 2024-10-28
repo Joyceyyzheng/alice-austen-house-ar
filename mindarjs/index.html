@@ -9,6 +9,7 @@
 
 <body>
     <p>this is the mindarjs test</p>
+    <button id="updateStayVisibleButton">Update stayVisible</button>
     <a-scene mindar-image="imageTargetSrc: assets/targets.mind; maxTrack: 2;stayVisible:true;stayVisibleScale:50 "
         color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
         device-orientation-permission-ui="enabled: false">
@@ -33,6 +34,17 @@
 </body>
 <script>
     console.log("this is the mindarjs test");
+    function updateStayVisible(value) {
+        const sceneEl = document.querySelector('a-scene');
+        const arSystem = sceneEl.systems["mindar-image-system"];
+        arSystem.stayVisible = value;
+    }
+
+    const updateStayVisibleButton = document.getElementById('updateStayVisibleButton');
+    updateStayVisibleButton.addEventListener('click', () => {
+        updateStayVisible(true);
+        console.log("stayVisible BUTTON updated");
+    });
 </script>
 
 </html>
