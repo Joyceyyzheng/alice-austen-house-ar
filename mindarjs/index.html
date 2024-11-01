@@ -48,7 +48,7 @@
     </a-scene> -->
      <!-- bottom - camera -->
     <a-scene
-    mindar-image="imageTargetSrc: assets/alice_one_fourth_bottom.mind;  stayVisible:true; stayVisibleScale:500;uiScanning:no "
+    mindar-image="imageTargetSrc: assets/targets.mind; uiScanning:no "
     color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: false">
     <a-assets>
@@ -64,7 +64,7 @@
     </a-scene>
     <!-- up - rooom -->
     <a-scene
-    mindar-image="imageTargetSrc: assets/alice_one_fourth_up.mind;  stayVisible:true; stayVisibleScale:500;uiScanning:no "
+    mindar-image="imageTargetSrc: assets/targets.mind; uiScanning:no "
     color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: false">
     <a-assets>
@@ -102,6 +102,7 @@
       //  allowBearModel = !allowBearModel;
        // bearModel.setAttribute('visible', true);
         if (cameraModelEntity) {cameraModelEntity.setAttribute('visible', true);
+        if(roomModelEntity) {roomModelEntity.setAttribute('visible', false);}
         console.log("cameraModelEntity updated");
         }else{
             console.log("cameraModelEntity not found");

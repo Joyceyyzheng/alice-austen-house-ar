@@ -4,6 +4,9 @@
     border-radius: 50%; */
     width:5rem;
     height:3rem;
+    position: absolute;
+    top: 1%;
+    left:1%;
 }
 
 .a-canvas {
