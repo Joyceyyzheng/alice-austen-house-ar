@@ -11,7 +11,7 @@
 
 <body>
     <!-- <p>this is the mindarjs test</p> -->
-    <button class="buttons" class="mindar-ui-overlay" id="updateStayVisibleButton">Update stayVisible</button>
+    <button class="buttons" class="mindar-ui-overlay" id="updateStayVisibleButton">Next one</button>
     <a-scene
         mindar-image="imageTargetSrc: assets/alice_one_fourth_up.mind; maxTrack: 2; stayVisible:true; stayVisibleScale:500;uiScanning:no "
         color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
@@ -78,7 +78,7 @@
 </body>
 
 <script>
-    let allowBearModel = false;
+   // let allowBearModel = false;
     console.log("this is the mindarjs test");
     function updateStayVisible(value) {
         const sceneEl = document.querySelector('a-scene');
@@ -88,12 +88,15 @@
     
 
     const bearModel = document.getElementById('bearModel');
+    const cameraModel = document.getElementById('cameraModel');
+    const darkroomModel = document.getElementById('roomModel');
     const updateStayVisibleButton = document.getElementById('updateStayVisibleButton');
     updateStayVisibleButton.addEventListener('click', () => {
         updateStayVisible(true);
         console.log("stayVisible BUTTON updated");
-        allowBearModel = !allowBearModel;
+      //  allowBearModel = !allowBearModel;
         bearModel.setAttribute('visible', true);
+        cameraModel.setAttribute('visible', true);
     });
 
 
