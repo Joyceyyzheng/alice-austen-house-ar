@@ -58,7 +58,7 @@
 
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
     <a-entity mindar-image-target="targetIndex: 0">
-        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#cameraModel"
+        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" visible="false" src="#cameraModel"
             animation-mixer>
     </a-entity>
     </a-scene>
@@ -100,7 +100,11 @@
         console.log("stayVisible BUTTON updated");
       //  allowBearModel = !allowBearModel;
        // bearModel.setAttribute('visible', true);
-        if (cameraModelEntity) cameraModelEntity.setAttribute('visible', true);
+        if (cameraModelEntity) {cameraModelEntity.setAttribute('visible', true);
+        console.log("cameraModelEntity updated");
+        }else{
+            console.log("cameraModelEntity not found");
+        }
     });
 
 
