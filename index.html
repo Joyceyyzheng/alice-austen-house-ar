@@ -1,114 +1,117 @@
-<!DOCTYPE html>
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Image based tracking AR.js demo</title>
-    <!-- import aframe and then ar.js with image tracking / location based features -->
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-
-    <!-- style for the loader -->
-    <style>
-        .arjs-loader {
-            height: 100%;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .arjs-loader div {
-            text-align: center;
-            font-size: 1.25em;
-            color: white;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="style.css" rel="stylesheet">
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.0.0/dist/aframe-extras.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
 </head>
 
-<body style="margin : 0px; overflow: hidden;">
-    <!-- minimal loader shown until image descriptors are loaded. Loading may take a while according to the device computational power -->
-    <div class="arjs-loader">
-        <div>Loading, please wait...</div>
-    </div>
 
-    <!-- a-frame scene -->
-    <a-scene class="main-scene" vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded
-        arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
-        <!-- a-nft is the anchor that defines an Image Tracking entity -->
-        <!-- on 'url' use the path to the Image Descriptors created before. -->
-        <!-- the path should end with the name without the extension e.g. if file is trex.fset' the path should end with trex -->
-        <a-nft type="nft" url="WebAR/assets/alice_austen_pump" smooth="true" smoothCount="10" smoothTolerance=".01"
-            smoothThreshold="5">
-            <!-- as a child of the a-nft entity, you can define the content to show. here's a GLTF model entity -->
-            <a-entity gltf-model="assets/darkroom.gltf" scale="500 500 500" position="0 0 0">
-            </a-entity>
-            <a-light type="directional" position="1 1 1" intensity="1"></a-light>
-            <a-light type="ambient" color="#ffffff"></a-light>
-        </a-nft>
-        <a-nft type="nft" url="WebAR/assets/miniture1" smooth="true" smoothCount="10" smoothTolerance=".01"
-            smoothThreshold="5">
-            <!-- as a child of the a-nft entity, you can define the content to show. here's a GLTF model entity -->
-            <a-entity gltf-model="assets/darkroom.gltf" scale="800 800 800" position="0 0 0">
-            </a-entity>
-            <a-light type="directional" position="1 1 1" intensity="0.5"></a-light>
-            <a-light type="ambient" color="#ffffff"></a-light>
-        </a-nft>
-        <a-nft type="nft" url="WebAR/assets/miniture2" smooth="true" smoothCount="10" smoothTolerance=".01"
-            smoothThreshold="5">
-            <!-- as a child of the a-nft entity, you can define the content to show. here's a GLTF model entity -->
-            <a-entity gltf-model="assets/darkroom.gltf" scale="800 800 800" position="0 0 0">
-            </a-entity>
-            <a-light type="directional" position="1 1 1" intensity="0.5"></a-light>
-            <a-light type="ambient" color="#ffffff"></a-light>
-        </a-nft>
-        <a-nft type="nft" url="WebAR/assets/minitureegg" smooth="true" smoothCount="10" smoothTolerance=".01"
-            smoothThreshold="5">
-            <!-- as a child of the a-nft entity, you can define the content to show. here's a GLTF model entity -->
-            <a-entity gltf-model="assets/darkroom.gltf" scale="800 800 800" position="0 0 0">
-            </a-entity>
-            <a-light type="directional" position="1 1 1" intensity="0.5"></a-light>
-            <a-light type="ambient" color="#ffffff"></a-light>
-        </a-nft>
-        <a-nft type="nft" url="WebAR/assets/egg" smooth="true" smoothCount="10" smoothTolerance=".01"
-            smoothThreshold="5" id="marker1">
-            <!-- as a child of the a-nft entity, you can define the content to show. here's a GLTF model entity -->
-            <a-entity id="model1" gltf-model="assets/darkroom.gltf" scale="800 800 800" position="0 0 0">
-            </a-entity>
-            <a-light type="directional" position="1 1 1" intensity="0.5"></a-light>
-            <a-light type="ambient" color="#ffffff"></a-light>
-        </a-nft>
-        <a-nft class="nft" type="nft" url="WebAR/assets/miniturefull" smooth="true" smoothCount="10"
-            smoothTolerance=".01" smoothThreshold="5">
-            <!-- as a child of the a-nft entity, you can define the content to show. here's a GLTF model entity -->
-            <a-entity class="model" gltf-model="assets/darkroom.gltf" scale="800 800 800" position="0 0 0">
-            </a-entity>
-            <!-- can't add ids! that's causing problems. -->
-            <a-light type="directional" position="1 1 1" intensity="0.5"></a-light>
-            <a-light type="ambient" color="#ffffff"></a-light>
-        </a-nft>
-        <!-- static camera that moves according to the device movemenents -->
-        <a-entity camera></a-entity>
+<body>
+    <!-- <p>this is the mindarjs test</p> -->
+    <div id="root"></div>
+    <script type="module" src="/index.jsx"></script>
+    <!-- <button class="buttons" class="mindar-ui-overlay" id="updateStayVisibleButton">Next one</button> -->
+    <!-- up - raccoon -->
+    <!-- <a-scene
+        mindar-image="imageTargetSrc: assets/alice_one_fourth_up.mind; maxTrack: 2; stayVisible:true; stayVisibleScale:500;uiScanning:no "
+        color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
+        device-orientation-permission-ui="enabled: false">
+
+        <a-assets>
+            <a-asset-item id="raccoonModel"
+                src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/band-example/raccoon/scene.gltf"></a-asset-item>
+        </a-assets>
+
+        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+        <a-entity mindar-image-target="targetIndex: 0">
+            <a-gltf-model rotation="90 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#raccoonModel"
+                animation-mixer>
+        </a-entity>
+    </a-scene> -->
+     <!-- bottom - bear -->
+    <!-- <a-scene
+        mindar-image="imageTargetSrc: assets/alice_one_fourth_bottom.mind;  stayVisible:true; stayVisibleScale:500;uiScanning:no "
+        color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
+        device-orientation-permission-ui="enabled: false">
+        <a-assets>
+            <a-asset-item id="bearModel"
+                src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/band-example/bear/scene.gltf"></a-asset-item>
+        </a-assets>
+
+        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+        <a-entity mindar-image-target="targetIndex: 0">
+            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#bearModel"
+                animation-mixer>
+        </a-entity>
+    </a-scene> -->
+     <!-- bottom - camera -->
+    <a-scene
+    mindar-image="imageTargetSrc: assets/targets.mind; uiScanning:no "
+    color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: false">
+    <a-assets>
+        <a-asset-item id="cameraModel"
+            src="models/camera.gltf"></a-asset-item>
+    </a-assets>
+
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+    <a-entity mindar-image-target="targetIndex: 0">
+        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" visible="false" src="#cameraModel"
+            animation-mixer>
+    </a-entity>
     </a-scene>
+    <!-- up - rooom -->
+    <a-scene
+    mindar-image="imageTargetSrc: assets/targets.mind; uiScanning:no "
+    color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: false">
+    <a-assets>
+        <a-asset-item id="roomModel"
+            src="models/darkroom_241025.glb"></a-asset-item>
+    </a-assets>
 
-
-    <script>
-        document.querySelector('.nft').addEventListener('markerFound', (e) => {
-            const model1 = document.querySelector('.model');
-            const clonedModel = model1.cloneNode(true);
-            document.querySelector('.nft').appendChild(clonedModel);
-
-            console.log('Marker found', e);
-            // Remove the model from marker to prevent re-disappearing
-            // model1.remove();
-        });
-    </script>
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+    <a-entity mindar-image-target="targetIndex: 0">
+        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="50 50 50" src="#roomModel"
+            animation-mixer>
+    </a-entity>
+    </a-scene>
 </body>
+
+<script>
+   
+    // console.log("this is the mindarjs test");
+    // function updateStayVisible(value) {
+    //     const sceneEl = document.querySelector('a-scene');
+    //     const arSystem = sceneEl.systems["mindar-image-system"];
+    //     arSystem.stayVisible = value;
+    // }
+    
+
+    // const bearModel = document.getElementById('bearModel');
+   
+    // const cameraModelEntity = document.querySelector('[src="#cameraModel"]');
+    // const roomModelEntity = document.querySelector('[src="#roomModel"]');
+
+    // const updateStayVisibleButton = document.getElementById('updateStayVisibleButton');
+    // updateStayVisibleButton.addEventListener('click', () => {
+    //     updateStayVisible(true);
+    //     console.log("stayVisible BUTTON updated");
+    //   //  allowBearModel = !allowBearModel;
+    //    // bearModel.setAttribute('visible', true);
+    //     if (cameraModelEntity) {cameraModelEntity.setAttribute('visible', true);
+    //     if(roomModelEntity) {roomModelEntity.setAttribute('visible', false);}
+    //     console.log("cameraModelEntity updated");
+    //     }else{
+    //         console.log("cameraModelEntity not found");
+    //     }
+    // });
+
+
+</script>
 
 </html>
