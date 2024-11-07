@@ -14,43 +14,10 @@
     <div id="root"></div>
     <script type="module" src="/index.jsx"></script>
     <!-- <button class="buttons" class="mindar-ui-overlay" id="updateStayVisibleButton">Next one</button> -->
-    <!-- up - raccoon -->
-    <!-- <a-scene
-        mindar-image="imageTargetSrc: assets/alice_one_fourth_up.mind; maxTrack: 2; stayVisible:true; stayVisibleScale:500;uiScanning:no "
-        color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
-        device-orientation-permission-ui="enabled: false">
+    
 
-        <a-assets>
-            <a-asset-item id="raccoonModel"
-                src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/band-example/raccoon/scene.gltf"></a-asset-item>
-        </a-assets>
-
-        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-
-        <a-entity mindar-image-target="targetIndex: 0">
-            <a-gltf-model rotation="90 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#raccoonModel"
-                animation-mixer>
-        </a-entity>
-    </a-scene> -->
-     <!-- bottom - bear -->
-    <!-- <a-scene
-        mindar-image="imageTargetSrc: assets/alice_one_fourth_bottom.mind;  stayVisible:true; stayVisibleScale:500;uiScanning:no "
-        color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
-        device-orientation-permission-ui="enabled: false">
-        <a-assets>
-            <a-asset-item id="bearModel"
-                src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/band-example/bear/scene.gltf"></a-asset-item>
-        </a-assets>
-
-        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-        <a-entity mindar-image-target="targetIndex: 0">
-            <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#bearModel"
-                animation-mixer>
-        </a-entity>
-    </a-scene> -->
-     <!-- bottom - camera -->
     <a-scene
-    mindar-image="imageTargetSrc: assets/targets.mind; uiScanning:no "
+    mindar-image="imageTargetSrc: assets/targets.mind; uiScanning:no;filterMinCF:0.0001; filterBeta: 0.001 "
     color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: false">
     <a-assets>
@@ -66,7 +33,7 @@
     </a-scene>
     <!-- up - rooom -->
     <a-scene
-    mindar-image="imageTargetSrc: assets/targets.mind; uiScanning:no "
+    mindar-image="imageTargetSrc: assets/targets.mind; uiScanning:no;filterMinCF:0.0001; filterBeta: 0.001 "
     color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: false">
     <a-assets>
@@ -75,8 +42,24 @@
     </a-assets>
 
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-    <a-entity mindar-image-target="targetIndex: 0">
-        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="50 50 50" src="#roomModel"
+    <a-entity listener mindar-image-target="targetIndex: 0">
+        <a-gltf-model rotation="0 0 0 " position="0 -0.5 1" scale="50 50 50" src="#roomModel"
+            animation-mixer>
+    </a-entity>
+    </a-scene>
+
+    <a-scene
+    mindar-image="imageTargetSrc: assets/targets.mind; uiScanning:no;filterMinCF:0.0001; filterBeta: 0.001 "
+    color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: false">
+    <a-assets>
+        <a-asset-item id="cupModel"
+            src="models/cup.gltf"></a-asset-item>
+    </a-assets>
+
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+    <a-entity listener mindar-image-target="targetIndex: 0">
+        <a-gltf-model rotation="0 0 0 " position="0 -1 0" scale="5 5 5" src="#cupModel"
             animation-mixer>
     </a-entity>
     </a-scene>

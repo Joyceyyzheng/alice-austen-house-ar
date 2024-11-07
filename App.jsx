@@ -1,43 +1,72 @@
 // App.jsx
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from "react";
+import ProgressBar from "./ProgressBar";
+import useStore from "./store";
 
 const App = () => {
-  const [isCameraVisible, setIsCameraVisible] = useState(false);
-  const [isRoomVisible, setIsRoomVisible] = useState(true);
+  const [step, setStep] = useState(0);
+  const { currentStep, nextStep, prevStep } = useStore();
 
-  // useEffect(() => {
-  //   // Initialize once after the component mounts
-  //   const sceneEl = document.querySelector('a-scene');
-  //   if (sceneEl) {
-  //     const arSystem = sceneEl.systems["mindar-image-system"];
-  //     arSystem.stayVisible = true; // Set stayVisible to true initially or as needed
-  //   }
-  // }, []);
+  const cameraModelEntity = document.querySelector('[src="#cameraModel"]');
+  const roomModelEntity = document.querySelector('[src="#roomModel"]');
+  const frameModelEntity = document.querySelector('[src="#cupModel"]');
 
-  const handleButtonClick = () => {
-    setIsCameraVisible(true);
-    setIsRoomVisible(false);
+  const handleNextButtonClick = () => {
+    nextStep();
+  };
 
-    const cameraModelEntity = document.querySelector('[src="#cameraModel"]');
-    const roomModelEntity = document.querySelector('[src="#roomModel"]');
+  const handlePrevButtonClick = () => {
+    prevStep();
+    console.info("Previous button clicked");
+  };
 
-    if (cameraModelEntity) {
-      cameraModelEntity.setAttribute('visible', true);
+  const updateModelVisibility = () => {
+    // Select each model entity by ID
+
+    if (roomModelEntity && currentStep === 1) {
+      roomModelEntity.setAttribute("visible", true);
+      cameraModelEntity.setAttribute("visible", false);
+      frameModelEntity.setAttribute("visible", false);
+      console.log("roomModelEntity updated to visible");
+    } else {
+      console.log("roomModelEntity not found");
+    }
+
+    if (cameraModelEntity && currentStep === 2) {
+      cameraModelEntity.setAttribute("visible", true);
+      roomModelEntity.setAttribute("visible", false);
+      frameModelEntity.setAttribute("visible", false);
       console.log("cameraModelEntity updated to visible");
     } else {
       console.log("cameraModelEntity not found");
     }
 
-    if (roomModelEntity) {
-      roomModelEntity.setAttribute('visible', false);
-      console.log("roomModelEntity updated to invisible");
+    if (frameModelEntity && currentStep === 3) {
+      frameModelEntity.setAttribute("visible", true);
+      roomModelEntity.setAttribute("visible", false);
+      cameraModelEntity.setAttribute("visible", false);
+      console.log("frameModelEntity updated to visible");
+    } else {
+      console.log("frameModelEntity not found");
+    }
+
+    if (frameModelEntity && currentStep === 4) {
+      frameModelEntity.setAttribute("visible", false);
+      console.log("frameModelEntity updated to visible");
     }
   };
 
+  useEffect(() => {
+    updateModelVisibility();
+    console.log("Step updated to", currentStep);
+  }, [currentStep]);
+
   return (
     <div>
-      <button onClick={handleButtonClick}>Next one</button>
-      <p>Check the console to see visibility updates for 3D models.</p>
+      <ProgressBar />
+      <div className="mainLogo"></div>
+      <button className="nextBtn" onClick={handleNextButtonClick}></button>
+      <button className="prevBtn" onClick={handlePrevButtonClick}></button>
     </div>
   );
 };
