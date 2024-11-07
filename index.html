@@ -15,54 +15,36 @@
     <script type="module" src="/index.jsx"></script>
     <!-- <button class="buttons" class="mindar-ui-overlay" id="updateStayVisibleButton">Next one</button> -->
     
-
     <a-scene
-    mindar-image="imageTargetSrc: assets/targets.mind; uiScanning:no;filterMinCF:0.0001; filterBeta: 0.001 "
+    mindar-image="imageTargetSrc: assets/targets_multiple.mind; maxTrack:3; uiScanning:no; filterMinCF:0.0001; filterBeta: 0.001"
     color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: false">
+    
     <a-assets>
-        <a-asset-item id="cameraModel"
-            src="models/camera.gltf"></a-asset-item>
+        <a-asset-item id="roomModel" src="models/darkroom_241025.glb"></a-asset-item>
+        <a-asset-item id="cameraModel" src="models/camera.gltf"></a-asset-item>
+        <a-asset-item id="cupModel" src="models/cup.gltf"></a-asset-item>
     </a-assets>
 
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+    <!-- Room Model -->
     <a-entity mindar-image-target="targetIndex: 0">
-        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" visible="false" src="#cameraModel"
-            animation-mixer>
+        <a-gltf-model rotation="90 0 0" position="0 4 -5" scale="260 260 260" src="#roomModel" animation-mixer></a-gltf-model>
     </a-entity>
-    </a-scene>
-    <!-- up - rooom -->
-    <a-scene
-    mindar-image="imageTargetSrc: assets/targets.mind; uiScanning:no;filterMinCF:0.0001; filterBeta: 0.001 "
-    color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
-    device-orientation-permission-ui="enabled: false">
-    <a-assets>
-        <a-asset-item id="roomModel"
-            src="models/darkroom_241025.glb"></a-asset-item>
-    </a-assets>
 
-    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-    <a-entity listener mindar-image-target="targetIndex: 0">
-        <a-gltf-model rotation="0 0 0 " position="0 -0.5 1" scale="50 50 50" src="#roomModel"
-            animation-mixer>
+    <!-- Camera Model -->
+    <a-entity mindar-image-target="targetIndex: 1">
+        <a-gltf-model rotation="0 95 90" position="0 2.85 -1.0" scale="0.028 0.028 0.028" src="#cameraModel" visible="false" animation-mixer></a-gltf-model>
     </a-entity>
-    </a-scene>
 
-    <a-scene
-    mindar-image="imageTargetSrc: assets/targets.mind; uiScanning:no;filterMinCF:0.0001; filterBeta: 0.001 "
-    color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
-    device-orientation-permission-ui="enabled: false">
-    <a-assets>
-        <a-asset-item id="cupModel"
-            src="models/cup.gltf"></a-asset-item>
-    </a-assets>
-
-    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-    <a-entity listener mindar-image-target="targetIndex: 0">
-        <a-gltf-model rotation="0 0 0 " position="0 -1 0" scale="5 5 5" src="#cupModel"
-            animation-mixer>
+    <!-- Cup Model -->
+    <a-entity mindar-image-target="targetIndex: 2">
+        <a-gltf-model rotation="0 90 90" position="1.0 2.85 -1.0" scale="1.2 1.2 1.2" src="#cupModel" animation-mixer></a-gltf-model>
     </a-entity>
-    </a-scene>
+
+</a-scene>
+
 </body>
 
 <script>

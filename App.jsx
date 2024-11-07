@@ -4,7 +4,6 @@ import ProgressBar from "./ProgressBar";
 import useStore from "./store";
 
 const App = () => {
-  const [step, setStep] = useState(0);
   const { currentStep, nextStep, prevStep } = useStore();
 
   const cameraModelEntity = document.querySelector('[src="#cameraModel"]');
@@ -17,17 +16,13 @@ const App = () => {
 
   const handlePrevButtonClick = () => {
     prevStep();
-    console.info("Previous button clicked");
   };
 
   const updateModelVisibility = () => {
-    // Select each model entity by ID
-
     if (roomModelEntity && currentStep === 1) {
       roomModelEntity.setAttribute("visible", true);
       cameraModelEntity.setAttribute("visible", false);
       frameModelEntity.setAttribute("visible", false);
-      console.log("roomModelEntity updated to visible");
     } else {
       console.log("roomModelEntity not found");
     }
@@ -36,7 +31,6 @@ const App = () => {
       cameraModelEntity.setAttribute("visible", true);
       roomModelEntity.setAttribute("visible", false);
       frameModelEntity.setAttribute("visible", false);
-      console.log("cameraModelEntity updated to visible");
     } else {
       console.log("cameraModelEntity not found");
     }
@@ -45,20 +39,18 @@ const App = () => {
       frameModelEntity.setAttribute("visible", true);
       roomModelEntity.setAttribute("visible", false);
       cameraModelEntity.setAttribute("visible", false);
-      console.log("frameModelEntity updated to visible");
     } else {
       console.log("frameModelEntity not found");
     }
 
     if (frameModelEntity && currentStep === 4) {
       frameModelEntity.setAttribute("visible", false);
-      console.log("frameModelEntity updated to visible");
     }
   };
 
   useEffect(() => {
     updateModelVisibility();
-    console.log("Step updated to", currentStep);
+    // console.log("Step updated to", currentStep);
   }, [currentStep]);
 
   return (
