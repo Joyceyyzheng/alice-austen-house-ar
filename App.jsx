@@ -9,6 +9,11 @@ const App = () => {
   const cameraModelEntity = document.querySelector('[src="#cameraModel"]');
   const roomModelEntity = document.querySelector('[src="#roomModel"]');
   const frameModelEntity = document.querySelector('[src="#cupModel"]');
+  const newCameraModelEntity = document.querySelector('[src="#newCamModel"]');
+  const contactModelEntity = document.querySelector('[src="#contactModel"]');
+  const tankModelEntity = document.querySelector('[src="#tankModel"]');
+  const trayModelEntity = document.querySelector('[src="#trayModel"]');
+  const spoonModelEntity = document.querySelector('[src="#spoonModel"]');
 
   const handleNextButtonClick = () => {
     nextStep();
@@ -23,28 +28,86 @@ const App = () => {
       roomModelEntity.setAttribute("visible", true);
       cameraModelEntity.setAttribute("visible", false);
       frameModelEntity.setAttribute("visible", false);
+      contactModelEntity.setAttribute("visible", false);
+      tankModelEntity.setAttribute("visible", false);
+      trayModelEntity.setAttribute("visible", false);
+      spoonModelEntity.setAttribute("visible", false);
     } else {
       console.log("roomModelEntity not found");
     }
 
     if (cameraModelEntity && currentStep === 2) {
-      cameraModelEntity.setAttribute("visible", true);
       roomModelEntity.setAttribute("visible", false);
       frameModelEntity.setAttribute("visible", false);
+      contactModelEntity.setAttribute("visible", false);
+      tankModelEntity.setAttribute("visible", false);
+      trayModelEntity.setAttribute("visible", false);
+      spoonModelEntity.setAttribute("visible", false);
+
+      cameraModelEntity.setAttribute("visible", true);
     } else {
       console.log("cameraModelEntity not found");
     }
 
     if (frameModelEntity && currentStep === 3) {
-      frameModelEntity.setAttribute("visible", true);
       roomModelEntity.setAttribute("visible", false);
       cameraModelEntity.setAttribute("visible", false);
+      contactModelEntity.setAttribute("visible", false);
+      tankModelEntity.setAttribute("visible", false);
+      trayModelEntity.setAttribute("visible", false);
+      spoonModelEntity.setAttribute("visible", false);
+
+      frameModelEntity.setAttribute("visible", true);
     } else {
       console.log("frameModelEntity not found");
     }
 
-    if (frameModelEntity && currentStep === 4) {
+    if (contactModelEntity && currentStep === 4) {
       frameModelEntity.setAttribute("visible", false);
+      roomModelEntity.setAttribute("visible", false);
+      cameraModelEntity.setAttribute("visible", false);
+      tankModelEntity.setAttribute("visible", false);
+      trayModelEntity.setAttribute("visible", false);
+      spoonModelEntity.setAttribute("visible", false);
+
+      contactModelEntity.setAttribute("visible", true);
+    } else {
+      console.log("contactModelEntity not found");
+    }
+
+    if (tankModelEntity && currentStep === 5) {
+      contactModelEntity.setAttribute("visible", false);
+      trayModelEntity.setAttribute("visible", false);
+      spoonModelEntity.setAttribute("visible", false);
+      frameModelEntity.setAttribute("visible", false);
+      roomModelEntity.setAttribute("visible", false);
+      cameraModelEntity.setAttribute("visible", false);
+      tankModelEntity.setAttribute("visible", true);
+    } else {
+      console.log("tankModelEntity not found");
+    }
+    if (trayModelEntity && currentStep === 6) {
+      contactModelEntity.setAttribute("visible", false);
+      tankModelEntity.setAttribute("visible", false);
+      spoonModelEntity.setAttribute("visible", false);
+      frameModelEntity.setAttribute("visible", false);
+      roomModelEntity.setAttribute("visible", false);
+      cameraModelEntity.setAttribute("visible", false);
+      trayModelEntity.setAttribute("visible", true);
+    } else {
+      console.log("trayModelEntity not found");
+    }
+
+    if (spoonModelEntity && currentStep === 7) {
+      contactModelEntity.setAttribute("visible", false);
+      tankModelEntity.setAttribute("visible", false);
+      trayModelEntity.setAttribute("visible", false);
+      frameModelEntity.setAttribute("visible", false);
+      roomModelEntity.setAttribute("visible", false);
+      cameraModelEntity.setAttribute("visible", false);
+      spoonModelEntity.setAttribute("visible", true);
+    } else {
+      console.log("spoonModelEntity not found");
     }
   };
 
