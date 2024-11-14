@@ -2,9 +2,11 @@
 import React, { useState, useEffect } from "react";
 import ProgressBar from "./ProgressBar";
 import useStore from "./store";
+import Tutorial from "./Tutorial";
+import Opening from "./Opening";
 
 const App = () => {
-  const { currentStep, nextStep, prevStep } = useStore();
+  const { currentStep, nextStep, prevStep, programStart } = useStore();
 
   const cameraModelEntity = document.querySelector('[src="#cameraModel"]');
   const roomModelEntity = document.querySelector('[src="#roomModel"]');
@@ -118,10 +120,18 @@ const App = () => {
 
   return (
     <div>
-      <ProgressBar />
-      <div className="mainLogo"></div>
-      <button className="nextBtn" onClick={handleNextButtonClick}></button>
-      <button className="prevBtn" onClick={handlePrevButtonClick}></button>
+      {programStart ? (
+        <>
+          {" "}
+          <ProgressBar />
+          <Tutorial />
+          <div className="mainLogo"></div>
+          <button className="nextBtn" onClick={handleNextButtonClick}></button>
+          <button className="prevBtn" onClick={handlePrevButtonClick}></button>
+        </>
+      ) : (
+        <Opening />
+      )}
     </div>
   );
 };
