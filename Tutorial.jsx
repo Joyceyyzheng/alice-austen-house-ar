@@ -12,11 +12,8 @@ const TutorialComp = ({
   position,
 }) => {
   return (
-    <>
-      <div
-        className="tutorial-comp-parent"
-        style={{ position: "absolute", ...position }}
-      >
+    <div className="tutorial" style={{ position: "absolute", ...position }}>
+      <div className="tutorial-comp-parent">
         <div className="tutorial-comp-text">
           <div className="tutorial-comp-title">{title}</div>
           <div className="tutorial-comp-content">{content}</div>
@@ -35,13 +32,15 @@ const TutorialComp = ({
           </div>
         </div>
       </div>
-    </>
+      <div className="tutorial-comp-background"></div>
+    </div>
   );
 };
 
 const Overlay = () => {
   return <div className="tutorial-overlay"></div>;
 };
+
 const Tutorial = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [tutorialActive, setTutorialActive] = useState(true);

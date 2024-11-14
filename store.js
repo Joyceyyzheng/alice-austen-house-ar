@@ -10,6 +10,11 @@ const useStore = create((set) => ({
 
   programStart: false,
   setProgramStart: (value) => set({ programStart: value }),
+  modalExpanded: false,
+  setModalExpanded: (value) =>
+    set((state) => ({
+      modalExpanded: value !== undefined ? value : !state.modalExpanded,
+    })),
 }));
 
 export default useStore;

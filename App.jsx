@@ -4,6 +4,7 @@ import ProgressBar from "./ProgressBar";
 import useStore from "./store";
 import Tutorial from "./Tutorial";
 import Opening from "./Opening";
+import Equipment from "./Equipment";
 
 const App = () => {
   const { currentStep, nextStep, prevStep, programStart } = useStore();
@@ -120,18 +121,19 @@ const App = () => {
 
   return (
     <div>
-      {programStart ? (
-        <>
-          {" "}
-          <ProgressBar />
-          <Tutorial />
-          <div className="mainLogo"></div>
-          <button className="nextBtn" onClick={handleNextButtonClick}></button>
-          <button className="prevBtn" onClick={handlePrevButtonClick}></button>
-        </>
-      ) : (
+      {/* {programStart ? ( */}
+      <>
+        {" "}
+        <ProgressBar />
+        <Equipment />
+        {/* <Tutorial /> */}
+        <div className="mainLogo"></div>
+        <button className="nextBtn" onClick={handleNextButtonClick}></button>
+        <button className="prevBtn" onClick={handlePrevButtonClick}></button>
+      </>
+      {/* ) : (
         <Opening />
-      )}
+      )} */}
     </div>
   );
 };
