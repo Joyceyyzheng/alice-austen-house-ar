@@ -15,6 +15,9 @@ const useStore = create((set) => ({
     set((state) => ({
       modalExpanded: value !== undefined ? value : !state.modalExpanded,
     })),
+
+  tutorialStep: 0,
+  setTutorialStep: (step) => set({ tutorialStep: step }),
 }));
 
 export default useStore;

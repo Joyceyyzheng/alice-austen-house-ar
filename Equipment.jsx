@@ -30,8 +30,6 @@ const ExpandedMenu = ({ onToggle }) => {
     setSelectedModel(null);
   };
 
-  //   console.info("ExpandedMenu");
-
   return (
     <>
       <div className="expanded-menu">
@@ -65,14 +63,20 @@ const ExpandedMenu = ({ onToggle }) => {
 
 const Equipment = () => {
   //   const [expanded, setExpanded] = useState(false);
-  const { modalExpanded, setModalExpanded, currentStep } = useStore();
+  const { modalExpanded, setModalExpanded, currentStep, tutorialStep } =
+    useStore();
   const [showModal, setShowModal] = useState(true);
 
-  //   useEffect (() => {
-  //     if (currentStep == 7) {
-  //       console.info("Equipment");}
-  //     },[currentStep]);
-  //   };
+  //read tutorial steps
+  useEffect(() => {
+    if (tutorialStep === 3) {
+      //equipment step
+      setModalExpanded(true);
+      console.info("Equipment tutorial");
+    } else {
+      setModalExpanded(false);
+    }
+  }, [tutorialStep]);
 
   useEffect(() => {
     if (currentStep === 7) {

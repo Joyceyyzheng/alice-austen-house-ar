@@ -2,6 +2,7 @@ import { useState } from "react";
 import React from "react";
 import tutorialContent from "./TutorialContent";
 import nextBtn from "./public/assets/tutorial_next_btn.svg";
+import useStore from "./store";
 
 const TutorialComp = ({
   title,
@@ -42,16 +43,26 @@ const Overlay = () => {
 };
 
 const Tutorial = () => {
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(0); //make this a store one
   const [tutorialActive, setTutorialActive] = useState(true);
 
+  const { tutorialStep, setTutorialStep } = useStore();
+
   const handleNext = () => {
-    if (currentStep < tutorialContent.length - 1) {
-      setCurrentStep((prevStep) => prevStep + 1);
-      console.info("currentStep", currentStep);
+    console.info(tutorialStep);
+    if (tutorialStep < tutorialContent.length - 1) {
+      setTutorialStep(tutorialStep + 1);
+      console.info("Updated tutorialStep (async):", tutorialStep + 1);
     } else {
+      //setTutorialStep(0);
       setTutorialActive(false);
     }
+    // if (currentStep < tutorialContent.length - 1) {
+    //   setCurrentStep((prevStep) => prevStep + 1);
+    //   console.info("currentStep", currentStep);
+    // } else {
+    //   setTutorialActive(false);
+    // }
   };
 
   const handleSkip = () => {
@@ -59,18 +70,31 @@ const Tutorial = () => {
     console.info("Tutorial skipped");
   };
 
+  //⚠️⚠️⚠️⚠️
+  //useMemo / useEffect
+  // style variables (?blur)
+
+  // const style = useMemo(() => {
+  //   if (currentStep === 3) {
+  //     return {filter: 'blur(10px)'};
+  //   }
+  //   return {}
+  // }, [currentStep])
+
+  //use in each file where tutorial is active, don't make it global
+
   if (!tutorialActive) return null;
 
   return (
     <div>
       <Overlay />
       <TutorialComp
-        title={tutorialContent[currentStep].title}
-        content={tutorialContent[currentStep].content}
+        title={tutorialContent[tutorialStep].title}
+        content={tutorialContent[tutorialStep].content}
         onNext={handleNext}
         onSkip={handleSkip}
-        isLastStep={currentStep === tutorialContent.length - 1}
-        position={tutorialContent[currentStep].position}
+        isLastStep={tutorialStep === tutorialContent.length - 1}
+        position={tutorialContent[tutorialStep].position}
       />
     </div>
   );

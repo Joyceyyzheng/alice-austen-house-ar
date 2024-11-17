@@ -5,6 +5,7 @@ import useStore from "./store";
 import Tutorial from "./Tutorial";
 import Opening from "./Opening";
 import Equipment from "./Equipment";
+import InformationPanel from "./InformationPanel";
 
 const App = () => {
   const { currentStep, nextStep, prevStep, programStart } = useStore();
@@ -126,6 +127,7 @@ const App = () => {
         {" "}
         <ProgressBar />
         <Equipment />
+        <InformationPanel />
         {/* <Tutorial /> */}
         <div className="mainLogo"></div>
         <button className="nextBtn" onClick={handleNextButtonClick}></button>

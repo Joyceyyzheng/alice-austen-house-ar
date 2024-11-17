@@ -2,6 +2,7 @@
 import React, { useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
+import closeBtn from "./public/assets/close_btn.svg";
 
 const ModelViewer = ({ model, onClose }) => {
   const modelRef = useRef();
@@ -11,7 +12,7 @@ const ModelViewer = ({ model, onClose }) => {
   return (
     <div className="model-viewer">
       <button className="model-viewer-close-btn" onClick={onClose}>
-        X
+        <img src={closeBtn} alt="equipBtn" />
       </button>
       <Canvas style={{ width: "100%", height: "100%" }}>
         <ambientLight intensity={0.4} />
