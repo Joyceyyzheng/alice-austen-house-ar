@@ -16,11 +16,29 @@ const MenuBtn = ({ onClick }) => {
   );
 };
 
+const ExampleModel = () => {
+  //only for tutorials
+  console.info("Example Model mounted", ModelContent[1][0].model);
+  return (
+    <Suspense fallback={<div>Loading model...</div>}>
+      <div className="sample-model-viewer-container">
+        <ModelViewer
+          model={ModelContent[1][0].model}
+          showBtn={false}
+          // onClose={handleCloseViewer}
+        />
+      </div>
+    </Suspense>
+  );
+};
+
 const ExpandedMenu = ({ onToggle }) => {
-  const { currentStep } = useStore();
+  const { currentStep, tutorialStep, modalExpanded, setModalExpanded } =
+    useStore();
   const [selectedModel, setSelectedModel] = useState(null);
 
   const models = ModelContent[currentStep] || [];
+  const exampleModel = models[0];
 
   const handleModelClick = (model) => {
     setSelectedModel(model);
@@ -66,6 +84,7 @@ const Equipment = () => {
   const { modalExpanded, setModalExpanded, currentStep, tutorialStep } =
     useStore();
   const [showModal, setShowModal] = useState(true);
+  const [tutorialModel, setTutorialModel] = useState(false);
 
   //read tutorial steps
   useEffect(() => {
@@ -73,8 +92,13 @@ const Equipment = () => {
       //equipment step
       setModalExpanded(true);
       console.info("Equipment tutorial");
+    } else if (tutorialStep === 4) {
+      setTutorialModel(true);
+      console.log("example models step");
+      //  setModalExpanded(true);
     } else {
       setModalExpanded(false);
+      setTutorialModel(false);
     }
   }, [tutorialStep]);
 
@@ -89,7 +113,7 @@ const Equipment = () => {
 
   const toggleModalExpanded = () => {
     setModalExpanded(!modalExpanded);
-    console.log("toggleModalExpanded", modalExpanded);
+    //console.log("toggleModalExpanded", modalExpanded);
   };
 
   return (
@@ -107,6 +131,7 @@ const Equipment = () => {
           )}
         </div>
       )}
+      {tutorialModel && <ExampleModel />}
     </>
   );
 };

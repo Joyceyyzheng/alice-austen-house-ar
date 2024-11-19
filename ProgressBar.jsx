@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react";
 import useStore from "./store";
+import { step } from "three/webgpu";
 
 const ProgressBar = () => {
-  const { currentStep, nextStep, prevStep } = useStore();
+  const { currentStep, nextStep, prevStep, setCurrentStep } = useStore();
+
+  const handleStepClick = (step) => {
+    setCurrentStep(step);
+  };
   return (
     <>
       <div className="progressbar-parent">
@@ -19,6 +24,7 @@ const ProgressBar = () => {
               className={`progressbar-step ${
                 index + 1 <= currentStep ? "active" : ""
               }`}
+              onClick={() => handleStepClick(index + 1)}
             >
               {index + 1}
             </div>
