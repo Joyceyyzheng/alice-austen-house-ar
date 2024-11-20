@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import React from "react";
 import useStore from "./store";
 import InformationPanelContent from "./InformationPanelContent";
+import BlurOverlay from "./BlurOverlay";
 
 const InformationPanel = () => {
   const [expanded, setExpanded] = useState(false);
@@ -38,6 +39,7 @@ const InformationPanel = () => {
 
   return (
     <>
+      {/* <BlurOverlay /> */}
       <div className="info-panel-parent">
         <div className="info-panel-header">
           <div className="info-panel-title">

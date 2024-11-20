@@ -43,7 +43,7 @@ const Overlay = () => {
 };
 
 const Tutorial = () => {
-  const [currentStep, setCurrentStep] = useState(0); //make this a store one
+  // const [currentStep, setCurrentStep] = useState(0); //make this a store one
   const [tutorialActive, setTutorialActive] = useState(true);
 
   const { tutorialStep, setTutorialStep } = useStore();
@@ -57,12 +57,6 @@ const Tutorial = () => {
       //setTutorialStep(0);
       setTutorialActive(false);
     }
-    // if (currentStep < tutorialContent.length - 1) {
-    //   setCurrentStep((prevStep) => prevStep + 1);
-    //   console.info("currentStep", currentStep);
-    // } else {
-    //   setTutorialActive(false);
-    // }
   };
 
   const handleSkip = () => {

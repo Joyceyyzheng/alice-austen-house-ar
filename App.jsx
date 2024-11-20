@@ -7,9 +7,12 @@ import Opening from "./Opening";
 import Equipment from "./Equipment";
 import InformationPanel from "./InformationPanel";
 import LightsOff from "./LightsOff";
+import BlurOverlay from "./BlurOverlay";
+import TutorialHighlight from "./TutorialHighlight";
 
 const App = () => {
-  const { currentStep, nextStep, prevStep, programStart } = useStore();
+  const { currentStep, nextStep, prevStep, programStart, tutorialStep } =
+    useStore();
 
   const cameraModelEntity = document.querySelector('[src="#cameraModel"]');
   const roomModelEntity = document.querySelector('[src="#roomModel"]');
@@ -126,11 +129,16 @@ const App = () => {
       {/* {programStart ? ( */}
       <>
         {" "}
-        <Equipment />
-        <InformationPanel />
+        <BlurOverlay />
+        <TutorialHighlight step={[0, 1]}>
+          <InformationPanel />
+          <ProgressBar />
+        </TutorialHighlight>
+        <TutorialHighlight step={[2, 3, 4]}>
+          <Equipment />
+        </TutorialHighlight>
         <Tutorial />
         <div className="mainLogo"></div>
-        <ProgressBar />
         <LightsOff />
         {/* <div className="main-header">
         </div> */}

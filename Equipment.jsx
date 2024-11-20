@@ -23,7 +23,7 @@ const ExampleModel = () => {
     <Suspense fallback={<div>Loading model...</div>}>
       <div className="sample-model-viewer-container">
         <ModelViewer
-          model={ModelContent[1][0].model}
+          model={ModelContent[2][0].model}
           showBtn={false}
           // onClose={handleCloseViewer}
         />
