@@ -38,7 +38,6 @@ const ExpandedMenu = ({ onToggle }) => {
   const [selectedModel, setSelectedModel] = useState(null);
 
   const models = ModelContent[currentStep] || [];
-  const exampleModel = models[0];
 
   const handleModelClick = (model) => {
     setSelectedModel(model);
@@ -91,10 +90,10 @@ const Equipment = () => {
     if (tutorialStep === 3) {
       //equipment step
       setModalExpanded(true);
-      console.info("Equipment tutorial");
+      //   console.info("Equipment tutorial");
     } else if (tutorialStep === 4) {
       setTutorialModel(true);
-      console.log("example models step");
+      //  console.log("example models step");
       //  setModalExpanded(true);
     } else {
       setModalExpanded(false);
@@ -103,8 +102,8 @@ const Equipment = () => {
   }, [tutorialStep]);
 
   useEffect(() => {
-    if (currentStep === 7) {
-      //   console.log("Equipment");
+    //equipment gone on certain steps
+    if (currentStep === 7 || currentStep === 3) {
       setShowModal(false);
     } else {
       setShowModal(true);

@@ -25,7 +25,7 @@ const InformationPanelContent = {
       title: "Prepare Albumen Paper",
       content: [
         "Alice used a printing process that prints on Albumen papers. Albumen papers are coated with a dried mixture of sodium chloride and raw egg white.",
-        "After purchasing boxes of Albumen paper from its manufacture, Alice prepared the paper by sensitizing it in a silver-nitrate bath and then dried. ",
+        " After purchasing boxes of Albumen paper from its manufacture, Alice prepared the paper by sensitizing it in a silver-nitrate bath and then dried. ",
       ],
     },
   ],
@@ -34,7 +34,7 @@ const InformationPanelContent = {
       title: "Expose Plate-Paper “Sandwich” in Sunlight",
       content: [
         "While still in the darkroom, Alice put the plate and paper into an easel, sandwiched together to be exposed in sunlight until her satisfaction.",
-        "Contact printing easels have a hinged back so she could turn it over and open one side to see if the exposure looked correct.",
+        " Contact printing easels have a hinged back so she could turn it over and open one side to see if the exposure looked correct.",
       ],
     },
   ],
@@ -43,7 +43,7 @@ const InformationPanelContent = {
       title: "Tone & Fix Paper for Final Processing",
       content: [
         "When Alice was satisfied with the print, she would remove the paper and bring it back to the darkroom.  Then, it was toned with gold, fixed, washed, and left to dry.",
-        "Albumen paper was thin, so it was often mounted on boards during the drying.",
+        " Albumen paper was thin, so it was often mounted on boards during the drying.",
       ],
     },
   ],

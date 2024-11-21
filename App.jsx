@@ -129,17 +129,20 @@ const App = () => {
       {/* {programStart ? ( */}
       <>
         {" "}
-        <BlurOverlay />
+        <InformationPanel />
+        <ProgressBar />
+        <Equipment />
+        <Tutorial />
+        <LightsOff />
+        {/* <BlurOverlay />
         <TutorialHighlight step={[0, 1]}>
           <InformationPanel />
           <ProgressBar />
         </TutorialHighlight>
         <TutorialHighlight step={[2, 3, 4]}>
           <Equipment />
-        </TutorialHighlight>
-        <Tutorial />
+        </TutorialHighlight> */}
         <div className="mainLogo"></div>
-        <LightsOff />
         {/* <div className="main-header">
         </div> */}
         <button className="nextBtn" onClick={handleNextButtonClick}></button>
