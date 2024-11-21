@@ -681,3 +681,15 @@
   z-index: 200;
   filter: blur(0.8px);
 }
+
+#blur-overlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  --webkit-backdrop-filter: blur(10px);
+  z-index: 11;
+}

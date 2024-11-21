@@ -19,18 +19,7 @@ const BlurOverlay = () => {
 
   return (
     tutorialActive && (
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100vw",
-          height: "100vh",
-          background: "rgba(0,0,0,0.6)",
-          backdropFilter: "blur(10px)",
-          "--webkit-backdrop-filter": " blur(10px)",
-          zIndex: 11, //⚠️tutorial overlay z-index
-        }}
+      <div id="blur-overlay"
       ></div>
     )
   );
