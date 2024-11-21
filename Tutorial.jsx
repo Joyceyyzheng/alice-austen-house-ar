@@ -39,14 +39,14 @@ const TutorialComp = ({
 };
 
 const Overlay = () => {
-  return <div className="tutorial-overlay"></div>;
+  // return <div className="tutorial-overlay"></div>;
 };
 
 const Tutorial = () => {
   // const [currentStep, setCurrentStep] = useState(0); //make this a store one
-  const [tutorialActive, setTutorialActive] = useState(true);
+  // const [tutorialActive, setTutorialActive] = useState(true);
 
-  const { tutorialStep, setTutorialStep } = useStore();
+  const { tutorialStep, setTutorialStep, tutorialActive, setTutorialActive } = useStore();
 
   const handleNext = () => {
     console.info(tutorialStep);

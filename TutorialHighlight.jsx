@@ -12,7 +12,7 @@ const TutorialHighlight = ({ step, children }) => {
   return (
     <>
       {/* Highlight Layer */}
-      {isActive && (
+      {/* {isActive && (
         <div
           style={{
             position: "absolute",
@@ -24,10 +24,16 @@ const TutorialHighlight = ({ step, children }) => {
             pointerEvents: "none", // Prevent blocking interactions
           }}
         />
-      )}
-
-      {/* Render children without affecting their layout */}
-      {children}
+      )} */}
+      <div
+        style={{
+          zIndex: isActive && 20,
+          // position: "relative",
+        }}
+      >
+        {children}
+      </div>
+      {/* {children} */}
     </>
   );
 };

@@ -5,9 +5,45 @@ import useStore from "./store";
 import ModelContent from "./ModelContent";
 import ModelViewer from "./ModelViewer";
 
-const MenuBtn = ({ onClick }) => {
+
+const ExampleModel = () => {
+  const [isTutorial, setIsTutorial] = useState(false);
+  const { tutorialStep } = useStore();
+  useEffect(() => {
+    if (tutorialStep === 4) {
+      setIsTutorial(true);
+    } else {
+      setIsTutorial(false);
+    }
+  }, [tutorialStep]);
+  //only for tutorials
+  console.info("Example Model mounted", ModelContent[1][0].model);
   return (
-    <div className="menu-btn" onClick={onClick}>
+    <Suspense fallback={<div>Loading model...</div>}>
+      <div className={`sample-model-viewer-container${isTutorial ? "up" : ""}`}>
+        <ModelViewer
+          model={ModelContent[2][0].model}
+          showBtn={false}
+        // onClose={handleCloseViewer}
+        />
+      </div>
+    </Suspense>
+  );
+};
+
+const MenuBtn = ({ onClick }) => {
+  const [isTutorial, setIsTutorial] = useState(false);
+  const { tutorialStep } = useStore();
+  useEffect(() => {
+    if (tutorialStep === 2) {
+      setIsTutorial(true);
+      console.info("SHOULD BE LIFTED UP");
+    } else {
+      setIsTutorial(false);
+    }
+  }, [tutorialStep]);
+  return (
+    <div className={`menu-btn ${isTutorial ? "up" : ""}`} onClick={onClick}>
       <div className="menu-btn-icon">
         <img src={equipBtn} alt="equipBtn" />
       </div>
@@ -16,26 +52,21 @@ const MenuBtn = ({ onClick }) => {
   );
 };
 
-const ExampleModel = () => {
-  //only for tutorials
-  console.info("Example Model mounted", ModelContent[1][0].model);
-  return (
-    <Suspense fallback={<div>Loading model...</div>}>
-      <div className="sample-model-viewer-container">
-        <ModelViewer
-          model={ModelContent[2][0].model}
-          showBtn={false}
-          // onClose={handleCloseViewer}
-        />
-      </div>
-    </Suspense>
-  );
-};
 
 const ExpandedMenu = ({ onToggle }) => {
   const { currentStep, tutorialStep, modalExpanded, setModalExpanded } =
     useStore();
   const [selectedModel, setSelectedModel] = useState(null);
+  const [isTutorial, setIsTutorial] = useState(false);
+
+  useEffect(() => {
+    if (tutorialStep === 3 || tutorialStep === 4) {
+      setIsTutorial(true);
+      console.info("expanded equip SHOULD BE LIFTED UP");
+    } else {
+      setIsTutorial(false);
+    }
+  }, [tutorialStep]);
 
   const models = ModelContent[currentStep] || [];
 
@@ -49,7 +80,7 @@ const ExpandedMenu = ({ onToggle }) => {
 
   return (
     <>
-      <div className="expanded-menu">
+      <div className={`expanded-menu ${isTutorial ? "up" : ""}`}>
         <div className="expanded-model-container">
           {models.map((model) => (
             <div
@@ -84,20 +115,37 @@ const Equipment = () => {
     useStore();
   const [showModal, setShowModal] = useState(true);
   const [tutorialModel, setTutorialModel] = useState(false);
+  const [isTutorial, setIsTutorial] = useState(false);
+
+
 
   //read tutorial steps
   useEffect(() => {
-    if (tutorialStep === 3) {
+    // console.info(tutorialStep);
+    if (tutorialStep === 2) {
+      setIsTutorial(true);
+      setModalExpanded(false); // Ensure modal remains consistent
+      setTutorialModel(false);
+      //console.info("istutorial?", isTutorial, tutorialStep);
+    }
+    else if (tutorialStep === 3) {
       //equipment step
       setModalExpanded(true);
+      setIsTutorial(true);
+      //   console.info("istutorial?", isTutorial, tutorialStep);
+
       //   console.info("Equipment tutorial");
     } else if (tutorialStep === 4) {
       setTutorialModel(true);
+      setIsTutorial(true);
+      //setOverlay(false);
       //  console.log("example models step");
       //  setModalExpanded(true);
     } else {
       setModalExpanded(false);
       setTutorialModel(false);
+      setIsTutorial(false);
+
     }
   }, [tutorialStep]);
 
@@ -117,19 +165,23 @@ const Equipment = () => {
 
   return (
     <>
-      {showModal && (
-        <div className="equipment">
-          {modalExpanded ? (
-            <>
-              <ExpandedMenu onToggle={toggleModalExpanded} />
-            </>
-          ) : (
-            <>
-              <MenuBtn onClick={toggleModalExpanded} />
-            </>
-          )}
-        </div>
-      )}
+
+      <div className={`equipment ${isTutorial ? "up" : ""}`}>
+        {showModal && (
+          <>
+            {modalExpanded ? (
+              <>
+                <ExpandedMenu onToggle={toggleModalExpanded} />
+              </>
+            ) : (
+              <>
+                <MenuBtn onClick={toggleModalExpanded} />
+              </>
+            )}
+          </>
+        )}
+      </div>
+
       {tutorialModel && <ExampleModel />}
     </>
   );

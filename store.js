@@ -16,6 +16,9 @@ const useStore = create((set) => ({
       modalExpanded: value !== undefined ? value : !state.modalExpanded,
     })),
 
+  tutorialActive: true,
+  setTutorialActive: (value) => set({ tutorialActive: value }),
+
   tutorialStep: 0,
   setTutorialStep: (step) => set({ tutorialStep: step }),
 }));

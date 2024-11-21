@@ -33,8 +33,9 @@ const App = () => {
 
   const updateModelVisibility = () => {
     if (roomModelEntity && currentStep === 1) {
-      roomModelEntity.setAttribute("visible", true);
-      cameraModelEntity.setAttribute("visible", false);
+      roomModelEntity.setAttribute("visible", false);
+      cameraModelEntity.setAttribute("visible", true);
+      //dry plate = true
       frameModelEntity.setAttribute("visible", false);
       contactModelEntity.setAttribute("visible", false);
       tankModelEntity.setAttribute("visible", false);
@@ -46,13 +47,13 @@ const App = () => {
 
     if (cameraModelEntity && currentStep === 2) {
       roomModelEntity.setAttribute("visible", false);
-      frameModelEntity.setAttribute("visible", false);
+      frameModelEntity.setAttribute("visible", true);
       contactModelEntity.setAttribute("visible", false);
-      tankModelEntity.setAttribute("visible", false);
+      tankModelEntity.setAttribute("visible", true);
       trayModelEntity.setAttribute("visible", false);
-      spoonModelEntity.setAttribute("visible", false);
+      spoonModelEntity.setAttribute("visible", true);
 
-      cameraModelEntity.setAttribute("visible", true);
+      cameraModelEntity.setAttribute("visible", false);
     } else {
       console.log("cameraModelEntity not found");
     }
@@ -65,55 +66,57 @@ const App = () => {
       trayModelEntity.setAttribute("visible", false);
       spoonModelEntity.setAttribute("visible", false);
 
-      frameModelEntity.setAttribute("visible", true);
+      frameModelEntity.setAttribute("visible", false);
     } else {
       console.log("frameModelEntity not found");
     }
 
     if (contactModelEntity && currentStep === 4) {
-      frameModelEntity.setAttribute("visible", false);
+      frameModelEntity.setAttribute("visible", true);
       roomModelEntity.setAttribute("visible", false);
       cameraModelEntity.setAttribute("visible", false);
       tankModelEntity.setAttribute("visible", false);
-      trayModelEntity.setAttribute("visible", false);
-      spoonModelEntity.setAttribute("visible", false);
+      trayModelEntity.setAttribute("visible", true);
+      spoonModelEntity.setAttribute("visible", true);
 
-      contactModelEntity.setAttribute("visible", true);
+      contactModelEntity.setAttribute("visible", false);
     } else {
       console.log("contactModelEntity not found");
     }
 
     if (tankModelEntity && currentStep === 5) {
-      contactModelEntity.setAttribute("visible", false);
+      contactModelEntity.setAttribute("visible", true);
       trayModelEntity.setAttribute("visible", false);
       spoonModelEntity.setAttribute("visible", false);
       frameModelEntity.setAttribute("visible", false);
       roomModelEntity.setAttribute("visible", false);
       cameraModelEntity.setAttribute("visible", false);
-      tankModelEntity.setAttribute("visible", true);
+      tankModelEntity.setAttribute("visible", false);
     } else {
       console.log("tankModelEntity not found");
     }
     if (trayModelEntity && currentStep === 6) {
-      contactModelEntity.setAttribute("visible", false);
-      tankModelEntity.setAttribute("visible", false);
-      spoonModelEntity.setAttribute("visible", false);
-      frameModelEntity.setAttribute("visible", false);
+      frameModelEntity.setAttribute("visible", true);
       roomModelEntity.setAttribute("visible", false);
       cameraModelEntity.setAttribute("visible", false);
+      tankModelEntity.setAttribute("visible", false);
       trayModelEntity.setAttribute("visible", true);
+      spoonModelEntity.setAttribute("visible", true);
+
+      contactModelEntity.setAttribute("visible", false);
     } else {
       console.log("trayModelEntity not found");
     }
 
     if (spoonModelEntity && currentStep === 7) {
+      roomModelEntity.setAttribute("visible", false);
+      cameraModelEntity.setAttribute("visible", false);
       contactModelEntity.setAttribute("visible", false);
       tankModelEntity.setAttribute("visible", false);
       trayModelEntity.setAttribute("visible", false);
+      spoonModelEntity.setAttribute("visible", false);
+
       frameModelEntity.setAttribute("visible", false);
-      roomModelEntity.setAttribute("visible", false);
-      cameraModelEntity.setAttribute("visible", false);
-      spoonModelEntity.setAttribute("visible", true);
     } else {
       console.log("spoonModelEntity not found");
     }
@@ -129,13 +132,15 @@ const App = () => {
       {/* {programStart ? ( */}
       <>
         {" "}
+        <Tutorial />
+
         <InformationPanel />
         <ProgressBar />
         <Equipment />
-        <Tutorial />
+
         <LightsOff />
-        {/* <BlurOverlay />
-        <TutorialHighlight step={[0, 1]}>
+        <BlurOverlay />
+        {/* <TutorialHighlight step={[0, 1]}>
           <InformationPanel />
           <ProgressBar />
         </TutorialHighlight>
