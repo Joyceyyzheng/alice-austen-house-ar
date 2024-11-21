@@ -28,6 +28,7 @@ const BlurOverlay = () => {
           height: "100%",
           background: "rgba(0,0,0,0.6)",
           backdropFilter: "blur(10px)",
+          "--webkit-backdrop-filter": " blur(10px)",
           zIndex: 11, //⚠️tutorial overlay z-index
         }}
       ></div>
