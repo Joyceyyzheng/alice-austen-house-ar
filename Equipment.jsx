@@ -8,14 +8,14 @@ import ModelViewer from "./ModelViewer";
 
 const ExampleModel = () => {
   const [isTutorial, setIsTutorial] = useState(false);
-  const { tutorialStep } = useStore();
+  const { tutorialStep, tutorialActive } = useStore();
   useEffect(() => {
-    if (tutorialStep === 4) {
+    if (tutorialStep === 4 && tutorialActive) {
       setIsTutorial(true);
     } else {
       setIsTutorial(false);
     }
-  }, [tutorialStep]);
+  }, [tutorialStep, tutorialActive]);
   //only for tutorials
   console.info("Example Model mounted", ModelContent[1][0].model);
   return (
@@ -33,15 +33,15 @@ const ExampleModel = () => {
 
 const MenuBtn = ({ onClick }) => {
   const [isTutorial, setIsTutorial] = useState(false);
-  const { tutorialStep } = useStore();
+  const { tutorialStep, tutorialActive } = useStore();
   useEffect(() => {
-    if (tutorialStep === 2) {
+    if (tutorialStep === 2 && tutorialActive) {
       setIsTutorial(true);
       console.info("SHOULD BE LIFTED UP");
     } else {
       setIsTutorial(false);
     }
-  }, [tutorialStep]);
+  }, [tutorialStep, tutorialActive]);
   return (
     <div className={`menu-btn ${isTutorial ? "up" : ""}`} onClick={onClick}>
       <div className="menu-btn-icon">
@@ -54,19 +54,22 @@ const MenuBtn = ({ onClick }) => {
 
 
 const ExpandedMenu = ({ onToggle }) => {
-  const { currentStep, tutorialStep, modalExpanded, setModalExpanded } =
+  const { currentStep, tutorialStep, modalExpanded, setModalExpanded, tutorialActive } =
     useStore();
   const [selectedModel, setSelectedModel] = useState(null);
   const [isTutorial, setIsTutorial] = useState(false);
 
   useEffect(() => {
-    if (tutorialStep === 3 || tutorialStep === 4) {
+    if (tutorialActive && tutorialStep === 3) {
+      setIsTutorial(true);
+    } else if (tutorialActive & tutorialStep === 4) {
       setIsTutorial(true);
       console.info("expanded equip SHOULD BE LIFTED UP");
     } else {
       setIsTutorial(false);
     }
-  }, [tutorialStep]);
+
+  }, [tutorialStep, tutorialActive]);
 
   const models = ModelContent[currentStep] || [];
 
@@ -111,7 +114,7 @@ const ExpandedMenu = ({ onToggle }) => {
 
 const Equipment = () => {
   //   const [expanded, setExpanded] = useState(false);
-  const { modalExpanded, setModalExpanded, currentStep, tutorialStep } =
+  const { modalExpanded, setModalExpanded, currentStep, tutorialStep, tutorialActive } =
     useStore();
   const [showModal, setShowModal] = useState(true);
   const [tutorialModel, setTutorialModel] = useState(false);
@@ -122,20 +125,20 @@ const Equipment = () => {
   //read tutorial steps
   useEffect(() => {
     // console.info(tutorialStep);
-    if (tutorialStep === 2) {
+    if (tutorialStep === 2 && tutorialActive) {
       setIsTutorial(true);
       setModalExpanded(false); // Ensure modal remains consistent
       setTutorialModel(false);
       //console.info("istutorial?", isTutorial, tutorialStep);
     }
-    else if (tutorialStep === 3) {
+    else if (tutorialStep === 3 && tutorialActive) {
       //equipment step
       setModalExpanded(true);
       setIsTutorial(true);
       //   console.info("istutorial?", isTutorial, tutorialStep);
 
       //   console.info("Equipment tutorial");
-    } else if (tutorialStep === 4) {
+    } else if (tutorialStep === 4 && tutorialActive) {
       setTutorialModel(true);
       setIsTutorial(true);
       //setOverlay(false);
@@ -147,7 +150,7 @@ const Equipment = () => {
       setIsTutorial(false);
 
     }
-  }, [tutorialStep]);
+  }, [tutorialStep, tutorialActive]);
 
   useEffect(() => {
     //equipment gone on certain steps
@@ -182,7 +185,7 @@ const Equipment = () => {
         )}
       </div>
 
-      {tutorialModel && <ExampleModel />}
+      {tutorialModel && tutorialActive && <ExampleModel />}
     </>
   );
 };

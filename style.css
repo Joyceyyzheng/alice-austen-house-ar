@@ -31,7 +31,6 @@
   background-position: center;
   padding: 0;
   right: 3%;
-  z-index: 6;
 }
 
 .prevBtn {
@@ -41,7 +40,6 @@
   background-size: 7.5px 15px;
   background-repeat: no-repeat;
   background-position: center;
-  z-index: 6;
 }
 
 .nextBtn,
@@ -59,7 +57,7 @@
   box-shadow: none;
   border: none;
   cursor: pointer;
-  z-index: 100;
+  z-index: 9;
   padding: 0;
 }
 
