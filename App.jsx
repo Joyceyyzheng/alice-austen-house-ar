@@ -8,7 +8,7 @@ import Equipment from "./Equipment";
 import InformationPanel from "./InformationPanel";
 import LightsOff from "./LightsOff";
 import BlurOverlay from "./BlurOverlay";
-import TutorialHighlight from "./TutorialHighlight";
+
 
 const App = () => {
   const { currentStep, nextStep, prevStep, programStart, tutorialStep } =
@@ -22,6 +22,7 @@ const App = () => {
   const tankModelEntity = document.querySelector('[src="#tankModel"]');
   const trayModelEntity = document.querySelector('[src="#trayModel"]');
   const spoonModelEntity = document.querySelector('[src="#spoonModel"]');
+  const imageTarget = document.querySelector('[src="#imageTarget"]');
 
   const handleNextButtonClick = () => {
     nextStep();
@@ -129,33 +130,27 @@ const App = () => {
 
   return (
     <div>
-      {/* {programStart ? ( */}
-      <>
-        {" "}
-        <Tutorial />
+      {programStart ? (
+        <>
+          {" "}
+          <Tutorial />
 
-        <InformationPanel />
-        <ProgressBar />
-        <Equipment />
-
-        <LightsOff />
-        <BlurOverlay />
-        {/* <TutorialHighlight step={[0, 1]}>
           <InformationPanel />
           <ProgressBar />
-        </TutorialHighlight>
-        <TutorialHighlight step={[2, 3, 4]}>
           <Equipment />
-        </TutorialHighlight> */}
-        <div className="mainLogo"></div>
-        {/* <div className="main-header">
+
+          <LightsOff />
+          <BlurOverlay />
+
+          <div className="mainLogo"></div>
+          {/* <div className="main-header">
         </div> */}
-        <button className="nextBtn" onClick={handleNextButtonClick}></button>
-        <button className="prevBtn" onClick={handlePrevButtonClick}></button>
-      </>
-      {/* ) : (
+          <button className="nextBtn" onClick={handleNextButtonClick}></button>
+          <button className="prevBtn" onClick={handlePrevButtonClick}></button>
+        </>
+      ) : (
         <Opening />
-      )} */}
+      )}
     </div>
   );
 };

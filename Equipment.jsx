@@ -17,7 +17,7 @@ const ExampleModel = () => {
     }
   }, [tutorialStep, tutorialActive]);
   //only for tutorials
-  console.info("Example Model mounted", ModelContent[1][0].model);
+  //console.info("Example Model mounted", ModelContent[1][0].model);
   return (
     <Suspense fallback={<div>Loading model...</div>}>
       <div className={`sample-model-viewer-container${isTutorial ? "up" : ""}`}>
@@ -37,7 +37,7 @@ const MenuBtn = ({ onClick }) => {
   useEffect(() => {
     if (tutorialStep === 2 && tutorialActive) {
       setIsTutorial(true);
-      console.info("SHOULD BE LIFTED UP");
+
     } else {
       setIsTutorial(false);
     }
@@ -64,7 +64,7 @@ const ExpandedMenu = ({ onToggle }) => {
       setIsTutorial(true);
     } else if (tutorialActive & tutorialStep === 4) {
       setIsTutorial(true);
-      console.info("expanded equip SHOULD BE LIFTED UP");
+
     } else {
       setIsTutorial(false);
     }

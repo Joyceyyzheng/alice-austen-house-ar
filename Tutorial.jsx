@@ -49,10 +49,10 @@ const Tutorial = () => {
   const { tutorialStep, setTutorialStep, tutorialActive, setTutorialActive } = useStore();
 
   const handleNext = () => {
-    console.info(tutorialStep);
+
     if (tutorialStep < tutorialContent.length - 1) {
       setTutorialStep(tutorialStep + 1);
-      console.info("Updated tutorialStep (async):", tutorialStep + 1);
+      // console.info("Updated tutorialStep (async):", tutorialStep + 1);
     } else {
       //setTutorialStep(0);
       setTutorialActive(false);
@@ -61,7 +61,7 @@ const Tutorial = () => {
 
   const handleSkip = () => {
     setTutorialActive(false);
-    console.info("Tutorial skipped");
+    // console.info("Tutorial skipped");
   };
 
   //⚠️⚠️⚠️⚠️

@@ -10,7 +10,7 @@ const ProgressBar = () => {
 
   const handleStepClick = (step) => {
     setCurrentStep(step);
-    console.info("currentStep", currentStep);
+    // console.info("currentStep", currentStep);
   };
   return (
     <>
@@ -25,9 +25,8 @@ const ProgressBar = () => {
           {[...Array(7)].map((_, index) => (
             <div
               key={index}
-              className={`progressbar-step ${
-                index + 1 <= currentStep ? "active" : ""
-              }`}
+              className={`progressbar-step ${index + 1 <= currentStep ? "active" : ""
+                }`}
               onClick={() => handleStepClick(index + 1)}
             >
               {index + 1 === 3 ? (
