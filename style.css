@@ -694,3 +694,104 @@
   --webkit-backdrop-filter: blur(10px);
   z-index: 11;
 }
+
+// Mobile styles
+
+@media (max-width: 768px) {
+  .tutorial {
+    width: 100%;
+  }
+
+  .tutorial-comp-parent {
+    width: 100%;
+  }
+
+  .tutorial-comp-background {
+    width: 100%;
+  }
+
+  .tutorial-comp-text {
+    margin: 10px;
+  }
+
+  .tutorial-comp-buttons {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .tutorial-comp-title {
+    font-size: 1rem;
+  }
+
+  .tutorial-comp-content {
+    font-size: 0.75rem;
+  }
+
+  .tutorial-comp-next {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tutorial-comp-next-Btn {
+    padding-right: 5px;
+  }
+
+  .tutorial-comp-next-container,
+  .tutorial-comp-skip {
+    cursor: pointer;
+  }
+
+  .tutorial-comp-title,
+  .tutorial-comp-content,
+  .tutorial-comp-next,
+  .tutorial-comp-skip {
+    color: white;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .tutorial-overlay,
+  .opening-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgb(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    --webkit-backdrop-filter: blur(10px);
+  }
+
+  .tutorial-highlight-border {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    z-index: 12;
+    background: var(--colorful-border);
+    border-radius: 10px;
+    pointer-events: none;
+  }
+
+  .opening-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    display: flex;
+    gap: 18px;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+  }
+
+  .opening-camera {
+    width: 171px;
+    height: 183px;
+  }
+}

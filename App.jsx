@@ -9,6 +9,9 @@ import InformationPanel from "./InformationPanel";
 import LightsOff from "./LightsOff";
 import BlurOverlay from "./BlurOverlay";
 
+import MindARViewer from './mindar-viewer';
+
+
 
 const App = () => {
   const { currentStep, nextStep, prevStep, programStart, tutorialStep } =
@@ -130,6 +133,9 @@ const App = () => {
 
   return (
     <div>
+      <div className="container">
+          <MindARViewer/>
+        </div>
       {programStart ? (
         <>
           {" "}

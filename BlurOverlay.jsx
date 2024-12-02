@@ -19,8 +19,7 @@ const BlurOverlay = () => {
 
   return (
     tutorialActive && (
-      <div id="blur-overlay"
-      ></div>
+      <div id="blur-overlay"></div>
     )
   );
 };
