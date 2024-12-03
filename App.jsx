@@ -6,7 +6,6 @@ import Tutorial from "./Tutorial";
 import Opening from "./Opening";
 import Equipment from "./Equipment";
 import InformationPanel from "./InformationPanel";
-import LightsOff from "./LightsOff";
 import BlurOverlay from "./BlurOverlay";
 
 
@@ -34,7 +33,7 @@ const App = () => {
 
   const updateModelVisibility = () => {
     if (roomModelEntity && currentStep === 1) {
-      roomModelEntity.setAttribute("visible", false);
+      roomModelEntity.setAttribute("visible", true);
       cameraModelEntity.setAttribute("visible", true);
       //dry plate = true
       frameModelEntity.setAttribute("visible", false);
@@ -139,7 +138,6 @@ const App = () => {
           <ProgressBar />
           <Equipment />
 
-          <LightsOff />
           <BlurOverlay />
 
           <div className="mainLogo"></div>

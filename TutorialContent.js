@@ -31,12 +31,6 @@ const tutorialContent = [
     content: "Rotate the object to see a 360 degree view.",
     position: { top: "14.75%", right: "4.85%" },
   },
-  {
-    title: "The real darkroom",
-    content:
-      "See the darkroom with “lights off” - just like how Alice operated in darkness in reality.",
-    position: { top: "5.76%", right: "9.04%" },
-  },
 ];
 
 export default tutorialContent;

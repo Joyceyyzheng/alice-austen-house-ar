@@ -28,6 +28,11 @@ const modelContent = {
       image: "/assets/AAH_logo.png",
       model: "/models/demo_graduatedcylinder.glb",
     },
+    {
+      name: "Plate",
+      image: "/assets/AAH_logo.png",
+      model: "/models/demo_glassplatebox.glb",
+    },
   ],
   3: [],
   4: [
