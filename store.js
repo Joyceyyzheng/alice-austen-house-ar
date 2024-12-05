@@ -21,6 +21,9 @@ const useStore = create((set) => ({
 
   tutorialStep: 0,
   setTutorialStep: (step) => set({ tutorialStep: step }),
+
+  selectedModelIndex: null,
+  setSelectedModelIndex: (index) => set({ selectedModelIndex: index }),
 }));
 
 export default useStore;

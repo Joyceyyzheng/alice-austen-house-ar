@@ -5,7 +5,7 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import closeBtn from "./public/assets/close_btn.svg";
 import useStore from "./store";
 
-const ModelViewer = ({ model, onClose, showBtn = true }) => {
+const ModelViewer = ({ model, onClose, showBtn = true, opacityValue = 1.0 }) => {
   const modelRef = useRef();
 
   const { scene } = useGLTF(model);
@@ -22,6 +22,7 @@ const ModelViewer = ({ model, onClose, showBtn = true }) => {
   }, [tutorialStep]);
 
   return (
+    console.info("opacity value", opacityValue),
 
     // <div className={`model-viewer${isTutorial ? "up" : ""}`}>
     <div className="model-viewer">
@@ -39,8 +40,18 @@ const ModelViewer = ({ model, onClose, showBtn = true }) => {
           object={scene}
           scale={0.5}
           rotation={[0, Math.PI / 4, 0]}
+          onUpdate={(self) => {
+            self.traverse((child) => {
+              if (child.isMesh && child.material) {
+                child.material.transparent = true;
+                child.material.opacity = opacityValue; // Adjust if necessary
+                child.material.alphaTest = opacityValue; // Helps with rendering transparency
+                child.material.depthWrite = false; // Prevents z-buffer issues
+              }
+            });
+          }}
         />
-        <OrbitControls enableZoom={false} autoRotate />
+        <OrbitControls enableZoom={false} autoRotate enablePan={false} />
       </Canvas>
     </div>
   );

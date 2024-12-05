@@ -7,7 +7,7 @@ import BlurOverlay from "./BlurOverlay";
 const InformationPanel = () => {
   const [expanded, setExpanded] = useState(false);
   const [content, setContent] = useState(true);
-  const { modalExpanded, setModalExpanded, currentStep, tutorialStep } =
+  const { modalExpanded, setModalExpanded, currentStep, tutorialStep, tutorialActive } =
     useStore();
   const [isTutorial, setIsTutorial] = useState(false);
   // console.info(InformationPanelContent[1][0].title);
@@ -20,19 +20,23 @@ const InformationPanel = () => {
   };
 
   useEffect(() => {
+    if (tutorialActive) {
+      if (tutorialStep === 0) {
+        setExpanded(false);
+        setIsTutorial(true);
+      } else if (tutorialStep === 1) {
+        setExpanded(true);
+        setIsTutorial(true);
+
+      }
+    }
     //reading tutorial steps, setting blurry overlay
-    if (tutorialStep === 0) {
-      setExpanded(false);
-      setIsTutorial(true);
-    } else if (tutorialStep === 1) {
-      setExpanded(true);
-      setIsTutorial(true);
-    } else {
+    else {
       // console.info(tutorialStep);
       setExpanded(false);
       setIsTutorial(false);
     }
-  }, [tutorialStep]);
+  }, [tutorialStep, tutorialActive]);
 
   useEffect(() => {
     if (currentStep === 3 || currentStep === 7) {

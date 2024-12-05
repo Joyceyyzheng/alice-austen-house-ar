@@ -18,6 +18,7 @@ const ExampleModel = () => {
   }, [tutorialStep, tutorialActive]);
   //only for tutorials
   //console.info("Example Model mounted", ModelContent[1][0].model);
+
   return (
     <Suspense fallback={<div>Loading model...</div>}>
       <div className={`sample-model-viewer-container${isTutorial ? "up" : ""}`}>
@@ -54,7 +55,7 @@ const MenuBtn = ({ onClick }) => {
 
 
 const ExpandedMenu = ({ onToggle }) => {
-  const { currentStep, tutorialStep, modalExpanded, setModalExpanded, tutorialActive } =
+  const { currentStep, tutorialStep, modalExpanded, setModalExpanded, tutorialActive, setSelectedModelIndex, selectedModelIndex } =
     useStore();
   const [selectedModel, setSelectedModel] = useState(null);
   const [isTutorial, setIsTutorial] = useState(false);
@@ -73,8 +74,13 @@ const ExpandedMenu = ({ onToggle }) => {
 
   const models = ModelContent[currentStep] || [];
 
-  const handleModelClick = (model) => {
-    setSelectedModel(model);
+  const handleModelClick = (model, index) => {
+    setSelectedModel({ ...model, index });
+    setSelectedModelIndex(index);
+    console.info("Selected model index:", index);
+
+    console.info("Opacity value:", ModelContent[currentStep][index].opacity);
+
   };
 
   const handleCloseViewer = () => {
@@ -85,11 +91,11 @@ const ExpandedMenu = ({ onToggle }) => {
     <>
       <div className={`expanded-menu ${isTutorial ? "up" : ""}`}>
         <div className="expanded-model-container">
-          {models.map((model) => (
+          {models.map((model, index) => (
             <div
               key={model.name}
               className="expanded-menu-item"
-              onClick={() => handleModelClick(model)}
+              onClick={() => handleModelClick(model, index)}
             >
               <img src={model.image} alt={model.name} />
               {/* <p>{model.name}</p> */}
@@ -104,6 +110,7 @@ const ExpandedMenu = ({ onToggle }) => {
             <ModelViewer
               model={selectedModel.model}
               onClose={handleCloseViewer}
+              opacityValue={ModelContent[currentStep][selectedModelIndex].opacity}
             />
           </div>
         </Suspense>
