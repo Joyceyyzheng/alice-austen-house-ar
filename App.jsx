@@ -22,6 +22,7 @@ const App = () => {
   const trayModelEntity = document.querySelector('[src="#trayModel"]');
   const spoonModelEntity = document.querySelector('[src="#spoonModel"]');
   const imageTarget = document.querySelector('[src="#imageTarget"]');
+  const testTarget = document.querySelector('[src="#bearModel"]');
 
   const handleNextButtonClick = () => {
     nextStep();
@@ -33,6 +34,7 @@ const App = () => {
 
   const updateModelVisibility = () => {
     if (roomModelEntity && currentStep === 1) {
+      // testTarget.setAttribute("visible", true);
       roomModelEntity.setAttribute("visible", true);
       cameraModelEntity.setAttribute("visible", true);
       //dry plate = true
@@ -127,6 +129,20 @@ const App = () => {
     // console.log("Step updated to", currentStep);
   }, [currentStep]);
 
+  const pauseAnimation = () => {
+    roomModelEntity.setAttribute("animation-mixer", {
+      timeScale: 0
+    });
+    console.log("animation paused");
+  }
+
+  const playAnimation = () => {
+    roomModelEntity.setAttribute("animation-mixer", {
+      timeScale: 1
+    });
+    console.log("animation played");
+  }
+
   return (
     <div>
       {programStart ? (
@@ -145,6 +161,8 @@ const App = () => {
         </div> */}
           <button className="nextBtn" onClick={handleNextButtonClick}></button>
           <button className="prevBtn" onClick={handlePrevButtonClick}></button>
+          <button className="pasueBtn" onClick={pauseAnimation}>PAUSE</button>
+          <button className="playBtn" onClick={playAnimation}>PLAY</button>
         </>
       ) : (
         <Opening />

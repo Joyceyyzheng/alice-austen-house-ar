@@ -5,7 +5,7 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import closeBtn from "./public/assets/close_btn.svg";
 import useStore from "./store";
 
-const ModelViewer = ({ model, onClose, showBtn = true, opacityValue = 1.0 }) => {
+const ModelViewer = ({ model, onClose, showBtn = true, opacityValue }) => {
   const modelRef = useRef();
 
   const { scene } = useGLTF(model);

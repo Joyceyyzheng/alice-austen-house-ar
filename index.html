@@ -22,12 +22,15 @@
       device-orientation-permission-ui="enabled: false"
     >
       <a-assets>
-        <a-asset-item
+        <!-- <a-asset-item
           id="roomModel"
           src="models/demo_glassplatebox.glb"
+        ></a-asset-item> -->
+        <a-asset-item
+          id="roomModel"
+          src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/band-example/bear/scene.gltf"
         ></a-asset-item>
         <a-asset-item id="cameraModel" src="models/camera.gltf"></a-asset-item>
-        <!-- <a-asset-item id="newCamModel" src="models/demo_camerabacking.glb"></a-asset-item> -->
         <a-asset-item
           id="cupModel"
           src="models/demo_graduatedcylinder.glb"
@@ -45,16 +48,27 @@
           id="spoonModel"
           src="models/demo_woodenspoon.glb"
         ></a-asset-item>
+        <a-asset-item
+          id="bearModel"
+          src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/band-example/bear/scene.gltf"
+        ></a-asset-item>
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
       <!-- Room Model -->
       <a-entity mindar-image-target="targetIndex: 0">
-        <a-gltf-model
+        <!-- <a-gltf-model
           rotation="80 0 0"
           position="0 4.9 -7.2"
           scale="50 50 50"
+          src="#roomModel"
+          animation-mixer
+        ></a-gltf-model> -->
+        <a-gltf-model
+          rotation="0 0 0 "
+          position="0 -0.25 0"
+          scale="0.05 0.05 0.05"
           src="#roomModel"
           animation-mixer
         ></a-gltf-model>

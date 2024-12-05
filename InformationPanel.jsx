@@ -20,16 +20,16 @@ const InformationPanel = () => {
   };
 
   useEffect(() => {
-    if (tutorialActive) {
-      if (tutorialStep === 0) {
-        setExpanded(false);
-        setIsTutorial(true);
-      } else if (tutorialStep === 1) {
-        setExpanded(true);
-        setIsTutorial(true);
 
-      }
+    if (tutorialStep === 0 && tutorialActive) {
+      setExpanded(false);
+      setIsTutorial(true);
+    } else if (tutorialStep === 1 && tutorialActive) {
+      setExpanded(true);
+      setIsTutorial(true);
+
     }
+
     //reading tutorial steps, setting blurry overlay
     else {
       // console.info(tutorialStep);
