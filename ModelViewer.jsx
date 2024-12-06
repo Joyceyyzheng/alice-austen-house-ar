@@ -22,8 +22,6 @@ const ModelViewer = ({ model, onClose, showBtn = true, opacityValue }) => {
   }, [tutorialStep]);
 
   return (
-    console.info("opacity value", opacityValue),
-
     // <div className={`model-viewer${isTutorial ? "up" : ""}`}>
     <div className="model-viewer">
       {showBtn && (
@@ -44,9 +42,9 @@ const ModelViewer = ({ model, onClose, showBtn = true, opacityValue }) => {
             self.traverse((child) => {
               if (child.isMesh && child.material) {
                 child.material.transparent = true;
-                child.material.opacity = opacityValue; // Adjust if necessary
-                child.material.alphaTest = opacityValue; // Helps with rendering transparency
-                child.material.depthWrite = false; // Prevents z-buffer issues
+                child.material.opacity = opacityValue;
+                child.material.alphaTest = opacityValue;
+                child.material.depthWrite = false;
               }
             });
           }}

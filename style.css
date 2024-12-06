@@ -106,6 +106,10 @@
   /* pointer-events: none; */
   /* shadow and background blur? ⚠️ */
 }
+.progressbar-parent.up {
+  z-index: 200;
+  filter: blur(0.8px);
+}
 .progressbar-steps {
   position: absolute;
   width: 73.5%;
@@ -664,4 +668,41 @@
   backdrop-filter: blur(10px);
   --webkit-backdrop-filter: blur(10px);
   z-index: 11;
+}
+
+/* --------------------
+ending
+-------------------- */
+
+.carrousel-parent {
+  position: absolute;
+  width: 81.5%;
+  height: 60.2%;
+
+  background: var(--text-container-background);
+  top: 25.78%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  z-index: 10;
+
+  overflow-x: hidden;
+}
+
+.picture-container {
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  padding-left: 300px;
+  overflow-y: auto; /* Enable vertical scrolling */
+  height: 100%; /* Ensure the container takes full height */
+  scrollbar-width: thin;
 }

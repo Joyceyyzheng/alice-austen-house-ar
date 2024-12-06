@@ -6,7 +6,23 @@ import threeActiveIcon from "./public/assets/photo_progressthree_active_icon.svg
 import sevenActiveIcon from "./public/assets/photo_progressseven_active_icon.svg";
 
 const ProgressBar = () => {
-  const { currentStep, nextStep, prevStep, setCurrentStep } = useStore();
+  const { currentStep, nextStep, prevStep, setCurrentStep, tutorialStep, tutorialActive } = useStore();
+  const [isTutorial, setIsTutorial] = useState(false);
+
+
+  useEffect(() => {
+    if (tutorialActive && tutorialStep === 0) {
+      setIsTutorial(true);
+    } else if (tutorialActive & tutorialStep === 1) {
+      setIsTutorial(true);
+
+    } else {
+      setIsTutorial(false);
+    }
+
+  }, [tutorialStep, tutorialActive]);
+
+
 
   const handleStepClick = (step) => {
     setCurrentStep(step);
@@ -14,7 +30,7 @@ const ProgressBar = () => {
   };
   return (
     <>
-      <div className="progressbar-parent">
+      <div className={`progressbar-parent ${isTutorial ? "up" : ""}`}>
         <div className="progressbar-track">
           <div
             className="progressbar-progress"

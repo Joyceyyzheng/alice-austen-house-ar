@@ -7,6 +7,7 @@ import Opening from "./Opening";
 import Equipment from "./Equipment";
 import InformationPanel from "./InformationPanel";
 import BlurOverlay from "./BlurOverlay";
+import Ending from "./Ending";
 
 
 const App = () => {
@@ -44,7 +45,7 @@ const App = () => {
       trayModelEntity.setAttribute("visible", false);
       spoonModelEntity.setAttribute("visible", false);
     } else {
-      console.log("roomModelEntity not found");
+      // console.log("roomModelEntity not found");
     }
 
     if (cameraModelEntity && currentStep === 2) {
@@ -57,7 +58,7 @@ const App = () => {
 
       cameraModelEntity.setAttribute("visible", false);
     } else {
-      console.log("cameraModelEntity not found");
+      // console.log("cameraModelEntity not found");
     }
 
     if (frameModelEntity && currentStep === 3) {
@@ -70,7 +71,7 @@ const App = () => {
 
       frameModelEntity.setAttribute("visible", false);
     } else {
-      console.log("frameModelEntity not found");
+      //console.log("frameModelEntity not found");
     }
 
     if (contactModelEntity && currentStep === 4) {
@@ -83,7 +84,7 @@ const App = () => {
 
       contactModelEntity.setAttribute("visible", false);
     } else {
-      console.log("contactModelEntity not found");
+      //console.log("contactModelEntity not found");
     }
 
     if (tankModelEntity && currentStep === 5) {
@@ -95,7 +96,7 @@ const App = () => {
       cameraModelEntity.setAttribute("visible", false);
       tankModelEntity.setAttribute("visible", false);
     } else {
-      console.log("tankModelEntity not found");
+      //  console.log("tankModelEntity not found");
     }
     if (trayModelEntity && currentStep === 6) {
       frameModelEntity.setAttribute("visible", true);
@@ -107,7 +108,7 @@ const App = () => {
 
       contactModelEntity.setAttribute("visible", false);
     } else {
-      console.log("trayModelEntity not found");
+      // console.log("trayModelEntity not found");
     }
 
     if (spoonModelEntity && currentStep === 7) {
@@ -120,7 +121,7 @@ const App = () => {
 
       frameModelEntity.setAttribute("visible", false);
     } else {
-      console.log("spoonModelEntity not found");
+      //  console.log("spoonModelEntity not found");
     }
   };
 
@@ -153,6 +154,7 @@ const App = () => {
           <InformationPanel />
           <ProgressBar />
           <Equipment />
+          <Ending />
 
           <BlurOverlay />
 
