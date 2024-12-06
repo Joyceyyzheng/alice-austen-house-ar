@@ -12,7 +12,7 @@ export default function MindARViewer() {
 
 	return (
 		<a-scene
-            ref={sceneRef}
+			ref={sceneRef}
 			log
 			mindar-image="imageTargetSrc: assets/official.mind; maxTrack:7; uiScanning:no; filterMinCF:0.0001; filterBeta: 0.001;id:imageTarget"
 			color-space="sRGB"
