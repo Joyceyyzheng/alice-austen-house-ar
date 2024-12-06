@@ -49,7 +49,13 @@ const InformationPanelContent = {
   ],
   7: [
     {
-      title: "Reveal the Photo",
+      title: "See the Photo",
+      content: "",
+    },
+  ],
+  8: [
+    {
+      title: "Congratulations on completing Alice’s photo development process.",
       content: "",
     },
   ],

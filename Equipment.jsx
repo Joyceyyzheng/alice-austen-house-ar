@@ -25,6 +25,7 @@ const ExampleModel = () => {
         <ModelViewer
           model={ModelContent[2][0].model}
           showBtn={false}
+          opacityValue={1.0}
         // onClose={handleCloseViewer}
         />
       </div>
