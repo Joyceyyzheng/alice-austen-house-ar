@@ -1,10 +1,10 @@
 // tutorialContent.js
 const tutorialContent = [
   {
-    title: "Alice’s Process",
+    title: "Alice Austen’s Seven Steps to Develop a Photo",
     content: [
-      "The seven steps that happen in the darkroom. ",
-      "Click to learn more.",
+      "The photo development process unfolds in seven steps within the darkroom. ",
+      "You may tap on the numbers on the progress bar to explore each step.",
     ],
     position: { top: "25.77%", left: "8.87%" },
   },

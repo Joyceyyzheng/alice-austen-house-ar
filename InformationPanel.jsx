@@ -21,10 +21,10 @@ const InformationPanel = () => {
 
   useEffect(() => {
 
-    if (tutorialStep === 0 && tutorialActive) {
+    if (tutorialStep === 1 && tutorialActive) {
       setExpanded(false);
       setIsTutorial(true);
-    } else if (tutorialStep === 1 && tutorialActive) {
+    } else if (tutorialStep === 2 && tutorialActive) {
       setExpanded(true);
       setIsTutorial(true);
 

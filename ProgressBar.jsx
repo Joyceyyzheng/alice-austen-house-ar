@@ -13,9 +13,6 @@ const ProgressBar = () => {
   useEffect(() => {
     if (tutorialActive && tutorialStep === 0) {
       setIsTutorial(true);
-    } else if (tutorialActive & tutorialStep === 1) {
-      setIsTutorial(true);
-
     } else {
       setIsTutorial(false);
     }

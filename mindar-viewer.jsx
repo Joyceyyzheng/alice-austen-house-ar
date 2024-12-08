@@ -53,7 +53,7 @@ export default function MindARViewer() {
 				<a-gltf-model
 					rotation="80 0 0"
 					position="0 4.9 -7.2"
-					scale="50 50 50"
+					scale="0.05 0.05 0.05"
 					src="#roomModel"
 					animation-mixer
 				></a-gltf-model>

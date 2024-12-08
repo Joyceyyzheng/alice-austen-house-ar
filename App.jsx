@@ -132,17 +132,17 @@ const App = () => {
 	}, [currentStep]);
 
 	const pauseAnimation = () => {
-		roomModelEntity.setAttribute('animation-mixer', {
-			timeScale: 0,
-		});
-		console.log('animation paused');
+		// roomModelEntity.setAttribute('animation-mixer', {
+		// 	timeScale: 0,
+		// });
+		// console.log('animation paused');
 	};
 
 	const playAnimation = () => {
-		roomModelEntity.setAttribute('animation-mixer', {
-			timeScale: 1,
-		});
-		console.log('animation played');
+		// roomModelEntity.setAttribute('animation-mixer', {
+		// 	timeScale: 1,
+		// });
+		// console.log('animation played');
 	};
 
 	return (
@@ -164,12 +164,12 @@ const App = () => {
         </div> */}
 					<button className="nextBtn" onClick={handleNextButtonClick}></button>
 					<button className="prevBtn" onClick={handlePrevButtonClick}></button>
-					<button className="pasueBtn" onClick={pauseAnimation}>
+					{/* <button className="pasueBtn" onClick={pauseAnimation}>
 						PAUSE
 					</button>
 					<button className="playBtn" onClick={playAnimation}>
 						PLAY
-					</button>
+					</button> */}
 				</>
 			) : (
 				<Opening />

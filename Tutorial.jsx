@@ -4,6 +4,12 @@ import tutorialContent from "./TutorialContent";
 import nextBtn from "./public/assets/tutorial_next_btn.svg";
 import useStore from "./store";
 
+const stepStyles = [
+  { width: "300px", height: "200px", position: { top: "10%", left: "20%" } },
+  { width: "400px", height: "250px", position: { top: "30%", left: "10%" } },
+  { width: "350px", height: "300px", position: { top: "20%", left: "15%" } },
+];
+
 const TutorialComp = ({
   title,
   content,
