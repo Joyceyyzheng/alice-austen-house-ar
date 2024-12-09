@@ -3,7 +3,20 @@ import camPreview from "./public/assets/camera_preview.svg";
 import useStore from "./store";
 
 const Opening = () => {
-  const { setProgramStart } = useStore();
+
+  const { setProgramStart, tutorialStep, setTutorialStep, tutorialActive, setTutorialActive } = useStore();
+  const [nextPage, setNextPage] = useState(false);
+
+  const handleSkip = () => {
+    setTutorialActive(false);
+    setProgramStart(true);
+  };
+
+  const handleNext = () => {
+    setProgramStart(true);
+  }
+
+
 
   return (
     <>

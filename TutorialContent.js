@@ -6,13 +6,11 @@ const tutorialContent = [
       "The seven steps that happen in the darkroom. ",
       "Click to learn more.",
     ],
-    position: { top: "25.77%", left: "8.87%" },
   },
   {
     title: "Learn more",
     content:
-      "Each step can be expanded with more detailed explanations to illustrate Alice’s process.",
-    position: { top: "39.69%", left: "8.87%" },
+      "For each step, the title explains what Alice is doing at each step to develop the photo.",
   },
   {
     title: "Equipment",

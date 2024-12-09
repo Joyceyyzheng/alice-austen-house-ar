@@ -14,7 +14,8 @@ const ProgressBar = () => {
   };
   return (
     <>
-      <div className="progressbar-parent">
+      {isTutorial && <div className="progressbar-parent-bg"></div>}
+      <div className={`progressbar-parent ${isTutorial ? "up" : ""}`}>
         <div className="progressbar-track">
           <div
             className="progressbar-progress"

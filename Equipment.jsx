@@ -18,8 +18,12 @@ const ExampleModel = () => {
   }, [tutorialStep, tutorialActive]);
   //only for tutorials
   //console.info("Example Model mounted", ModelContent[1][0].model);
+
+  //⚠️ loading model interface?
+
   return (
-    <Suspense fallback={<div>Loading model...</div>}>
+    // <Suspense fallback={<div>Loading model...</div>}>
+    <Suspense >
       <div className={`sample-model-viewer-container${isTutorial ? "up" : ""}`}>
         <ModelViewer
           model={ModelContent[2][0].model}
@@ -34,16 +38,16 @@ const ExampleModel = () => {
 const MenuBtn = ({ onClick }) => {
   const [isTutorial, setIsTutorial] = useState(false);
   const { tutorialStep, tutorialActive } = useStore();
-  useEffect(() => {
-    if (tutorialStep === 2 && tutorialActive) {
-      setIsTutorial(true);
+  // useEffect(() => {
+  //   if (tutorialStep === 2 && tutorialActive) {
+  //     setIsTutorial(true);
 
-    } else {
-      setIsTutorial(false);
-    }
-  }, [tutorialStep, tutorialActive]);
+  //   } else {
+  //     setIsTutorial(false);
+  //   }
+  // }, [tutorialStep, tutorialActive]);
   return (
-    <div className={`menu-btn ${isTutorial ? "up" : ""}`} onClick={onClick}>
+    <div className={`menu-btn`} onClick={onClick}>
       <div className="menu-btn-icon">
         <img src={equipBtn} alt="equipBtn" />
       </div>
@@ -60,9 +64,7 @@ const ExpandedMenu = ({ onToggle }) => {
   const [isTutorial, setIsTutorial] = useState(false);
 
   useEffect(() => {
-    if (tutorialActive && tutorialStep === 3) {
-      setIsTutorial(true);
-    } else if (tutorialActive & tutorialStep === 4) {
+    if (tutorialActive & tutorialStep === 3) {
       setIsTutorial(true);
 
     } else {
@@ -99,7 +101,8 @@ const ExpandedMenu = ({ onToggle }) => {
         <div className="expanded-menu-btn" onClick={onToggle}></div>
       </div>
       {selectedModel && (
-        <Suspense fallback={<div>Loading model...</div>}>
+        // <Suspense fallback={<div>Loading model...</div>}>
+        <Suspense>
           <div className="model-viewer-container">
             <ModelViewer
               model={selectedModel.model}
@@ -124,26 +127,32 @@ const Equipment = () => {
 
   //read tutorial steps
   useEffect(() => {
-    // console.info(tutorialStep);
-    if (tutorialStep === 2 && tutorialActive) {
-      setIsTutorial(true);
-      setModalExpanded(false); // Ensure modal remains consistent
-      setTutorialModel(false);
-      //console.info("istutorial?", isTutorial, tutorialStep);
-    }
-    else if (tutorialStep === 3 && tutorialActive) {
-      //equipment step
-      setModalExpanded(true);
-      setIsTutorial(true);
-      //   console.info("istutorial?", isTutorial, tutorialStep);
+    console.info("tutorial step", tutorialStep);
+    // if (tutorialStep === 2 && tutorialActive) {
+    //   setIsTutorial(true);
+    //   setModalExpanded(false); // Ensure modal remains consistent
+    //   setTutorialModel(false);
+    //   //console.info("istutorial?", isTutorial, tutorialStep);
+    // }
+    // else if (tutorialStep === 3 && tutorialActive) {
+    //   //equipment step
+    //   setModalExpanded(true);
+    //   setIsTutorial(true);
+    //   //   console.info("istutorial?", isTutorial, tutorialStep);
 
-      //   console.info("Equipment tutorial");
-    } else if (tutorialStep === 4 && tutorialActive) {
-      setTutorialModel(true);
+    //   //   console.info("Equipment tutorial");
+    // } else 
+    if (tutorialStep === 3 && tutorialActive) {
+
       setIsTutorial(true);
+      setModalExpanded(true);
+      console.log("UPDATED EQUIPMENT TUTORIAL");
       //setOverlay(false);
       //  console.log("example models step");
       //  setModalExpanded(true);
+    } else if (tutorialActive && tutorialStep === 4) {
+      setTutorialModel(true);
+      setIsTutorial(false);
     } else {
       setModalExpanded(false);
       setTutorialModel(false);
@@ -152,9 +161,11 @@ const Equipment = () => {
     }
   }, [tutorialStep, tutorialActive]);
 
+  //tutorail done -> real steps
+
   useEffect(() => {
     //equipment gone on certain steps
-    if (currentStep === 7 || currentStep === 3) {
+    if (currentStep === 7 || currentStep === 3 || currentStep === 8) {
       setShowModal(false);
     } else {
       setShowModal(true);

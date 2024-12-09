@@ -4,6 +4,14 @@ import tutorialContent from "./TutorialContent";
 import nextBtn from "./public/assets/tutorial_next_btn.svg";
 import useStore from "./store";
 
+const stepStyles = [
+  { outerW: "381px", outerH: "241px", width: "379px", height: "239px", position: { top: "14.87%", left: "8.87%" } },
+  { outerW: "277px", outerH: "178px", width: "275px", height: "176px", position: { top: "25.78%", left: "8.87%" } },
+  { outerW: "381px", outerH: "241px", width: "350px", height: "300px", position: { top: "20%", left: "15%" } },
+  { outerW: "381px", outerH: "241px", width: "350px", height: "300px", position: { top: "20%", left: "15%" } },
+  { outerW: "381px", outerH: "241px", width: "350px", height: "300px", position: { top: "20%", left: "15%" } },
+];
+
 const TutorialComp = ({
   title,
   content,
@@ -11,13 +19,29 @@ const TutorialComp = ({
   onSkip,
   isLastStep,
   position,
+  stepStyles
 }) => {
   return (
-    <div className="tutorial" style={{ position: "absolute", ...position }}>
-      <div className="tutorial-comp-parent">
+    <div className="tutorial" style={{ position: "absolute", ...stepStyles.position, width: stepStyles.outerW, height: stepStyles.outerH }}>
+      <div className="tutorial-comp-parent" style={{ width: stepStyles.width, height: stepStyles.height }}>
         <div className="tutorial-comp-text">
           <div className="tutorial-comp-title">{title}</div>
-          <div className="tutorial-comp-content">{content}</div>
+          <div className="tutorial-comp-content">
+            {Array.isArray(content) ? (
+              content.map((line, index) => (
+                <p
+                  key={index}
+                  style={{
+                    marginBottom: index < content.length - 1 ? "16px" : "0", // Add spacing except for the last line
+                  }}
+                >
+                  {line}
+                </p>
+              ))
+            ) : (
+              <p>{content}</p>
+            )}
+          </div>
         </div>
         <div className="tutorial-comp-buttons">
           <div className="tutorial-comp-next-container">
@@ -83,6 +107,7 @@ const Tutorial = () => {
     <div>
       <Overlay />
       <TutorialComp
+        stepStyles={stepStyles[tutorialStep]}
         title={tutorialContent[tutorialStep].title}
         content={tutorialContent[tutorialStep].content}
         onNext={handleNext}
