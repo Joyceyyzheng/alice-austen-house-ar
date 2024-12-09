@@ -23,7 +23,7 @@ export default function MindARViewer() {
 			<a-assets>
 				<a-asset-item
 					id="roomModel"
-					src="models/demo_step2_anim01_baked.glb"
+					src="models/demo_step2_bakedanim01.glb"
 				></a-asset-item>
 				<a-asset-item id="cameraModel" src="models/camera.gltf"></a-asset-item>
 				{/* <a-asset-item id="newCamModel" src="models/demo_camerabacking.glb"></a-asset-item> */}
