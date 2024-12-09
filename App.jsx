@@ -38,7 +38,7 @@ const App = () => {
 	const updateModelVisibility = () => {
 		if (roomModelEntity && currentStep === 1) {
 			// testTarget.setAttribute("visible", true);
-			roomModelEntity.setAttribute('visible', true);
+			roomModelEntity.setAttribute('visible', false);
 			cameraModelEntity.setAttribute('visible', true);
 			//dry plate = true
 			frameModelEntity.setAttribute('visible', false);
@@ -51,12 +51,12 @@ const App = () => {
 		}
 
 		if (cameraModelEntity && currentStep === 2) {
-			roomModelEntity.setAttribute('visible', false);
-			frameModelEntity.setAttribute('visible', true);
+			roomModelEntity.setAttribute('visible', true);
+			frameModelEntity.setAttribute('visible', false);
 			contactModelEntity.setAttribute('visible', false);
-			tankModelEntity.setAttribute('visible', true);
+			tankModelEntity.setAttribute('visible', false);
 			trayModelEntity.setAttribute('visible', false);
-			spoonModelEntity.setAttribute('visible', true);
+			spoonModelEntity.setAttribute('visible', false);
 
 			cameraModelEntity.setAttribute('visible', false);
 		} else {
