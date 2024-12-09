@@ -37,7 +37,7 @@ const OnBoarding = ({ onSkip, onNext }) => {
 const Opening = () => {
 
   const { setProgramStart, tutorialStep, setTutorialStep, tutorialActive, setTutorialActive } = useStore();
-  const [nextPage, setNextPage] = useState(false);
+  // const [nextPage, setNextPage] = useState(false);
 
   const handleSkip = () => {
     setTutorialActive(false);
@@ -53,24 +53,21 @@ const Opening = () => {
   return (
     <>
       <div className="opening-overlay"></div>
-      {!nextPage ? <>
-        <div className="opening-container">
-          <img className="opening-camera" src={camPreview} alt="camera preivew" />
-          <div className="opening-title">Welcome to Alice Austen’s Darkroom</div>
-          <div className="opening-content">
-            This is an Augmented Reality experience about the dark room process that Alice Austen used in the Victorian era. Explore what happened in her dark room with our physical miniature.
-          </div>
-          <button
-            className="opening-btn"
-            onClick={() => {
-              setNextPage(true);
-            }}
-          >
-            Try now!
-          </button>
-          {/* {nextPage && <OnBoarding onSkip={handleSkip} onNext={handleNext} />} */}
+
+      <div className="opening-container">
+        <img className="opening-camera" src={camPreview} alt="camera preivew" />
+        <div className="opening-title">Welcome to Alice Austen’s Darkroom</div>
+        <div className="opening-content">
+          This is an augmented reality (AR) experience about the photo developing and printing process Alice used in her home studio during the Victorian era. Explore what happens in her dark room with our physical miniature.
         </div>
-      </> : <OnBoarding onSkip={handleSkip} onNext={handleNext} />}
+        <button
+          className="opening-btn"
+          onClick={handleNext}
+        >
+          Try now!
+        </button>
+        {/* {nextPage && <OnBoarding onSkip={handleSkip} onNext={handleNext} />} */}
+      </div>
 
 
     </>

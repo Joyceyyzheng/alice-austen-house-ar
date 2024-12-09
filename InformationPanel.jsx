@@ -24,12 +24,7 @@ const InformationPanel = () => {
     if (tutorialStep === 1 && tutorialActive) {
       setExpanded(false);
       setIsTutorial(true);
-    } else if (tutorialStep === 2 && tutorialActive) {
-      setExpanded(true);
-      setIsTutorial(true);
-
     }
-
     //reading tutorial steps, setting blurry overlay
     else {
       // console.info(tutorialStep);
@@ -48,8 +43,8 @@ const InformationPanel = () => {
 
   return (
     <>
-      {/* <BlurOverlay /> */}
 
+      {/* {isTutorial && <div className="info-panel-parent-bg"></div>} */}
       <div className={`info-panel-parent ${isTutorial ? "up" : ""}`}>
         <div className="info-panel-header">
           <div className="info-panel-title">

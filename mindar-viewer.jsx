@@ -1,4 +1,4 @@
-import React, { useState,useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import 'aframe';
 import 'aframe-extras';
 import 'mind-ar/dist/mindar-image-aframe.prod.js';
@@ -58,15 +58,15 @@ export default function MindARViewer() {
 		// Cleanup
 		return () => {
 			targets.forEach((target, index) => {
-				target.removeEventListener('targetFound', () => {});
-				target.removeEventListener('targetLost', () => {});
+				target.removeEventListener('targetFound', () => { });
+				target.removeEventListener('targetLost', () => { });
 			});
 		};
 	}, []);
 
 	return (
 		<div style={styles.container}>
-			{!isAnyTargetFound && (
+			{/* {!isAnyTargetFound && (
 				<div style={styles.overlay}>
 					<img
 						src="/assets/target-frame.png"
@@ -74,7 +74,7 @@ export default function MindARViewer() {
 						style={styles.overlayImage}
 					/>
 				</div>
-			)}
+			)} */}
 			<a-scene
 				ref={sceneRef}
 				log

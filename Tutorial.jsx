@@ -1,15 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 import tutorialContent from "./TutorialContent";
 import nextBtn from "./public/assets/tutorial_next_btn.svg";
+import rotationIcon from "./public/assets/rotation_icon.svg";
 import useStore from "./store";
 
 const stepStyles = [
-  { outerW: "381px", outerH: "241px", width: "379px", height: "239px", position: { top: "14.87%", left: "8.87%" } },
-  { outerW: "277px", outerH: "178px", width: "275px", height: "176px", position: { top: "25.78%", left: "8.87%" } },
-  { outerW: "381px", outerH: "241px", width: "350px", height: "300px", position: { top: "20%", left: "15%" } },
-  { outerW: "381px", outerH: "241px", width: "350px", height: "300px", position: { top: "20%", left: "15%" } },
-  { outerW: "381px", outerH: "241px", width: "350px", height: "300px", position: { top: "20%", left: "15%" } },
+  { outerW: "381px", outerH: "241px", width: "420px", height: "193px", position: { top: "15.11%", left: "8.87%" } },
+  { outerW: "277px", outerH: "178px", width: "420px", height: "176px", position: { top: "33.93%", left: "13.14%" } },
+  { outerW: "381px", outerH: "241px", width: "420px", height: "159px", position: { bottom: "6.78%", left: "8.87%" } },
+  { outerW: "381px", outerH: "241px", width: "420px", height: "159px", position: { bottom: "21.34%", left: "8.87%" } },
+  { outerW: "381px", outerH: "241px", width: "300px", height: "142px", position: { top: "15.22%", left: "8.87%" } },
 ];
 
 const TutorialComp = ({
@@ -22,7 +23,7 @@ const TutorialComp = ({
   stepStyles
 }) => {
   return (
-    <div className="tutorial" style={{ position: "absolute", ...stepStyles.position, width: stepStyles.outerW, height: stepStyles.outerH }}>
+    <div className="tutorial" style={{ position: "absolute", ...stepStyles.position, width: stepStyles.width, height: stepStyles.height }}>
       <div className="tutorial-comp-parent" style={{ width: stepStyles.width, height: stepStyles.height }}>
         <div className="tutorial-comp-text">
           <div className="tutorial-comp-title">{title}</div>
@@ -44,6 +45,9 @@ const TutorialComp = ({
           </div>
         </div>
         <div className="tutorial-comp-buttons">
+          <div className="tutorial-comp-skip" onClick={onSkip}>
+            Skip
+          </div>
           <div className="tutorial-comp-next-container">
             <div className="tutorial-comp-next" onClick={onNext}>
               {isLastStep ? "Finish" : "Next"}
@@ -52,12 +56,10 @@ const TutorialComp = ({
               <img src={nextBtn} alt="nextBtn" />
             </div>
           </div>
-          <div className="tutorial-comp-skip" onClick={onSkip}>
-            Skip
-          </div>
+
         </div>
       </div>
-      <div className="tutorial-comp-background"></div>
+      {/* <div className="tutorial-comp-background"></div> */}
     </div>
   );
 };
@@ -79,12 +81,29 @@ const Dots = ({ currentStep }) => {
   );
 };
 
+const RotationIcon = () => {
+  return (
+    <div className="tutorial-rotation-icon">
+      <img src={rotationIcon} alt="rotationIcon" />
+    </div>
+  );
+}
+
 
 const Tutorial = () => {
   // const [currentStep, setCurrentStep] = useState(0); //make this a store one
   // const [tutorialActive, setTutorialActive] = useState(true);
 
   const { tutorialStep, setTutorialStep, tutorialActive, setTutorialActive } = useStore();
+  const [icon, setIcon] = useState(false);
+
+  useEffect(() => {
+    if (tutorialStep === 4) {
+      setIcon(true);
+    } else {
+      setIcon(false);
+    }
+  }, [tutorialStep]);
 
   const handleNext = () => {
 
@@ -102,25 +121,13 @@ const Tutorial = () => {
     // console.info("Tutorial skipped");
   };
 
-  //⚠️⚠️⚠️⚠️
-  //useMemo / useEffect
-  // style variables (?blur)
-
-  // const style = useMemo(() => {
-  //   if (currentStep === 3) {
-  //     return {filter: 'blur(10px)'};
-  //   }
-  //   return {}
-  // }, [currentStep])
-
-  //use in each file where tutorial is active, don't make it global
-
   if (!tutorialActive) return null;
 
   return (
     <div>
       <Overlay />
       <Dots currentStep={tutorialStep} />
+      {icon && <RotationIcon />}
       <TutorialComp
         stepStyles={stepStyles[tutorialStep]}
         title={tutorialContent[tutorialStep].title}
