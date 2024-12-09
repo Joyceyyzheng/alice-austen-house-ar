@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import useStore from "./store";
 import threeIcon from "./public/assets/photo_progressthree_icon.svg";
 import sevenIcon from "./public/assets/photo_progressseven_icon.svg";
+import eightIcon from "./public/assets/photo_progresseight_icon.svg";
 import threeActiveIcon from "./public/assets/photo_progressthree_active_icon.svg";
 import sevenActiveIcon from "./public/assets/photo_progressseven_active_icon.svg";
+import eightActiveIcon from "./public/assets/photo_progresseight_active_icon.svg";
 
 const ProgressBar = () => {
   const { currentStep, nextStep, prevStep, setCurrentStep, tutorialStep, tutorialActive } = useStore();
@@ -33,11 +35,11 @@ const ProgressBar = () => {
         <div className="progressbar-track">
           <div
             className="progressbar-progress"
-            style={{ width: `${Math.min((currentStep / 6) * 100, 100)}%` }}
+            style={{ width: `${Math.min((currentStep / 7) * 100, 100)}%` }}
           ></div>
         </div>
         <div className="progressbar-steps">
-          {[...Array(7)].map((_, index) => (
+          {[...Array(8)].map((_, index) => (
             <div
               key={index}
               className={`progressbar-step ${index + 1 <= currentStep ? "active" : ""
@@ -47,12 +49,17 @@ const ProgressBar = () => {
               {index + 1 === 3 ? (
                 <img
                   src={index + 1 <= currentStep ? threeActiveIcon : threeIcon}
-                  alt="1"
+                  alt="3"
                 />
               ) : index + 1 === 7 ? (
                 <img
                   src={index + 1 <= currentStep ? sevenActiveIcon : sevenIcon}
-                  alt="1"
+                  alt="7"
+                />
+              ) : index + 1 === 8 ? (
+                <img
+                  src={index + 1 <= currentStep ? eightActiveIcon : eightIcon}
+                  alt="8"
                 />
               ) : (
                 index + 1

@@ -24,27 +24,43 @@ const App = () => {
 		spoon: useRef(null),
 		imageTarget: useRef(null),
 		testTarget: useRef(null),
+		anim1: useRef(null),
+		anim2: useRef(null),
+		anim4: useRef(null),
+		anim5: useRef(null),
+		anim6: useRef(null)
 	};
 
 	// Define model visibility configurations for each step
 	const stepConfigurations = {
 		1: {
 			room: false,
-			camera: true,
-			frame: false,
-			contact: false,
-			tank: false,
-			tray: false,
-			spoon: false
-		},
-		2: {
-			room: true,
 			camera: false,
 			frame: false,
 			contact: false,
 			tank: false,
 			tray: false,
-			spoon: false
+			spoon: false,
+			anim1: true,
+			anim2: false,
+			anim4: false,
+			anim5: false,
+			anim6: false
+
+		},
+		2: {
+			room: false,
+			camera: false,
+			frame: false,
+			contact: false,
+			tank: false,
+			tray: false,
+			spoon: false,
+			anim1: false,
+			anim2: true,
+			anim4: false,
+			anim5: false,
+			anim6: false
 		},
 		3: {
 			room: false,
@@ -53,34 +69,54 @@ const App = () => {
 			contact: false,
 			tank: false,
 			tray: false,
-			spoon: false
+			spoon: false,
+			anim1: false,
+			anim2: false,
+			anim4: false,
+			anim5: false,
+			anim6: false
 		},
 		4: {
 			room: false,
 			camera: false,
-			frame: true,
+			frame: false,
 			contact: false,
 			tank: false,
-			tray: true,
-			spoon: true
+			tray: false,
+			spoon: false,
+			anim1: false,
+			anim2: false,
+			anim4: true,
+			anim5: false,
+			anim6: false
 		},
 		5: {
 			room: false,
 			camera: false,
 			frame: false,
-			contact: true,
+			contact: false,
 			tank: false,
 			tray: false,
-			spoon: false
+			spoon: false,
+			anim1: false,
+			anim2: false,
+			anim4: false,
+			anim5: true,
+			anim6: false
 		},
 		6: {
 			room: false,
 			camera: false,
-			frame: true,
+			frame: false,
 			contact: false,
 			tank: false,
-			tray: true,
-			spoon: true
+			tray: false,
+			spoon: false,
+			anim1: false,
+			anim2: false,
+			anim4: false,
+			anim5: false,
+			anim6: true
 		},
 		7: {
 			room: false,
@@ -89,7 +125,12 @@ const App = () => {
 			contact: false,
 			tank: false,
 			tray: false,
-			spoon: false
+			spoon: false,
+			anim1: false,
+			anim2: false,
+			anim4: false,
+			anim5: false,
+			anim6: false
 		}
 	};
 
@@ -99,7 +140,12 @@ const App = () => {
 			const selector = key === 'frame' ? '[src="#cupModel"]' :
 				key === 'newCamera' ? '[src="#newCamModel"]' :
 					key === 'testTarget' ? '[src="#bearModel"]' :
-						`[src="#${key}Model"]`;
+						key === 'anim1' ? '[src="#anim1"]' :
+							key === 'anim2' ? '[src="#anim2"]' :
+								key === 'anim4' ? '[src="#anim4"]' :
+									key === 'anim5' ? '[src="#anim5"]' :
+										key === 'anim6' ? '[src="#anim6"]' :
+											`[src="#${key}Model"]`;
 
 			ref.current = document.querySelector(selector);
 		});
@@ -143,7 +189,7 @@ const App = () => {
 					<Equipment />
 					<BlurOverlay />
 					<PhotoLoader />
-					<div className="mainLogo" />
+					{/* <div className="mainLogo" /> */}
 					<button className="nextBtn" onClick={nextStep} />
 					<button className="prevBtn" onClick={prevStep} />
 				</>

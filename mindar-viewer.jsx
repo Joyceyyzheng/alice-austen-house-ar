@@ -22,8 +22,28 @@ export default function MindARViewer() {
 		>
 			<a-assets>
 				<a-asset-item
-					id="roomModel"
+					id="anim1"
+					src="models/demo_step1_bakedanim.glb"
+				></a-asset-item>
+				<a-asset-item
+					id="anim2"
 					src="models/demo_step2_bakedanim02.glb"
+				></a-asset-item>
+				<a-asset-item
+					id="anim4"
+					src="models/demo_step4_bakedanim.glb"
+				></a-asset-item>
+				<a-asset-item
+					id="anim5"
+					src="models/demo_step5_bakedanim.glb"
+				></a-asset-item>
+				<a-asset-item
+					id="anim6"
+					src="models/demo_step6_bakedanim.glb"
+				></a-asset-item>
+				<a-asset-item
+					id="roomModel"
+					src="models/darkroom_noceilling01.glb"
 				></a-asset-item>
 				<a-asset-item id="cameraModel" src="models/camera.gltf"></a-asset-item>
 				{/* <a-asset-item id="newCamModel" src="models/demo_camerabacking.glb"></a-asset-item> */}
@@ -50,14 +70,22 @@ export default function MindARViewer() {
 
 			{/* Room Model */}
 			<a-entity mindar-image-target="targetIndex: 0">
-				<a-gltf-model
+				{/* <a-gltf-model
 					rotation="80 0 0"
 					position="0 4.9 -7.2"
 					scale="0.05 0.05 0.05"
 					src="#roomModel"
 					animation-mixer
+				></a-gltf-model> */}
+				<a-gltf-model
+					rotation="80 0 0"
+					position="0 0 0"
+					scale="0.1 0.1 0.1"
+					src="#anim1"
+					animation-mixer
 				></a-gltf-model>
 			</a-entity>
+
 			{/* Camera Model */}
 			<a-entity id="example-target" mindar-image-target="targetIndex: 1">
 				<a-gltf-model
@@ -66,6 +94,13 @@ export default function MindARViewer() {
 					scale="0.028 0.028 0.028"
 					src="#cameraModel"
 					visible="false"
+					animation-mixer
+				></a-gltf-model>
+				<a-gltf-model
+					rotation="80 0 0"
+					position="0 0 0"
+					scale="0.1 0.1 0.1"
+					src="#anim2"
 					animation-mixer
 				></a-gltf-model>
 			</a-entity>
@@ -92,6 +127,13 @@ export default function MindARViewer() {
 					src="#contactModel"
 					animation-mixer
 				></a-gltf-model>
+				<a-gltf-model
+					rotation="80 0 0"
+					position="0 0 0"
+					scale="0.1 0.1 0.1"
+					src="#anim4"
+					animation-mixer
+				></a-gltf-model>
 			</a-entity>
 
 			<a-entity mindar-image-target="targetIndex: 4">
@@ -102,6 +144,13 @@ export default function MindARViewer() {
 					src="#tankModel"
 					animation-mixer
 				></a-gltf-model>
+				<a-gltf-model
+					rotation="80 0 0"
+					position="0 0 0"
+					scale="0.1 0.1 0.1"
+					src="#anim5"
+					animation-mixer
+				></a-gltf-model>
 			</a-entity>
 
 			<a-entity mindar-image-target="targetIndex: 5">
@@ -110,6 +159,13 @@ export default function MindARViewer() {
 					position="1.51 2.35 -1.0"
 					scale="0.1 0.1 0.1"
 					src="#trayModel"
+					animation-mixer
+				></a-gltf-model>
+				<a-gltf-model
+					rotation="80 0 0"
+					position="0 0 0"
+					scale="0.1 0.1 0.1"
+					src="#anim6"
 					animation-mixer
 				></a-gltf-model>
 			</a-entity>

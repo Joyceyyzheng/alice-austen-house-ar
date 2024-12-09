@@ -2,7 +2,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
-import closeBtn from "./public/assets/close_btn.svg";
+import closeBtn from "./public/assets/modelviewer_closeBtn.svg";
 import useStore from "./store";
 
 const ModelViewer = ({ model, onClose, showBtn = true, opacityValue }) => {

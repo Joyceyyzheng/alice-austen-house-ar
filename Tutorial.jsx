@@ -66,6 +66,20 @@ const Overlay = () => {
   // return <div className="tutorial-overlay"></div>;
 };
 
+const Dots = ({ currentStep }) => {
+  return (
+    <div className="tutorial-dots">
+      {tutorialContent.map((_, index) => (
+        <div
+          key={index}
+          className={`tutorial-dot ${index === currentStep ? "active" : ""}`}
+        ></div>
+      ))}
+    </div>
+  );
+};
+
+
 const Tutorial = () => {
   // const [currentStep, setCurrentStep] = useState(0); //make this a store one
   // const [tutorialActive, setTutorialActive] = useState(true);
@@ -106,6 +120,7 @@ const Tutorial = () => {
   return (
     <div>
       <Overlay />
+      <Dots currentStep={tutorialStep} />
       <TutorialComp
         stepStyles={stepStyles[tutorialStep]}
         title={tutorialContent[tutorialStep].title}

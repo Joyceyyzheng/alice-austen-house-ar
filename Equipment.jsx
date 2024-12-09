@@ -28,6 +28,7 @@ const ExampleModel = () => {
         <ModelViewer
           model={ModelContent[2][0].model}
           showBtn={false}
+          opacityValue={1.0}
         // onClose={handleCloseViewer}
         />
       </div>
@@ -58,7 +59,7 @@ const MenuBtn = ({ onClick }) => {
 
 
 const ExpandedMenu = ({ onToggle }) => {
-  const { currentStep, tutorialStep, modalExpanded, setModalExpanded, tutorialActive } =
+  const { currentStep, tutorialStep, modalExpanded, setModalExpanded, tutorialActive, setSelectedModelIndex, selectedModelIndex } =
     useStore();
   const [selectedModel, setSelectedModel] = useState(null);
   const [isTutorial, setIsTutorial] = useState(false);
@@ -74,9 +75,14 @@ const ExpandedMenu = ({ onToggle }) => {
   }, [tutorialStep, tutorialActive]);
 
   const models = ModelContent[currentStep] || [];
+  console.log("models", models);
+  // console.log(selectedModel.model)
 
-  const handleModelClick = (model) => {
-    setSelectedModel(model);
+  const handleModelClick = (model, index) => {
+    setSelectedModel({ ...model, index });
+    setSelectedModelIndex(index);
+    console.info("Selected model index:", index);
+    console.info("Opacity value:", ModelContent[currentStep][index].opacity);
   };
 
   const handleCloseViewer = () => {
@@ -87,11 +93,11 @@ const ExpandedMenu = ({ onToggle }) => {
     <>
       <div className={`expanded-menu ${isTutorial ? "up" : ""}`}>
         <div className="expanded-model-container">
-          {models.map((model) => (
+          {models.map((model, index) => (
             <div
               key={model.name}
               className="expanded-menu-item"
-              onClick={() => handleModelClick(model)}
+              onClick={() => handleModelClick(model, index)}
             >
               <img src={model.image} alt={model.name} />
               {/* <p>{model.name}</p> */}
@@ -106,6 +112,7 @@ const ExpandedMenu = ({ onToggle }) => {
           <div className="model-viewer-container">
             <ModelViewer
               model={selectedModel.model}
+              opacityValue={ModelContent[currentStep][selectedModelIndex].opacity}
               onClose={handleCloseViewer}
             />
           </div>
@@ -117,7 +124,7 @@ const ExpandedMenu = ({ onToggle }) => {
 
 const Equipment = () => {
   //   const [expanded, setExpanded] = useState(false);
-  const { modalExpanded, setModalExpanded, currentStep, tutorialStep, tutorialActive } =
+  const { currentStep, tutorialStep, modalExpanded, setModalExpanded, tutorialActive } =
     useStore();
   const [showModal, setShowModal] = useState(true);
   const [tutorialModel, setTutorialModel] = useState(false);

@@ -9,12 +9,21 @@ const PhotoLoader = () => {
 	const [isNegative, setIsNegative] = useState(false);
 	const [isPositive, setIsPositive] = useState(false);
 	const [scrolled, setScrolled] = useState(false);
+	const [centeredImageIndex, setCenteredImageIndex] = useState(0);
 	const carrouselRef = useRef(null);
 
-	// Changed to use onScroll prop instead of addEventListener
 	const handleScroll = (event) => {
 		const scrollLeft = event.target.scrollLeft;
-		console.log('Scroll position:', scrollLeft); // Debug log
+		const imageWidth = event.target.children[0].offsetWidth;
+		const normalizedPosition = scrollLeft / imageWidth;
+
+		const centerIndex = Math.floor(
+			normalizedPosition < 0.2 ? 0 :
+				normalizedPosition < 1.2 ? 1 :
+					normalizedPosition < 2.2 ? 2 : 3
+		);
+
+		setCenteredImageIndex(centerIndex);
 
 		if (scrollLeft > 10) {
 			!scrolled && setScrolled(true);
@@ -23,17 +32,11 @@ const PhotoLoader = () => {
 		}
 	};
 
-	// Watch for currentStep changes
 	useEffect(() => {
 		setIsNegative(currentStep === 3);
 		setIsPositive(currentStep === 7);
 		setEndingOn(currentStep === 8);
 	}, [currentStep]);
-
-	// Debug useEffect to monitor scrolled state
-	useEffect(() => {
-		console.log('Scrolled state changed:', scrolled);
-	}, [scrolled]);
 
 	return (
 		<>
@@ -42,16 +45,25 @@ const PhotoLoader = () => {
 					<div
 						className="picture-container"
 						ref={carrouselRef}
-						onScroll={handleScroll} // Using React's onScroll instead of addEventListener
+						onScroll={handleScroll}
 						style={{
 							marginLeft: scrolled ? '0px' : '300px',
 							transition: 'margin 0.3s ease',
 						}}
 					>
-						<img src="assets/Carousel1.png" alt="ending" />
-						<img src="assets/Carousel2.png" alt="ending" />
-						<img src="assets/Carousel3.png" alt="ending" />
-						<img src="assets/Carousel4.png" alt="ending" />
+						{['Carousel1.png', 'Carousel2.png', 'Carousel3.png', 'Carousel4.png'].map((img, index) => (
+							<img
+								key={img}
+								src={`assets/${img}`}
+								alt={`ending ${index + 1}`}
+								style={{
+									transform: centeredImageIndex === index
+										? 'scale(1.3)'
+										: 'scale(1)',
+									transition: 'transform 0.3s ease'
+								}}
+							/>
+						))}
 					</div>
 				</div>
 			)}
