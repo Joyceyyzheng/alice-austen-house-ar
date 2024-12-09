@@ -719,31 +719,33 @@ ending
   position: absolute;
   width: 81.5%;
   height: 60.2%;
-
   background: var(--text-container-background);
   top: 25.78%;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 10px;
-
   display: flex;
   flex-direction: row;
   align-items: center;
   z-index: 10;
-
   overflow-x: hidden;
 }
 
 .picture-container {
   position: relative;
-
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  gap: 20px; /* Add gap between images */
   align-items: center;
-
-  padding-left: 300px;
-  overflow-y: auto; /* Enable vertical scrolling */
-  height: 100%; /* Ensure the container takes full height */
+  height: 100%;
   scrollbar-width: thin;
+  padding-right: 300px;
+  overflow-x: auto; /* Changed from overflow-y */
+  scroll-behavior: smooth; /* Add smooth scrolling */
+  -webkit-overflow-scrolling: touch; /* Better mobile scrolling */
+}
+
+/* Optional: Hide scrollbar but keep functionality */
+.picture-container::-webkit-scrollbar {
+  display: none;
 }
