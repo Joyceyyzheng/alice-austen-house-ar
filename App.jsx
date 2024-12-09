@@ -7,7 +7,8 @@ import Opening from './Opening';
 import Equipment from './Equipment';
 import InformationPanel from './InformationPanel';
 import BlurOverlay from './BlurOverlay';
-import Ending from './Ending';
+
+import PhotoLoader from './PhotoLoader';
 
 import MindARViewer from './mindar-viewer';
 
@@ -157,8 +158,9 @@ const App = () => {
 					<InformationPanel />
 					<ProgressBar />
 					<Equipment />
-					<Ending />
+					{/* <Ending /> */}
 					<BlurOverlay />
+					<PhotoLoader />
 					<div className="mainLogo"></div>
 					{/* <div className="main-header">
         </div> */}
