@@ -1,95 +1,72 @@
-import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
-import useStore from "./store";
-import negativePhoto from "./public/assets/negativephoto.svg";
-import positivePhoto from "./public/assets/negativephoto2.svg";
+import React, { useRef, useState, useEffect } from 'react';
+import useStore from './store';
+import negativePhoto from './public/assets/negativephoto.svg';
+import positivePhoto from './public/assets/negativephoto2.svg';
 
 const PhotoLoader = () => {
-    const { currentStep } = useStore();
-    const [endingOn, setEndingOn] = useState(false);
-    const [isNegative, setIsNegative] = useState(false);
-    const [isPositive, setIsPositive] = useState(false);
-    const carrouselRef = useRef();
-    const [scrolled, setScrolled] = useState(false);
+	const { currentStep } = useStore();
+	const [endingOn, setEndingOn] = useState(false);
+	const [isNegative, setIsNegative] = useState(false);
+	const [isPositive, setIsPositive] = useState(false);
+	const [scrolled, setScrolled] = useState(false);
+	const carrouselRef = useRef(null);
 
-    const handleScroll = () => {
-        if (carrouselRef.current.scrollLeft > 0) {
-            setScrolled(true);
-            console.log("scrolled");
-        }
-        // } else {
-        //     setScrolled(false);
-        // }
-    };
+	// Changed to use onScroll prop instead of addEventListener
+	const handleScroll = (event) => {
+		const scrollLeft = event.target.scrollLeft;
+		console.log('Scroll position:', scrollLeft); // Debug log
 
-    useEffect(() => {
-        const carrousel = carrouselRef.current;
+		if (scrollLeft > 10) {
+			!scrolled && setScrolled(true);
+		} else {
+			scrolled && setScrolled(false);
+		}
+	};
 
-        // if (!carrousel) {
-        //     // Retry attaching the event listener after the DOM is rendered
-        //     const timeout = setTimeout(() => {
-        //         if (carrouselRef.current) {
-        //             console.info("scroll event added (delayed)");
-        //             carrouselRef.current.addEventListener("scroll", handleScroll);
-        //         }
-        //     }, 0);
+	// Watch for currentStep changes
+	useEffect(() => {
+		setIsNegative(currentStep === 3);
+		setIsPositive(currentStep === 7);
+		setEndingOn(currentStep === 8);
+	}, [currentStep]);
 
-        //     return () => clearTimeout(timeout);
-        // }
+	// Debug useEffect to monitor scrolled state
+	useEffect(() => {
+		console.log('Scrolled state changed:', scrolled);
+	}, [scrolled]);
 
-        if (carrousel) {
-            console.info("scroll event added");
-            carrousel.addEventListener("scroll", handleScroll);
+	return (
+		<>
+			{endingOn && (
+				<div className="carrousel-parent">
+					<div
+						className="picture-container"
+						ref={carrouselRef}
+						onScroll={handleScroll} // Using React's onScroll instead of addEventListener
+						style={{
+							marginLeft: scrolled ? '0px' : '300px',
+							transition: 'margin 0.3s ease',
+						}}
+					>
+						<img src="assets/Carousel1.png" alt="ending" />
+						<img src="assets/Carousel2.png" alt="ending" />
+						<img src="assets/Carousel3.png" alt="ending" />
+						<img src="assets/Carousel4.png" alt="ending" />
+					</div>
+				</div>
+			)}
+			{isNegative && (
+				<div>
+					<img className="photo-loader" src={negativePhoto} alt="negative" />
+				</div>
+			)}
+			{isPositive && (
+				<div>
+					<img className="photo-loader" src={positivePhoto} alt="positive" />
+				</div>
+			)}
+		</>
+	);
+};
 
-            return () => {
-                console.info("scroll event removed");
-                carrousel.removeEventListener("scroll", handleScroll);
-            };
-        }
-
-    }, [carrouselRef]);
-
-
-    useEffect(() => {
-        if (currentStep === 3) {
-            setIsNegative(true);
-        } else {
-            setIsNegative(false);
-        }
-
-        if (currentStep === 7) {
-            setIsPositive(true);
-        } else {
-            setIsPositive(false);
-        }
-
-        if (currentStep === 8) {
-            setEndingOn(true);
-        } else {
-            setEndingOn(false);
-        }
-    }, [currentStep]);
-
-    return (
-        <>
-            {endingOn &&
-                <div
-                    className="carrousel-parent"
-                >
-                    <div className="picture-container"
-                        ref={carrouselRef}
-                        style={{
-                            marginLeft: scrolled ? "0px" : "300px", // Remove padding when scrolled
-                            transition: "margin 0.3s ease", // Smooth transition
-                        }}>
-                        <img src="assets/Carousel1.png" alt="ending" />
-                        <img src="assets/Carousel2.png" alt="ending" />
-                        <img src="assets/Carousel3.png" alt="ending" />
-                        <img src="assets/Carousel4.png" alt="ending" />
-                    </div>
-                </div>}
-            {isNegative && (<div ><img className="photo-loader" src={negativePhoto} /></div>)}
-            {isPositive && (<div ><img className="photo-loader" src={positivePhoto} /></div>)}
-        </>
-    );
-}
 export default PhotoLoader;

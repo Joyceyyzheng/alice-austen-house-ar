@@ -744,41 +744,33 @@ ending / photo loader
   position: absolute;
   width: 81.5%;
   height: 60.2%;
-
   background: var(--text-container-background);
   top: 25.78%;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 10px;
-
   display: flex;
   flex-direction: row;
   align-items: center;
   z-index: 10;
-
   overflow-x: hidden;
 }
 
 .picture-container {
   position: relative;
-
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  gap: 20px; /* Add gap between images */
   align-items: center;
-
-  padding-left: 300px;
-  overflow-y: auto;
   height: 100%;
   scrollbar-width: thin;
-
-  /* padding-left: 300px; */
-  /* scroll-padding-left: 0; */
-  -webkit-overflow-scrolling: touch;
-  /* margin-left: 300px; */
+  padding-right: 300px;
+  overflow-x: auto; /* Changed from overflow-y */
+  scroll-behavior: smooth; /* Add smooth scrolling */
+  -webkit-overflow-scrolling: touch; /* Better mobile scrolling */
 }
 
-/* .picture-container img:first-child {
-  scroll-margin-left: 300px; 
-  margin-left: 0; 
-} */
+/* Optional: Hide scrollbar but keep functionality */
+.picture-container::-webkit-scrollbar {
+  display: none;
+}
