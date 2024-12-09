@@ -41,11 +41,11 @@ const Opening = () => {
 
   const handleSkip = () => {
     setTutorialActive(false);
+    setProgramStart(true);
   };
 
   const handleNext = () => {
     setProgramStart(true);
-    console.info("Program started");
   }
 
 

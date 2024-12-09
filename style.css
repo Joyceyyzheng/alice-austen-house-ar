@@ -108,7 +108,20 @@
 }
 .progressbar-parent.up {
   z-index: 200;
-  filter: blur(0.8px);
+  /* filter: blur(0.8px); */
+}
+.progressbar-parent-bg {
+  position: absolute;
+  top: 4.3%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 82.2%;
+  /* width: 980px ⚠️*/
+  height: 68px;
+  border-radius: 40px;
+
+  z-index: 12;
+  background: var(--colorful-border);
 }
 .progressbar-steps {
   position: absolute;
@@ -176,17 +189,18 @@
   justify-content: center;
 
   width: 224px;
+  height: auto;
   z-index: 200; /*⚠️ tutorial z-index*/
   /* height: 300px; */
 }
 
 .tutorial-comp-parent {
-  /* position: absolute; */
-  position: relative;
+  position: absolute;
+  /* position: relative; */
   /* top: 0;
   left: 0; */
-  width: 223px;
-  height: auto;
+  /* width: 223px;
+  height: auto; */
   z-index: 100;
   background-color: #5a0f55;
   /* border-style: solid;
@@ -222,7 +236,7 @@
 }
 .tutorial-comp-text {
   margin: 20px;
-  margin-bottom: 18px;
+  margin-bottom: 0px;
   z-index: 5;
 }
 
@@ -295,6 +309,8 @@
 
 .tutorial-comp-content {
   font-size: 0.875rem;
+  margin-top: 0;
+  margin-bottom: 18px;
 }
 
 .tutorial-overlay,
@@ -421,7 +437,7 @@
 
 .tutorial-comp-text-op {
   margin: 20px;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
 }
 
 /* ------  */
@@ -653,7 +669,8 @@
   /* position: absolute; */
   z-index: 200;
   /* background: blue; */
-  filter: blur(0.8px); /* ⚠️ 统一tutorial blurry */
+  /* filter: blur(0.8px); */
+  /* ⚠️ 统一tutorial blurry */
 }
 
 .info-panel-header {
@@ -712,8 +729,16 @@
 }
 
 /* --------------------
-ending
+ending / photo loader
 -------------------- */
+.photo-loader {
+  position: absolute;
+  width: 55.86%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 .carrousel-parent {
   position: absolute;
@@ -743,7 +768,17 @@ ending
   align-items: center;
 
   padding-left: 300px;
-  overflow-y: auto; /* Enable vertical scrolling */
-  height: 100%; /* Ensure the container takes full height */
+  overflow-y: auto;
+  height: 100%;
   scrollbar-width: thin;
+
+  /* padding-left: 300px; */
+  /* scroll-padding-left: 0; */
+  -webkit-overflow-scrolling: touch;
+  /* margin-left: 300px; */
 }
+
+/* .picture-container img:first-child {
+  scroll-margin-left: 300px; 
+  margin-left: 0; 
+} */
