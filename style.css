@@ -489,8 +489,8 @@ html,
 
 .equipment {
   position: absolute;
-  width: 123px;
-  height: 120px;
+  width: 110px;
+  height: 110px;
   bottom: 3%;
   left: 8.87%;
   /* background: var(--text-container-background); */
@@ -504,19 +504,19 @@ html,
 
 .menu-btn {
   position: absolute;
-  width: 123px;
-  height: 120px;
+  width: 110px;
+  height: 110px;
   /* bottom: 3%; */
   /* left: 1.84%; */
-  background: var(--text-container-background);
+  background: var(--container-background);
 
   /* background-color: white; */
-  border-radius: 20px;
+  border-radius: 4px;
 
   /* z-index: ; */
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -542,7 +542,7 @@ html,
 
 .menu-btn-text {
   color: white;
-  font-size: 0.938rem;
+  font-size: var(--tablet-small-label);
   z-index: 6;
   font-weight: bold;
 }
@@ -555,8 +555,8 @@ html,
   position: absolute;
   width: auto;
   height: 110px;
-  bottom: 3%;
-  left: 1.84%;
+  /* bottom: 3%; */
+  /* left: 1.84%; */
   z-index: 10;
 
   /* background-color: white; */

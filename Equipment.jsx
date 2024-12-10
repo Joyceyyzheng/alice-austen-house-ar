@@ -52,7 +52,7 @@ const MenuBtn = ({ onClick }) => {
       <div className="menu-btn-icon">
         <img src={equipBtn} alt="equipBtn" />
       </div>
-      <div className="menu-btn-text">Equipment</div>
+      <div className="menu-btn-text">Tool</div>
     </div>
   );
 };
