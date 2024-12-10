@@ -64,7 +64,7 @@ const Opening = () => {
           className="opening-btn"
           onClick={handleNext}
         >
-          Try now!
+          Try now
         </button>
         {/* {nextPage && <OnBoarding onSkip={handleSkip} onNext={handleNext} />} */}
       </div>

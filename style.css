@@ -104,7 +104,8 @@ html,
 
 .progressbar-parent {
   position: absolute;
-  top: 4.55%;
+  /* top: 4.55%; */
+  bottom: 4.55%;
   left: 50%;
   transform: translateX(-50%);
   width: 81.8%;
@@ -707,7 +708,8 @@ html,
   position: absolute;
   width: 73.7%; /* ⚠️adjust with progress bar 980px */
   height: auto;
-  top: 14.86%;
+  /* top: 14.86%; */
+  bottom: 15.86%;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 4px;
