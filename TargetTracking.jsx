@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import Background from 'three/src/renderers/common/Background.js';
 
 const styles = {
-    container: {
-        position: 'relative',
-        width: '100%',
-        height: '100%',
-    },
+
     overlay: {
         position: 'absolute',
         top: 0,
@@ -16,13 +13,26 @@ const styles = {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+
     },
     overlayImage: {
         maxWidth: '500px',
         padding: '1rem',
     },
+
+
 };
+
+const TextBox = () => {
+    return (
+        <div className="track-textbox">
+            <div className="track-text">
+                <div className="track-title">Align the Edges</div>
+                <div className="track-content">Align the box with the AR target on the floor of the miniature darkroom.</div>
+            </div>
+        </div >
+    )
+}
 
 const TargetTracking = ({ sceneRef }) => {
 
@@ -65,14 +75,18 @@ const TargetTracking = ({ sceneRef }) => {
 
     return (
         <div>
+
             {!isAnyTargetFound && (
-                <div style={styles.overlay}>
-                    <img
-                        src="/assets/target-frame.png"
-                        alt="Please scan a target"
-                        style={styles.overlayImage}
-                    />
-                </div>
+                <>
+                    <TextBox />
+                    <div style={styles.overlay}>
+                        <img
+                            src="/assets/target-frame.png"
+                            alt="Please scan a target"
+                            style={styles.overlayImage}
+                        />
+                    </div>
+                </>
             )}
         </div>
     )

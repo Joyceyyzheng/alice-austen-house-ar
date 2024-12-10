@@ -114,6 +114,7 @@ const ExpandedMenu = ({ onToggle }) => {
               model={selectedModel.model}
               opacityValue={ModelContent[currentStep][selectedModelIndex].opacity}
               onClose={handleCloseViewer}
+              name={ModelContent[currentStep][selectedModelIndex].name}
             />
           </div>
         </Suspense>

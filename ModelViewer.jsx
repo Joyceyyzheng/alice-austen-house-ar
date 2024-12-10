@@ -5,7 +5,7 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import closeBtn from "./public/assets/modelviewer_closeBtn.svg";
 import useStore from "./store";
 
-const ModelViewer = ({ model, onClose, showBtn = true, opacityValue }) => {
+const ModelViewer = ({ model, onClose, showBtn = true, opacityValue, name }) => {
   const modelRef = useRef();
 
   const { scene } = useGLTF(model);
@@ -29,6 +29,7 @@ const ModelViewer = ({ model, onClose, showBtn = true, opacityValue }) => {
           <img src={closeBtn} alt="equipBtn" />
         </button>
       )}
+      <div className="model-viewer-title">{name}</div>
 
       <Canvas style={{ width: "100%", height: "100%" }}>
         <ambientLight intensity={0.4} />
