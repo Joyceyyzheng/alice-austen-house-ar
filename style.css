@@ -710,7 +710,7 @@ html,
   top: 14.86%;
   left: 50%;
   transform: translateX(-50%);
-  border-radius: 8px;
+  border-radius: 4px;
   background: var(--container-background);
   backdrop-filter: var(--background-blur);
   --webkit-backdrop-filter: var(--background-blur);
@@ -813,7 +813,7 @@ ending / photo loader
   position: absolute;
   width: 81.5%;
   height: 60.2%;
-  background: var(--text-container-background);
+  background: var(--container-background);
   top: 25.78%;
   left: 50%;
   transform: translateX(-50%);

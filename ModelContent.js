@@ -39,6 +39,12 @@ const modelContent = {
       model: "/models/demo_glassplatebox.glb",
       opacity: 1.0,
     },
+    {
+      name: "Rack",
+      image: "/assets/preview_glassplate.svg",
+      model: "/models/demo_glassplatebox.glb",
+      opacity: 1.0,
+    },
   ],
   3: [],
   4: [

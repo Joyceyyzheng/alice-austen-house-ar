@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Background from 'three/src/renderers/common/Background.js';
+import useStore from "./store";
 
 const styles = {
 
@@ -37,6 +38,7 @@ const TextBox = () => {
 const TargetTracking = ({ sceneRef }) => {
 
     const [isAnyTargetFound, setIsAnyTargetFound] = useState(false);
+    const { tutorialActive } = useStore();
 
     useEffect(() => {
         if (!sceneRef.current) return;
@@ -59,7 +61,7 @@ const TargetTracking = ({ sceneRef }) => {
                 activeTargets.delete(index);
                 // Only set to false if no targets are active
                 if (activeTargets.size === 0) {
-                    setIsAnyTargetFound(false);
+                    // setIsAnyTargetFound(false);
                 }
             });
         });
@@ -76,7 +78,7 @@ const TargetTracking = ({ sceneRef }) => {
     return (
         <div>
 
-            {!isAnyTargetFound && (
+            {!isAnyTargetFound && !tutorialActive && (
                 <>
                     <TextBox />
                     <div style={styles.overlay}>
