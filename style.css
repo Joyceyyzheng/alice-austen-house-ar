@@ -630,6 +630,8 @@ html,
   background-repeat: no-repeat;
   background-position: center;
   margin-right: 10px;
+
+  cursor: pointer;
 }
 
 /* ----- */
@@ -866,6 +868,51 @@ ending / photo loader
   display: none;
 }
 
+/* --------
+tracking
+------- */
+
+.track-textbox {
+  position: absolute;
+  width: 317px;
+  height: 130px;
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  background-color: var(--container-background);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.track-text {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+}
+
+.track-title,
+.track-content {
+  color: white;
+}
+
+.track-title {
+  font-size: var(--tablet-h2);
+
+  font-weight: bold;
+}
+
+.track-content {
+  font-size: var(--mobile-body);
+}
+
 /* Mobile breakpoint (max-width: 767px) */
 @media screen and (max-width: 767px) {
   :root {
@@ -904,6 +951,11 @@ ending / photo loader
     width: 85vw;
   }
 
+  .track-textbox {
+    width: 85vw;
+    height: 130px;
+  }
+
   /* Tutorial component */
   .tutorial {
     width: 85%;
@@ -929,13 +981,13 @@ ending / photo loader
   }
 
   .tutorial-dots {
-    bottom: 4.475%;
+    bottom: 3%;
   }
 
   /* Equipment menu */
   .equipment {
-    bottom: 2%;
-    width: 100px;
+    bottom: 5%;
+    width: auto;
     height: 100px;
   }
 
@@ -951,6 +1003,12 @@ ending / photo loader
 
   .expanded-menu {
     height: 90px;
+    width: 82vw;
+    overflow-x: auto;
+  }
+
+  .expanded-menu-btn {
+    flex: 0 0 auto;
   }
 
   .expanded-menu-item {
@@ -972,11 +1030,12 @@ ending / photo loader
   }
 
   .info-panel-header {
-    margin: 15px;
+    margin: 14px;
   }
 
   .info-panel-content {
-    margin: 15px;
+    margin: 14px;
+    margin-top: 0px;
     font-size: 1rem;
   }
 
@@ -1063,52 +1122,14 @@ ending / photo loader
   .prevBtn {
     left: 2%;
   }
+
+  .photo-loader {
+    width: 56%;
+    height: 50%;
+    top: 25%;
+  }
 }
 
-/* --------
-tracking
-------- */
-
-.track-textbox {
-  position: absolute;
-  width: 317px;
-  height: 130px;
-  top: 70%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  background-color: var(--container-background);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.track-text {
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
-
-  align-items: flex-start;
-  justify-content: center;
-  gap: 10px;
-}
-
-.track-title,
-.track-content {
-  color: white;
-}
-
-.track-title {
-  font-size: var(--tablet-h2);
-
-  font-weight: bold;
-}
-
-.track-content {
-  font-size: var(--mobile-body);
-}
 /* Landscape mode adjustments */
 @media screen and (max-width: 767px) and (orientation: landscape) {
   .opening-container {
