@@ -808,24 +808,254 @@ ending / photo loader
   flex-direction: row;
   align-items: center;
   z-index: 10;
-  overflow-x: hidden;
+  overflow-x: auto;
 }
 
 .picture-container {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  gap: 40px; /* Add gap between images */
-  align-items: center;
+  width: 100%;
   height: 100%;
-  scrollbar-width: thin;
-  padding-right: 300px;
-  overflow-x: auto; /* Changed from overflow-y */
-  scroll-behavior: smooth; /* Add smooth scrolling */
-  -webkit-overflow-scrolling: touch; /* Better mobile scrolling */
+  display: flex;
+  gap: 120px;
+  align-items: center;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-left: 50%;
+  padding-right: 50%; /* Changed to make it symmetrical */
 }
 
-/* Optional: Hide scrollbar but keep functionality */
+/* Add a spacer element after the last image */
+.picture-container::after {
+  content: "";
+  flex: 0 0 auto;
+  width: calc(50% - 200px); /* Half of the container minus half image width */
+  height: 1px; /* Minimal height but still visible */
+}
+
+.picture-container img {
+  flex: 0 0 auto;
+  width: 400px;
+  height: auto;
+  scroll-snap-align: center;
+  object-fit: contain;
+}
+
+/* Hide scrollbar */
+.picture-container {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
 .picture-container::-webkit-scrollbar {
   display: none;
+}
+
+/* Mobile breakpoint (max-width: 767px) */
+@media screen and (max-width: 767px) {
+  :root {
+    --tablet-h1: 1.75rem;
+    --tablet-h2: 1.25rem;
+    --tablet-h3: 1rem;
+    --tablet-small-label: 0.875rem;
+  }
+
+  /* Main logo adjustments */
+  .mainLogo {
+    top: 2%;
+    left: 2%;
+    width: 40px;
+    height: 42px;
+  }
+
+  /* Progress bar */
+  .progressbar-parent {
+    top: 2%;
+    width: 92%;
+    height: 48px;
+  }
+
+  .progressbar-steps {
+    width: 85vw;
+  }
+
+  .progressbar-step {
+    width: 24px;
+    height: 24px;
+    font-size: 0.9rem;
+  }
+
+  .progressbar-track {
+    width: 85vw;
+  }
+
+  /* Tutorial component */
+  .tutorial {
+    width: 85%;
+    max-width: 300px;
+  }
+
+  .tutorial-comp-parent {
+    max-width: 300px;
+    height: auto !important;
+  }
+
+  .tutorial-comp-text {
+    margin: 15px;
+    margin-bottom: 0px;
+  }
+
+  .tutorial-comp-buttons {
+    margin: 15px;
+  }
+
+  .tutorial-comp-content {
+    font-size: 0.875rem;
+  }
+
+  /* Equipment menu */
+  .equipment {
+    bottom: 2%;
+    width: 100px;
+    height: 100px;
+  }
+
+  .menu-btn {
+    width: 100px;
+    height: 100px;
+  }
+
+  .expanded-menu {
+    height: 90px;
+  }
+
+  .expanded-menu-item {
+    width: 70px;
+    height: 70px;
+  }
+
+  .expanded-model-container {
+    height: 70px;
+    padding-left: 8px;
+    padding-right: 8px;
+    gap: 8px;
+  }
+
+  /* Information panel */
+  .info-panel-parent {
+    width: 92%;
+    top: 12%;
+  }
+
+  .info-panel-header {
+    margin: 15px;
+  }
+
+  .info-panel-content {
+    margin: 15px;
+    font-size: 1rem;
+  }
+
+  .info-panel-title {
+    font-size: var(--tablet-h2);
+  }
+
+  /* Opening screen */
+  .opening-container {
+    width: 90vw;
+    height: auto;
+    padding: 20px;
+    top: 50%;
+  }
+
+  .opening-camera {
+    width: 120px;
+    height: 128px;
+  }
+
+  .opening-title {
+    font-size: var(--tablet-h1);
+    text-align: center;
+  }
+
+  .opening-content {
+    font-size: 1rem;
+  }
+
+  .opening-btn {
+    padding: 12px 32px;
+    font-size: 1rem;
+  }
+
+  .opening-tutorial-title {
+    font-size: var(--tablet-h1);
+  }
+
+  /* Tutorial overlay */
+  .tutorial-comp-parent-op {
+    width: 90%;
+    height: auto;
+    min-height: 181px;
+  }
+
+  /* Model viewer */
+  .model-viewer-close-btn {
+    top: 2%;
+    right: 2%;
+    width: 40px;
+    height: 40px;
+  }
+
+  .carrousel-parent {
+    width: 95%;
+    height: 40%;
+  }
+
+  .picture-container img {
+    width: 250px;
+  }
+
+  .picture-container {
+    padding-right: calc(50% - 250px);
+  }
+
+  .picture-container::after {
+    width: calc(50% - 125px); /* Adjusted for 250px images */
+  }
+
+  /* Navigation buttons */
+  .nextBtn,
+  .prevBtn {
+    width: 40px;
+    height: 36px;
+    background-size: 10px 20px;
+  }
+
+  .nextBtn {
+    right: 2%;
+  }
+
+  .prevBtn {
+    left: 2%;
+  }
+}
+
+/* Landscape mode adjustments */
+@media screen and (max-width: 767px) and (orientation: landscape) {
+  .opening-container {
+    height: 90vh;
+    padding: 10px;
+  }
+
+  .opening-camera {
+    width: 100px;
+    height: 107px;
+  }
+
+  .carrousel-parent {
+    height: 70%;
+  }
+
+  .equipment {
+    bottom: 1%;
+  }
 }
