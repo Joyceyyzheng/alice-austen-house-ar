@@ -68,7 +68,7 @@ const modelContent = {
     },
     {
       name: "Albumen Paper",
-      image: "/assets/preview_cylinder.svg",
+      image: "/assets/preview_paper.svg",
       model: "/models/demo_paper.glb",
       opacity: 1.0,
     },

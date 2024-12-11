@@ -190,7 +190,7 @@ const App = () => {
 					<BlurOverlay />
 					<PhotoLoader />
 					{/* <div className="mainLogo" /> */}
-					<button className="nextBtn" onClick={nextStep} />
+					{currentStep < 8 ? <button className="nextBtn" onClick={nextStep} /> : null}
 					<button className="prevBtn" onClick={prevStep} />
 				</>
 			) : (

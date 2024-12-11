@@ -97,7 +97,7 @@ const PhotoLoader = () => {
 								style={{
 									transform:
 										centeredImageIndex === index ? 'scale(1.3)' : 'scale(1)',
-									transition: 'transform 0.3s ease',
+									transition: 'transform 0.2s ease-in-out',
 								}}
 							/>
 						))}

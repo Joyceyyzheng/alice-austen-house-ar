@@ -34,7 +34,7 @@ const InformationPanel = () => {
   }, [tutorialStep, tutorialActive]);
 
   useEffect(() => {
-    if (currentStep === 3 || currentStep === 7) {
+    if (currentStep === 3 || currentStep === 7 || currentStep === 8) {
       setContent(false);
     } else {
       setContent(true);

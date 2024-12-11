@@ -162,7 +162,7 @@ const Equipment = () => {
       setTutorialModel(true);
       setIsTutorial(false);
     } else {
-      setModalExpanded(false);
+      setModalExpanded(true);
       setTutorialModel(false);
       setIsTutorial(false);
 

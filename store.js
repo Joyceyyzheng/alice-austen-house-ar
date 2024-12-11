@@ -10,6 +10,7 @@ const useStore = create((set) => ({
 
   programStart: false,
   setProgramStart: (value) => set({ programStart: value }),
+
   modalExpanded: true,
   setModalExpanded: (value) =>
     set((state) => ({

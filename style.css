@@ -8,9 +8,9 @@
     linear-gradient(0deg, rgba(129, 36, 123, 1), rgba(0, 0, 0, 0.7)) bottom;
 
   --colorful-border: linear-gradient(210deg, #81247b, #9b889a);
-  --tablet-h1: 2.5rem;
-  --tablet-h2: 1.5rem;
-  --tablet-h3: 1.25rem;
+  --tablet-h1: 2.25rem;
+  --tablet-h2: 1.25rem;
+  --tablet-h3: 1rem;
   --tablet-large-label: 1.25rem, bold;
   --tablet-small-label: 1rem, bold;
   --tablet-body: 1rem;
@@ -23,6 +23,7 @@
   --new-colorful-border: #a1469b;
   --progress-bar-trans-bg: rgba(0, 0, 0, 0.25);
   --progress-bar-opq-bg: #535353;
+  --tutorial-stroke-color: #ffffff;
   /* --progress-bar-opq-bg: #a19e93; */
 }
 
@@ -32,6 +33,11 @@ html,
   font-family: "Montserrat", sans-serif;
 }
 
+.a-enter-vr-button,
+.a-enter-ar-button {
+  display: none;
+  pointer-events: none;
+}
 .buttons {
   z-index: 100;
   /* background-color: white;
@@ -129,28 +135,32 @@ html,
 }
 .progressbar-parent.up {
   z-index: 200;
+
   /* border: var(--new-colorful-border) 2px solid; */
   /* background-color: var(--textbox-background); */
-  border-radius: 40px;
+  /* border-radius: 40px; */
   /* filter: blur(0.8px); */
 }
 .progressbar-parent-bg {
   position: absolute;
-  bottom: 3.15%;
+  top: 87.23%;
+  /* bottom: 3.23%; */
   left: 50%;
   transform: translateX(-50%);
-  width: 96.31%;
+  width: 85.43%;
 
-  height: 86px;
-  border-radius: 40px;
+  height: 82px;
+  border-radius: 4px;
+  border: var(--tutorial-stroke-color) 1px solid;
 
   z-index: 12;
-  background-color: var(--textbox-background);
+  background-color: var(--progress-bar-trans-bg);
 }
 .progressbar-steps {
   /* position: relative; */
   /* width: 92.96vw; */
   display: flex;
+  width: 82.94vw;
   /* flex-direction: row; */
   justify-content: space-between;
   align-self: center;
@@ -160,8 +170,8 @@ html,
 
 .progressbar-step {
   position: relative;
-  width: 50px;
-  height: 50px;
+  width: 36px;
+  height: 36px;
   background-color: var(--progress-bar-trans-bg);
 
   align-items: center;
@@ -298,7 +308,7 @@ html,
 
   /* border-style: solid;
     border-width: 1px; */
-  border-radius: 10px;
+  /* border-radius: 10px; */
 
   /* display: flex;
     flex-direction: column; */
@@ -550,7 +560,7 @@ html,
   height: 85px;
   /* bottom: 3%; */
   top: 6.95%;
-  left: 5.11%;
+  left: 8.71%;
   /* left: 8.87%; */
   /* background: var(--text-container-background); */
 
@@ -764,7 +774,7 @@ html,
 
 .info-panel-parent {
   position: absolute;
-  width: 92.12%; /* ⚠️adjust with progress bar 980px */
+  width: 82.74%; /* ⚠️adjust with progress bar 980px */
   height: auto;
   /* top: 14.86%; */
   bottom: 15.86%;
@@ -779,13 +789,13 @@ html,
   display: flex;
   flex-direction: column;
   color: white;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 .info-panel-parent.up {
   /* position: absolute; */
   z-index: 200;
-  border: var(--new-colorful-border) 2px solid;
+  border: var(--tutorial-stroke-color) 1px solid;
   /* background: blue; */
   /* filter: blur(0.8px); */
   /* ⚠️ 统一tutorial blurry */
@@ -808,7 +818,10 @@ html,
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 12px;
+  margin-right: 12px;
   /* padding: 20px; */
 }
 
@@ -820,9 +833,9 @@ html,
 .info-panel-content {
   font-size: var(--tablet-body);
   margin-top: 0px;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-bottom: 15px;
+  margin-left: 12px;
+  margin-right: 12px;
 }
 
 .info-panel-close-btn {
@@ -872,13 +885,13 @@ ending / photo loader
 
 .carrousel-parent {
   position: absolute;
-  width: 81.5%;
+  width: 82.94vw;
   height: 60.2%;
-  background: var(--container-background);
+  background: var(--progress-bar-trans-bg);
   top: 14.78%;
   left: 50%;
   transform: translateX(-50%);
-  border-radius: 10px;
+  border-radius: 4px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -933,7 +946,7 @@ tracking
   position: absolute;
   width: 317px;
   height: 130px;
-  top: 70%;
+  top: 10%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -962,7 +975,6 @@ tracking
 
 .track-title {
   font-size: var(--tablet-h2);
-
   font-weight: bold;
 }
 

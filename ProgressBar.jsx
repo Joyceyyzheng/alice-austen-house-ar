@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import useStore from "./store";
-import threeIcon from "./public/assets/threeIcon.svg";
-import sevenIcon from "./public/assets/sevenIcon.svg";
+import threeIcon from "./public/assets/iconThree.svg";
+import sevenIcon from "./public/assets/iconSeven.svg";
 import eightIcon from "./public/assets/photo_progresseight_icon.svg";
 import threeActiveIcon from "./public/assets/photo_progressthree_active_icon.svg";
 import sevenActiveIcon from "./public/assets/photo_progressseven_active_icon.svg";
