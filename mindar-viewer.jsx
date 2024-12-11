@@ -65,23 +65,23 @@ export default function MindARViewer() {
 				<a-assets>
 					<a-asset-item
 						id="anim1"
-						src="models/demo_step1_bakedanim.glb"
+						src="models/demoanim_step01.glb"
 					></a-asset-item>
 					<a-asset-item
 						id="anim2"
-						src="models/demo_step2_bakedanim02.glb"
+						src="models/demoanim_step02.glb"
 					></a-asset-item>
 					<a-asset-item
 						id="anim4"
-						src="models/demo_step4_bakedanim.glb"
+						src="models/demoanim_step04.glb"
 					></a-asset-item>
 					<a-asset-item
 						id="anim5"
-						src="models/demo_step5_bakedanim.glb"
+						src="models/demoanim_step05.glb"
 					></a-asset-item>
 					<a-asset-item
 						id="anim6"
-						src="models/demo_step6_bakedanim.glb"
+						src="models/demoanim_step06.glb"
 					></a-asset-item>
 					<a-asset-item
 						id="roomModel"
@@ -89,7 +89,7 @@ export default function MindARViewer() {
 					></a-asset-item>
 					<a-asset-item
 						id="cameraModel"
-						src="models/camera.gltf"
+						src="models/AAH_camera.gltf"
 					></a-asset-item>
 					{/* <a-asset-item id="newCamModel" src="models/demo_camerabacking.glb"></a-asset-item> */}
 					<a-asset-item
@@ -145,7 +145,7 @@ export default function MindARViewer() {
 						animation-mixer
 					></a-gltf-model>
 					<a-gltf-model
-						rotation="80 0 0"
+						rotation="90 0 0"
 						position="0 1.9 -0.5"
 						scale="0.04 0.04 0.04"
 						src="#anim2"

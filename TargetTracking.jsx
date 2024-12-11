@@ -83,7 +83,7 @@ const TargetTracking = ({ sceneRef }) => {
                     <TextBox />
                     <div style={styles.overlay}>
                         <img
-                            src="/assets/target-frame.png"
+                            src="/assets/arTarget.svg"
                             alt="Please scan a target"
                             style={styles.overlayImage}
                         />

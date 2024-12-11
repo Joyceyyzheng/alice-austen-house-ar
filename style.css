@@ -11,7 +11,9 @@
   --tablet-h1: 2.5rem;
   --tablet-h2: 1.5rem;
   --tablet-h3: 1.25rem;
+  --tablet-large-label: 1.25rem, bold;
   --tablet-small-label: 1rem, bold;
+  --tablet-body: 1rem;
   --mobile-body: 0.875rem;
   --textbox-background: rgba(0, 0, 0, 0.75);
   --container-background: rgba(23, 23, 23, 0.7);
@@ -19,6 +21,9 @@
   --background-blur: blur(30px);
   --dark-background: rgba(73, 73, 73, 0.6);
   --new-colorful-border: #a1469b;
+  --progress-bar-trans-bg: rgba(0, 0, 0, 0.25);
+  --progress-bar-opq-bg: #535353;
+  /* --progress-bar-opq-bg: #a19e93; */
 }
 
 body,
@@ -108,51 +113,56 @@ html,
   bottom: 4.55%;
   left: 50%;
   transform: translateX(-50%);
-  width: 81.8%;
+  width: 82.94%;
   /* width: 980px ⚠️*/
-  height: 64px;
-  background-color: var(--timeline-background);
+  height: 54px;
+  /* background-color: var(--timeline-background); */
 
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 10;
   border-radius: 4px;
+
   /* pointer-events: none; */
   /* shadow and background blur? ⚠️ */
 }
 .progressbar-parent.up {
   z-index: 200;
-  border: var(--new-colorful-border) 2px solid;
+  /* border: var(--new-colorful-border) 2px solid; */
+  /* background-color: var(--textbox-background); */
+  border-radius: 40px;
   /* filter: blur(0.8px); */
 }
-/* .progressbar-parent-bg {
+.progressbar-parent-bg {
   position: absolute;
-  top: 4.3%;
+  bottom: 3.15%;
   left: 50%;
   transform: translateX(-50%);
-  width: 82.2%;
+  width: 96.31%;
 
-  height: 68px;
-  border-radius: 4px;
+  height: 86px;
+  border-radius: 40px;
 
   z-index: 12;
-  background: var(--colorful-border);
-} */
+  background-color: var(--textbox-background);
+}
 .progressbar-steps {
-  position: absolute;
-  width: 73.7vw;
+  /* position: relative; */
+  /* width: 92.96vw; */
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
   justify-content: space-between;
+  align-self: center;
 
   font-weight: bold;
 }
 
 .progressbar-step {
-  width: 32px;
-  height: 32px;
-  background-color: #8e8e8e;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-color: var(--progress-bar-trans-bg);
 
   align-items: center;
   justify-content: center;
@@ -160,28 +170,72 @@ html,
 
   display: flex;
   align-items: center;
-  justify-self: start;
-  color: rgb(255, 255, 255, 0.5);
-  font-size: 1.2rem;
+  justify-content: center;
+  /* justify-self: start; */
+  color: rgb(255, 255, 255);
+  font-size: var(--tablet-large-label);
+
+  transition: all 0.3s ease;
 
   /* z-index: 10; */
 }
 
+.progressbar-step.up {
+  background-color: var(--progress-bar-opq-bg);
+}
 .progressbar-step.active {
+  /* margin-top: -5px; 
+  width: 60px;
+  height: 60px; */
   background-color: #81247b;
   transition: all 0.3s ease;
-  color: rgb(255, 255, 255, 1);
+  color: rgb(255, 255, 255);
 }
+.progressbar-step.completed {
+  background-color: #4c0848;
+  transition: all 0.3s ease;
+}
+
+.progressbar-segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
 .progressbar-track {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 73.7vw;
+  position: relative;
+  top: 0%;
+  left: 0%;
+  margin: 2px;
+  transform: translateY(-50%);
+  width: 8.04vw; /* Width of each track segment */
   height: 4px;
-  background-color: #8e8e8e;
+  background-color: var(--progress-bar-trans-bg);
   border-radius: 2px;
-  transform: translate(-50%, -50%);
+  transition: background-color 0.2s ease;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 96px;
+  height: 4px;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+  transform: translateY(-50%);
   z-index: 0;
+
+  transition: width 0.2s ease; */
+}
+.progressbar-track.up {
+  background-color: var(--progress-bar-opq-bg);
+}
+.progressbar-track.completed {
+  background-color: rgba(129, 36, 123, 1);
 }
 
 .progressbar-progress {
@@ -492,10 +546,12 @@ html,
 
 .equipment {
   position: absolute;
-  width: 110px;
-  height: 110px;
-  bottom: 3%;
-  left: 8.87%;
+  width: 85px;
+  height: 85px;
+  /* bottom: 3%; */
+  top: 6.95%;
+  left: 5.11%;
+  /* left: 8.87%; */
   /* background: var(--text-container-background); */
 
   z-index: 10;
@@ -507,11 +563,11 @@ html,
 
 .menu-btn {
   position: absolute;
-  width: 110px;
-  height: 110px;
+  width: 85px;
+  height: 85px;
   /* bottom: 3%; */
   /* left: 1.84%; */
-  background: var(--container-background);
+  background: var(--progress-bar-trans-bg);
 
   /* background-color: white; */
   border-radius: 4px;
@@ -519,7 +575,7 @@ html,
   /* z-index: ; */
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 6px;
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -557,18 +613,18 @@ html,
 .expanded-menu {
   position: absolute;
   width: auto;
-  height: 110px;
+  height: 85px;
   /* bottom: 3%; */
   /* left: 1.84%; */
   z-index: 10;
 
   /* background-color: white; */
-  border-radius: 0px;
+  border-radius: 10px;
   /* background-color: rgb(22, 22, 22, 0.8); */
-  background: var(--container-background);
+  background: var(--progress-bar-trans-bg);
 
-  backdrop-filter: var(--background-blur);
-  --webkit-backdrop-filter: var(--background-blur);
+  /* backdrop-filter: var(--background-blur);
+  --webkit-backdrop-filter: var(--background-blur); */
 
   display: flex;
   flex-direction: row;
@@ -586,9 +642,9 @@ html,
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+  gap: 20px;
+  /* padding-left: 10px;
+  padding-right: 10px; */
 
   height: 85px;
 }
@@ -708,21 +764,22 @@ html,
 
 .info-panel-parent {
   position: absolute;
-  width: 73.7%; /* ⚠️adjust with progress bar 980px */
+  width: 92.12%; /* ⚠️adjust with progress bar 980px */
   height: auto;
   /* top: 14.86%; */
   bottom: 15.86%;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 4px;
-  background: var(--container-background);
-  backdrop-filter: var(--background-blur);
-  --webkit-backdrop-filter: var(--background-blur);
+  background: var(--progress-bar-trans-bg);
+  /* backdrop-filter: var(--background-blur);
+  --webkit-backdrop-filter: var(--background-blur); */
   z-index: 6;
 
   display: flex;
   flex-direction: column;
   color: white;
+  border-radius: 10px;
 }
 
 .info-panel-parent.up {
@@ -756,12 +813,12 @@ html,
 }
 
 .info-panel-title {
-  font-size: 1.5rem;
+  font-size: var(--tablet-h2);
   font-weight: bold;
 }
 
 .info-panel-content {
-  font-size: 1.125rem;
+  font-size: var(--tablet-body);
   margin-top: 0px;
   margin-bottom: 20px;
   margin-left: 20px;
@@ -796,8 +853,8 @@ html,
   width: 100vw;
   height: 100vh;
   background: rgba(32, 32, 32, 0.6);
-  backdrop-filter: blur(25px);
-  --webkit-backdrop-filter: blur(25px);
+  backdrop-filter: blur(10px);
+  --webkit-backdrop-filter: blur(10px); /*tutorial stage blur⚠️*/
   z-index: 11;
 }
 
@@ -808,7 +865,7 @@ ending / photo loader
   position: absolute;
   width: 55.86%;
   height: 53.11%;
-  top: 31.89%;
+  top: 18.89%;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -818,7 +875,7 @@ ending / photo loader
   width: 81.5%;
   height: 60.2%;
   background: var(--container-background);
-  top: 25.78%;
+  top: 14.78%;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 10px;

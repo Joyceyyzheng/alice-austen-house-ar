@@ -9,7 +9,7 @@ const stepStyles = [
   { outerW: "381px", outerH: "241px", width: "420px", height: "193px", position: { top: "15.11%", left: "8.87%" } },
   { outerW: "277px", outerH: "178px", width: "420px", height: "176px", position: { top: "33.93%", left: "13.14%" } },
   { outerW: "381px", outerH: "241px", width: "420px", height: "159px", position: { bottom: "6.78%", left: "8.87%" } },
-  { outerW: "381px", outerH: "241px", width: "420px", height: "159px", position: { bottom: "21.34%", left: "8.87%" } },
+  { outerW: "381px", outerH: "241px", width: "420px", height: "176px", position: { bottom: "21.34%", left: "8.87%" } },
   { outerW: "381px", outerH: "241px", width: "300px", height: "142px", position: { top: "15.22%", left: "8.87%" } },
 ];
 

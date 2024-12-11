@@ -1,6 +1,6 @@
 import { Suspense, useEffect, useState } from "react";
 import React from "react";
-import equipBtn from "./public/assets/equipBtn.svg";
+import equipBtn from "./public/assets/toolbox_icon.svg";
 import useStore from "./store";
 import ModelContent from "./ModelContent";
 import ModelViewer from "./ModelViewer";
@@ -26,7 +26,7 @@ const ExampleModel = () => {
     <Suspense >
       <div className={`sample-model-viewer-container${isTutorial ? "up" : ""}`}>
         <ModelViewer
-          model={ModelContent[2][0].model}
+          model={ModelContent[1][0].model}
           showBtn={false}
           opacityValue={1.0}
         // onClose={handleCloseViewer}
@@ -59,7 +59,7 @@ const MenuBtn = ({ onClick }) => {
 
 
 const ExpandedMenu = ({ onToggle }) => {
-  const { currentStep, tutorialStep, modalExpanded, setModalExpanded, tutorialActive, setSelectedModelIndex, selectedModelIndex } =
+  const { currentStep, tutorialStep, tutorialActive, setSelectedModelIndex, selectedModelIndex } =
     useStore();
   const [selectedModel, setSelectedModel] = useState(null);
   const [isTutorial, setIsTutorial] = useState(false);
@@ -131,7 +131,7 @@ const Equipment = () => {
   const [tutorialModel, setTutorialModel] = useState(false);
   const [isTutorial, setIsTutorial] = useState(false);
 
-
+  console.log(modalExpanded)
 
   //read tutorial steps
   useEffect(() => {

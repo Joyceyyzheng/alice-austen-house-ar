@@ -1,22 +1,22 @@
 const InformationPanelContent = {
   1: [
     {
-      title: "Remove the Plate from Camera in the Dark Room",
+      title: "Remove Exposed Glass Plate from the Camera",
       content:
-        "Alice purchased boxes of dry plates from several stores in lower Manhattan and Brooklyn which purchased them from manufacturers such as Seed and Stanley. After picture taken, the plate got removed in complete darkness.",
+        "After a photo is captured, the image is exposed onto a chemically coated dry plate made of glass. The exposed plate must then be removed in complete darkness to preserve the image. Alice sourced boxes of ready-to-use dry plates from stores in Lower Manhattan and Brooklyn, often choosing popular brands like Seed and Stanley.",
     },
   ],
   2: [
     {
-      title: "Develop and dry Plate",
+      title: "Develop the Image and Prepare the Plate",
       content:
-        "Plate is developed in a solution containing hydroquinone then it is fixed with sodium thiosulfate and washed in water. Then, the plate is dried on a rack.",
+        "Exposed plate is developed in a tank using a hydroquinone solution to reveal the image. It has to be fixed with a sodium thiosulfate solution to make the image stay.  Then it is thoroughly rinsed in clean water, and air dried on a rack for the next steps.",
     },
   ],
 
   3: [
     {
-      title: "Final Dry Plate Reveal",
+      title: "Negative Image on Developed Dry Plate",
       content: "",
     },
   ],
@@ -24,32 +24,27 @@ const InformationPanelContent = {
     {
       title: "Prepare Albumen Paper",
       content: [
-        "Alice used a printing process that prints on Albumen papers. Albumen papers are coated with a dried mixture of sodium chloride and raw egg white.",
-        " After purchasing boxes of Albumen paper from its manufacture, Alice prepared the paper by sensitizing it in a silver-nitrate bath and then dried. ",
+        "Alice used a printing process using albumen papers, which are coated with a dried mixture of sodium chloride and raw egg white. After purchasing boxes of albumen paper from its manufacture, Alice prepared the paper by sensitizing it in a silver-nitrate bath and then allowed it to dry, making it ready for printing.",
       ],
     },
   ],
   5: [
     {
-      title: "Expose Plate-Paper “Sandwich” in Sunlight",
-      content: [
-        "While still in the darkroom, Alice put the plate and paper into an easel, sandwiched together to be exposed in sunlight until her satisfaction.",
-        " Contact printing easels have a hinged back so she could turn it over and open one side to see if the exposure looked correct.",
-      ],
+      title: "Expose Plate-Paper “Sandwich” in Easel to Sunlight",
+      content:
+        "In the darkroom, Alice placed the developed dry plate and albumen paper into a contact printing easel to be exposed to sunlight. The contact printing easel's hinged back allowed her to flip it over and open one side to check if the exposure was just right before completing the process.",
     },
   ],
   6: [
     {
       title: "Tone & Fix Paper for Final Processing",
-      content: [
-        "When Alice was satisfied with the print, she would remove the paper and bring it back to the darkroom.  Then, it was toned with gold, fixed, washed, and left to dry.",
-        " Albumen paper was thin, so it was often mounted on boards during the drying.",
-      ],
+      content:
+        "When Alice was satisfied with the print, she would remove the paper and bring it back to the darkroom.  Then, it was toned with gold, fixed, washed, and left to dry. Since albumen paper was thin, it was often mounted on boards during the drying process to ensure stability and a polished finish.",
     },
   ],
   7: [
     {
-      title: "See the Photo",
+      title: "Fully Developed Photo on Albumen Paper",
       content: "",
     },
   ],

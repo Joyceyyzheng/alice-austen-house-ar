@@ -32,20 +32,20 @@ const ModelViewer = ({ model, onClose, showBtn = true, opacityValue, name }) => 
       <div className="model-viewer-title">{name}</div>
 
       <Canvas style={{ width: "100%", height: "100%" }}>
-        <ambientLight intensity={0.4} />
-        <directionalLight position={[10, 10, 10]} />
+        <ambientLight intensity={1.4} />
+        <directionalLight position={[10, 10, 10]} intensity={2.0} />
         <primitive
           ref={modelRef}
           object={scene}
-          scale={0.5}
-          rotation={[0, Math.PI / 4, 0]}
+          scale={0.2}
+          rotation={[0, Math.PI / 4, Math.PI / 4]}
           onUpdate={(self) => {
             self.traverse((child) => {
               if (child.isMesh && child.material) {
                 child.material.transparent = true;
                 child.material.opacity = opacityValue;
                 child.material.alphaTest = opacityValue;
-                child.material.depthWrite = false;
+                child.material.depthWrite = true;
               }
             });
           }}

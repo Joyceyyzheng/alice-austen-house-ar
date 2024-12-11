@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import useStore from "./store";
-import threeIcon from "./public/assets/photo_progressthree_icon.svg";
-import sevenIcon from "./public/assets/photo_progressseven_icon.svg";
+import threeIcon from "./public/assets/threeIcon.svg";
+import sevenIcon from "./public/assets/sevenIcon.svg";
 import eightIcon from "./public/assets/photo_progresseight_icon.svg";
 import threeActiveIcon from "./public/assets/photo_progressthree_active_icon.svg";
 import sevenActiveIcon from "./public/assets/photo_progressseven_active_icon.svg";
@@ -30,44 +30,56 @@ const ProgressBar = () => {
   return (
     <>
 
-      {/* {isTutorial && <div className="progressbar-parent-bg"></div>} */}
+      {isTutorial && <div className="progressbar-parent-bg"></div>}
       <div className={`progressbar-parent ${isTutorial ? "up" : ""}`}>
-        <div className="progressbar-track">
-          <div
-            className="progressbar-progress"
-            style={{ width: `${Math.min((currentStep / 7) * 100, 100)}%` }}
-          ></div>
-        </div>
         <div className="progressbar-steps">
           {[...Array(8)].map((_, index) => (
-            <div
-              key={index}
-              className={`progressbar-step ${index + 1 <= currentStep ? "active" : ""
-                }`}
-              onClick={() => handleStepClick(index + 1)}
-            >
-              {index + 1 === 3 ? (
-                <img
-                  src={index + 1 <= currentStep ? threeActiveIcon : threeIcon}
-                  alt="3"
-                />
-              ) : index + 1 === 7 ? (
-                <img
-                  src={index + 1 <= currentStep ? sevenActiveIcon : sevenIcon}
-                  alt="7"
-                />
-              ) : index + 1 === 8 ? (
-                <img
-                  src={index + 1 <= currentStep ? eightActiveIcon : eightIcon}
-                  alt="8"
-                />
-              ) : (
-                index + 1
+            <div key={index} className="progressbar-segment">
+              {/* Step */}
+              <div
+                className={`progressbar-step ${index + 1 === currentStep
+                  ? "active"
+                  : index + 1 < currentStep
+                    ? "completed"
+                    : ""
+                  } ${isTutorial ? "up" : ""}`}
+                onClick={() => handleStepClick(index + 1)}
+              >
+                {/* Conditionally render icon or number */}
+                {index + 1 === 3 ? (
+                  <img
+                    src={index + 1 <= currentStep ? threeIcon : threeIcon}
+                    alt="3"
+                  />
+                ) : index + 1 === 7 ? (
+                  <img
+                    src={index + 1 <= currentStep ? sevenIcon : sevenIcon}
+                    alt="7"
+                  />
+                ) : index + 1 === 8 ? (
+                  <img
+                    src={index + 1 <= currentStep ? eightActiveIcon : eightActiveIcon}
+                    alt="8"
+                  />
+                ) : (
+                  index + 1
+                )}
+              </div>
+
+              {/* Track */}
+              {index < 7 && (
+                <div
+                  className={`progressbar-track ${currentStep > index + 1
+                    ? "completed"
+                    : ""
+                    } ${isTutorial ? "up" : ""}`}
+                ></div>
               )}
             </div>
           ))}
         </div>
       </div>
+
     </>
   );
 };
