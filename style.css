@@ -1051,8 +1051,8 @@ tracking
 
   .progressbar-parent-bg {
     height: 60px;
-    top: 90%;
     width: 90vw;
+    z-index: 9;
   }
   .progressbar-segment {
     height: auto;
@@ -1064,6 +1064,7 @@ tracking
 
   .progressbar-steps {
     justify-content: center;
+    z-index: 10;
   }
 
   .progressbar-step {
@@ -1261,6 +1262,18 @@ tracking
 
   .ar-overlay-image {
     max-width: 95vw !important;
+  }
+
+  .tutorial-gif-loader {
+    width: 90%;
+    height: auto;
+    left: 5%;
+  }
+
+  .tutorial-gif-loader-tool {
+    width: 80vw;
+    height: auto;
+    left: 10%;
   }
 }
 
