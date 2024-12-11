@@ -164,17 +164,17 @@ const App = () => {
 		});
 	}, [currentStep]);
 
-	const pauseAnimation = () => {
-		if (modelRefs.room.current) {
-			modelRefs.room.current.setAttribute('animation-mixer', { timeScale: 0 });
-		}
-	};
+	// const pauseAnimation = () => {
+	// 	if (modelRefs.room.current) {
+	// 		modelRefs.room.current.setAttribute('animation-mixer', { timeScale: 0 });
+	// 	}
+	// };
 
-	const playAnimation = () => {
-		if (modelRefs.room.current) {
-			modelRefs.room.current.setAttribute('animation-mixer', { timeScale: 1 });
-		}
-	};
+	// const playAnimation = () => {
+	// 	if (modelRefs.room.current) {
+	// 		modelRefs.room.current.setAttribute('animation-mixer', { timeScale: 1 });
+	// 	}
+	// };
 
 	return (
 		<div>

@@ -43,7 +43,7 @@ const TargetTracking = ({ sceneRef }) => {
     useEffect(() => {
         if (!sceneRef.current) return;
         const sceneEl = sceneRef.current;
-        console.log(sceneEl);
+        // console.log(sceneEl);
         let activeTargets = new Set();
 
         // Get all target entities
@@ -51,13 +51,13 @@ const TargetTracking = ({ sceneRef }) => {
 
         targets.forEach((target, index) => {
             target.addEventListener('targetFound', () => {
-                console.log(`Target ${index} found`);
+                // console.log(`Target ${index} found`);
                 activeTargets.add(index);
                 setIsAnyTargetFound(true);
             });
 
             target.addEventListener('targetLost', () => {
-                console.log(`Target ${index} lost`);
+                // console.log(`Target ${index} lost`);
                 activeTargets.delete(index);
                 // Only set to false if no targets are active
                 if (activeTargets.size === 0) {

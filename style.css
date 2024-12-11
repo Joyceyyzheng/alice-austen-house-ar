@@ -791,6 +791,7 @@ html,
   top: 6.35%;
   left: 50%;
   transform: translateX(-50%);
+  text-align: center;
 }
 
 .model-viewer.up {
@@ -1158,6 +1159,7 @@ tracking
   /* Information panel */
   .info-panel-parent {
     width: 92%;
+    bottom: 10.8%;
   }
 
   .info-panel-header {
@@ -1215,9 +1217,14 @@ tracking
   /* Model viewer */
   .model-viewer-close-btn {
     top: 2%;
-    right: 2%;
+    right: 4.07%;
     width: 40px;
     height: 40px;
+  }
+
+  .model-viewer-close-btn img {
+    width: 34px;
+    height: 34px;
   }
 
   .carrousel-parent {
