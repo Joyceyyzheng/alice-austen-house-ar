@@ -1001,27 +1001,47 @@ tracking
 
   /* Progress bar */
   .progressbar-parent {
-    top: 2%;
-    width: 92%;
-    height: 48px;
+    height: 60px;
+    top: 90%;
+    width: fit-content;
+  }
+
+  .progressbar-parent-bg {
+    height: 60px;
+    top: 90%;
+    width: 90vw;
+
+  }
+  .progressbar-segment {
+    height: auto;
+    justify-content: start;
+  }
+  .progressbar-segment:last-child {
+    width: auto;
   }
 
   .progressbar-steps {
-    width: 85vw;
+    justify-content: center;
   }
 
   .progressbar-step {
     width: 24px;
     height: 24px;
-    font-size: 0.9rem;
+    font-size: var(--tablet-small-label);
+  }
+  .progressbar-step img {
+    width: 12px;
+    height: 12px;
   }
 
   .progressbar-track {
-    width: 85vw;
+    width: 5vw;
+    height: 2px;
   }
 
   .track-textbox {
     width: 85vw;
+    top: 20%;
     height: 130px;
   }
 
@@ -1050,7 +1070,7 @@ tracking
   }
 
   .tutorial-dots {
-    bottom: 3%;
+    bottom: 1%;
   }
 
   /* Equipment menu */
@@ -1095,7 +1115,6 @@ tracking
   /* Information panel */
   .info-panel-parent {
     width: 92%;
-    top: 8%;
   }
 
   .info-panel-header {
@@ -1196,6 +1215,10 @@ tracking
     width: 56%;
     height: 50%;
     top: 25%;
+  }
+
+  .ar-overlay-image {
+    max-width: 95vw !important;
   }
 }
 

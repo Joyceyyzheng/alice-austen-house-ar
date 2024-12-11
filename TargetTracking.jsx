@@ -81,8 +81,9 @@ const TargetTracking = ({ sceneRef }) => {
             {!isAnyTargetFound && !tutorialActive && (
                 <>
                     <TextBox />
-                    <div style={styles.overlay}>
+                    <div className='ar-overlay' style={styles.overlay}>
                         <img
+                            className="ar-overlay-image"
                             src="/assets/arTarget.svg"
                             alt="Please scan a target"
                             style={styles.overlayImage}
