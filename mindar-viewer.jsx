@@ -127,7 +127,7 @@ export default function MindARViewer() {
 				></a-gltf-model> */}
 					<a-gltf-model
 						rotation="80 0 0"
-						position="0 1.6 -0.5"
+						position="0 1.7 0.05"
 						scale="0.04 0.04 0.04"
 						src="#anim1"
 						animation-mixer
@@ -138,8 +138,8 @@ export default function MindARViewer() {
 				<a-entity id="example-target" mindar-image-target="targetIndex: 1">
 					<a-gltf-model
 						rotation="5 95 90"
-						position="-1.5 3.15 -1.0"
-						scale="0.028 0.028 0.028"
+						position="-1.5 3.15 -2.0"
+						scale="0.038 0.038 0.038"
 						src="#cameraModel"
 						visible="false"
 						animation-mixer
@@ -193,9 +193,9 @@ export default function MindARViewer() {
 						animation-mixer
 					></a-gltf-model>
 					<a-gltf-model
-						rotation="80 0 0"
+						rotation="90 0 0"
 						position="0 2.1 -0.5"
-						scale="0.042 0.042 0.042"
+						scale="0.049 0.049 0.049"
 						src="#anim5"
 						animation-mixer
 					></a-gltf-model>
@@ -211,7 +211,7 @@ export default function MindARViewer() {
 					></a-gltf-model>
 					<a-gltf-model
 						rotation="80 0 0"
-						position="0 1.8 -0.5"
+						position="0 1.9 -0.5"
 						scale="0.035 0.035 0.035"
 						src="#anim6"
 						animation-mixer

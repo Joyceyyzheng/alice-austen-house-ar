@@ -143,11 +143,11 @@ html,
 }
 .progressbar-parent-bg {
   position: absolute;
-  top: 87.23%;
+  top: 87.23%vh;
   /* bottom: 3.23%; */
   left: 50%;
   transform: translateX(-50%);
-  width: 85.43%;
+  width: 85.43vw;
 
   height: 82px;
   border-radius: 4px;

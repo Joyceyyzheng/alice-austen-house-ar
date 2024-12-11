@@ -30,8 +30,9 @@ const ProgressBar = () => {
   return (
     <>
 
-      {isTutorial && <div className="progressbar-parent-bg"></div>}
+
       <div className={`progressbar-parent ${isTutorial ? "up" : ""}`}>
+        {isTutorial && <div className="progressbar-parent-bg"></div>}
         <div className="progressbar-steps">
           {[...Array(8)].map((_, index) => (
             <div key={index} className="progressbar-segment">
