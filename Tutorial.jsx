@@ -96,12 +96,12 @@ const GifLoader = () => {
     <div >
       {tutorialStep === 2 && <img
         className="tutorial-gif-loader"
-        src="./public/assets/tablet_textbox.gif"
+        src="assets/tablet_textbox.gif"
         alt="gifLoader"
       />}
       {tutorialStep === 3 && <img
         className="tutorial-gif-loader-tool"
-        src="./public/assets/tablet_tool.gif"
+        src="assets/tablet_tool.gif"
         alt="gifLoader"
       />}
     </div>
