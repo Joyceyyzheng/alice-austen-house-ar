@@ -188,7 +188,8 @@ const Equipment = () => {
   return (
     <>
 
-      <div className={`equipment ${isTutorial ? "up" : ""}`}>
+      {/* <div className={`equipment ${isTutorial ? "up" : ""}`}> */}
+      <div className={`equipment`}>
         {showModal && (
           <>
             {modalExpanded ? (

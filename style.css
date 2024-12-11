@@ -457,6 +457,33 @@ html,
   z-index: 13;
 }
 
+.tutorial-gif-loader {
+  position: absolute;
+  width: 80%;
+  height: auto;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tutorial-gif-loader-tool {
+  position: absolute;
+  width: 40%;
+  height: auto;
+  top: 6.95%;
+  left: 8.71%;
+  /* transform: translateX(-50%); */
+  z-index: 200;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* ----- */
 
 /* --opening--- */
@@ -1010,7 +1037,6 @@ tracking
     height: 60px;
     top: 90%;
     width: 90vw;
-
   }
   .progressbar-segment {
     height: auto;

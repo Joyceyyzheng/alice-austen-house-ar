@@ -89,6 +89,26 @@ const RotationIcon = () => {
   );
 }
 
+const GifLoader = () => {
+  const { tutorialStep } = useStore();
+
+  return (
+    <div >
+      {tutorialStep === 2 && <img
+        className="tutorial-gif-loader"
+        src="./public/assets/tablet_textbox.gif"
+        alt="gifLoader"
+      />}
+      {tutorialStep === 3 && <img
+        className="tutorial-gif-loader-tool"
+        src="./public/assets/tablet_tool.gif"
+        alt="gifLoader"
+      />}
+    </div>
+  );
+};
+
+
 
 const Tutorial = () => {
   // const [currentStep, setCurrentStep] = useState(0); //make this a store one
@@ -126,6 +146,7 @@ const Tutorial = () => {
   return (
     <div>
       <Overlay />
+      <GifLoader />
       {/* <Dots currentStep={tutorialStep} /> */}
       {icon && <RotationIcon />}
       <TutorialComp
