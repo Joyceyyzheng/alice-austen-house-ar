@@ -730,15 +730,15 @@ html,
   /* position: absolute; */
   width: 24px;
   height: 24px;
-  object-fit: cover;
 
   /* gap: 10px; */
   /* padding-left: 10px;
   padding-right: 10px; */
+
   background-image: url("public/assets/equip_collap_btn.svg");
-  /* background-size: 24px 24px; */
+
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center center;
   margin-right: 10px;
 
   cursor: pointer;
@@ -1125,23 +1125,22 @@ tracking
   }
 
   .menu-btn {
-    width: 100px;
-    height: 100px;
-  }
-
-  .menu-btn {
-    width: 100px;
-    height: 100px;
+    width: 74px;
+    height: 74px;
   }
 
   .expanded-menu {
-    height: 90px;
-    width: 82vw;
+    height: 74px;
+    max-width: 82vw;
     overflow-x: auto;
+    border-radius: 4px;
   }
 
   .expanded-menu-btn {
     flex: 0 0 auto;
+    align-self: center;
+    justify-self: center;
+    margin: auto;
   }
 
   .expanded-menu-item {
@@ -1225,6 +1224,7 @@ tracking
     width: 95%;
     height: 40%;
     z-index: 9;
+    top: 26%;
   }
 
   .picture-container img {
