@@ -94,7 +94,7 @@ const GifLoader = () => {
 
   return (
     <div >
-      {tutorialStep === 2 && <img
+      {tutorialStep === 1 && <img
         className="tutorial-gif-loader"
         src="assets/tablet_textbox.gif"
         alt="gifLoader"
@@ -104,6 +104,8 @@ const GifLoader = () => {
         src="assets/tablet_tool.gif"
         alt="gifLoader"
       />}
+      {tutorialStep === 2 && <div
+        className="tutorial-gif-loader-anim"> Placeholder </div>}
     </div>
   );
 };

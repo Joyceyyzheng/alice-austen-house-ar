@@ -45,7 +45,8 @@ const InformationPanel = () => {
     <>
 
       {/* {isTutorial && <div className="info-panel-parent-bg"></div>} */}
-      <div className={`info-panel-parent ${isTutorial ? "up" : ""}`}>
+      {/* <div className={`info-panel-parent ${isTutorial ? "up" : ""}`}> */}
+      <div className={`info-panel-parent `}>
         <div className="info-panel-header">
           <div className="info-panel-title">
             {InformationPanelContent[currentStep][0].title}

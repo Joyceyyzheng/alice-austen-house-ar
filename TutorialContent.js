@@ -9,7 +9,7 @@ const tutorialContent = [
   {
     title: "Summary",
     content:
-      "The summary shows the key actions for each step. Watch the animated process, or tap on the summary to learn more details.",
+      "The summary shows the key actions for each step. Tap to learn more details. ",
   },
   {
     title: "Animated Process",

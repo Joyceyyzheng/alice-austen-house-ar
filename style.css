@@ -459,11 +459,11 @@ html,
 
 .tutorial-gif-loader {
   position: absolute;
-  width: 80%;
+  width: 60%;
   height: auto;
-  top: 40%;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 77%;
+  left: 8.54%;
+
   z-index: 200;
   background-color: rgba(0, 0, 0, 0.8);
   display: flex;
@@ -482,6 +482,22 @@ html,
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.tutorial-gif-loader-anim {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vw;
+  height: 40vh;
+  background-color: var(--progress-bar-trans-bg);
+  z-index: 200;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: var(--tablet-h1);
 }
 
 /* ----- */
