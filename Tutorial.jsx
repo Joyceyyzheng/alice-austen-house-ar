@@ -133,18 +133,17 @@ const GifLoader = () => {
   const { tutorialStep } = useStore();
   const [deviceType, setDeviceType] = useState("desktop");
 
-  // Define breakpoints
+
   const BREAKPOINTS = {
     mobile: 767,
   };
 
-  // Get device type based on window width
   const getDeviceType = (width) => {
     if (width <= BREAKPOINTS.mobile) return "mobile";
     return "tablet";
   };
 
-  // Define gif sources for different devices
+
   const GIF_SOURCES = {
     step1: {
       mobile: "assets/mobile_textbox.gif",
@@ -152,7 +151,7 @@ const GifLoader = () => {
     },
     step2: {
       mobile: "assets/mobile_anim.gif",
-      tablet: "assets/tablet_anim.gif",
+      tablet: "assets/mobile_anim.gif",
     },
     step3: {
       mobile: "assets/mobile_tool.gif",
@@ -199,7 +198,13 @@ const GifLoader = () => {
           alt="Tutorial Step 1"
         />
       )}
-      {tutorialStep === 2 && <div className="tutorial-gif-loader-anim"></div>}
+      {tutorialStep === 2 && <div className="tutorial-gif-loader-anim">
+        <img
+          className="tutorial-gif-loader-anim"
+          src={getGifSource(2)}
+          alt="Tutorial Step 2"
+        />
+      </div>}
       {tutorialStep === 3 && (
         <img
           className="tutorial-gif-loader-tool"

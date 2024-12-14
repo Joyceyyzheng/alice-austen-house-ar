@@ -75,14 +75,14 @@ const ExpandedMenu = ({ onToggle }) => {
   }, [tutorialStep, tutorialActive]);
 
   const models = ModelContent[currentStep] || [];
-  console.log("models", models);
+
   // console.log(selectedModel.model)
 
   const handleModelClick = (model, index) => {
     setSelectedModel({ ...model, index });
     setSelectedModelIndex(index);
-    console.info("Selected model index:", index);
-    console.info("Opacity value:", ModelContent[currentStep][index].opacity);
+    // console.info("Selected model index:", index);
+    // console.info("Opacity value:", ModelContent[currentStep][index].opacity);
   };
 
   const handleCloseViewer = () => {
@@ -131,11 +131,11 @@ const Equipment = () => {
   const [tutorialModel, setTutorialModel] = useState(false);
   const [isTutorial, setIsTutorial] = useState(false);
 
-  console.log(modalExpanded)
+  // console.log(modalExpanded)
 
   //read tutorial steps
   useEffect(() => {
-    console.info("tutorial step", tutorialStep);
+    //console.info("tutorial step", tutorialStep);
     // if (tutorialStep === 2 && tutorialActive) {
     //   setIsTutorial(true);
     //   setModalExpanded(false); // Ensure modal remains consistent
@@ -154,7 +154,7 @@ const Equipment = () => {
 
       setIsTutorial(true);
       setModalExpanded(true);
-      console.log("UPDATED EQUIPMENT TUTORIAL");
+      // console.log("UPDATED EQUIPMENT TUTORIAL");
       //setOverlay(false);
       //  console.log("example models step");
       //  setModalExpanded(true);
