@@ -12,7 +12,6 @@ import MindARViewer from './mindar-viewer';
 const App = () => {
 	const { currentStep, nextStep, prevStep, programStart } = useStore();
 
-	// Create refs for all models
 	const modelRefs = {
 		camera: useRef(null),
 		room: useRef(null),
@@ -31,7 +30,6 @@ const App = () => {
 		anim6: useRef(null)
 	};
 
-	// Define model visibility configurations for each step
 	const stepConfigurations = {
 		1: {
 			room: false,
@@ -134,7 +132,6 @@ const App = () => {
 		}
 	};
 
-	// Initialize refs on mount
 	useEffect(() => {
 		Object.entries(modelRefs).forEach(([key, ref]) => {
 			const selector = key === 'frame' ? '[src="#cupModel"]' :
@@ -151,7 +148,6 @@ const App = () => {
 		});
 	}, []);
 
-	// Update model visibility based on current step
 	useEffect(() => {
 		const configuration = stepConfigurations[currentStep];
 		if (!configuration) return;

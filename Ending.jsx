@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import useStore from "./store";
 
 const Ending = () => {
@@ -7,13 +7,10 @@ const Ending = () => {
 
     useEffect(() => {
         if (currentStep == 8) {
-            // console.log("step 8, Ending mounted");
+
             setEndingOn(true);
         }
     }, [currentStep]);
-
-    const scrollHorizontally = (e) => {
-    }
 
     return (
         (endingOn &&

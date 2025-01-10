@@ -11,11 +11,9 @@ const PhotoLoader = () => {
 	const [centeredImageIndex, setCenteredImageIndex] = useState(0);
 	const carrouselRef = useRef(null);
 
-	// Debounced scroll handler
 	const handleScroll = useCallback((event) => {
 		event.preventDefault();
 
-		// If we're already processing a scroll event, wait
 		if (handleScroll.timeout) {
 			clearTimeout(handleScroll.timeout);
 		}
@@ -44,10 +42,9 @@ const PhotoLoader = () => {
 			});
 
 			setCenteredImageIndex(centerIndex);
-		}, 50); // 50ms debounce
+		}, 50);
 	}, []);
 
-	// Clean up the timeout on unmount
 	useEffect(() => {
 		return () => {
 			if (handleScroll.timeout) {
@@ -56,10 +53,9 @@ const PhotoLoader = () => {
 		};
 	}, []);
 
-	// Center first image on mount
 	useEffect(() => {
 		if (carrouselRef.current && endingOn) {
-			// Add a small delay to ensure DOM is ready
+
 			setTimeout(() => {
 				const containerWidth = carrouselRef.current.offsetWidth;
 				const imageWidth = carrouselRef.current.children[0].offsetWidth;

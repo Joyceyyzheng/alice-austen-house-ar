@@ -41,8 +41,6 @@ html,
 }
 .buttons {
   z-index: 100;
-  /* background-color: white;
-    border-radius: 50%; */
   width: 5rem;
   height: 3rem;
   position: absolute;
@@ -71,7 +69,6 @@ html,
   width: 56px;
   height: 50px;
   background-color: rgb(0, 0, 0, 0);
-  /* border-radius: 50%; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -87,21 +84,11 @@ html,
   background-position: center;
 }
 
-/* .main-header {
-  position: absolute;
-  width: 100%;
-  height: 104px;
-
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
-} */
-
 .mainLogo {
   position: absolute;
-  top: 4.3%; /* ⚠️头线位置 */
+  top: 4.3%;
   left: 1.84%;
-  /* transform: translate(-50%, -50%); */
+
   width: 63.81px;
   height: 67px;
   background-image: url("public/assets/logo.svg");
@@ -130,22 +117,14 @@ html,
   justify-content: center;
   z-index: 10;
   border-radius: 4px;
-
-  /* pointer-events: none; */
-  /* shadow and background blur? ⚠️ */
 }
 .progressbar-parent.up {
   z-index: 200;
-
-  /* border: var(--new-colorful-border) 2px solid; */
-  /* background-color: var(--textbox-background); */
-  /* border-radius: 40px; */
-  /* filter: blur(0.8px); */
 }
 .progressbar-parent-bg {
   position: absolute;
   top: 87.23%vh;
-  /* bottom: 3.23%; */
+
   left: 50%;
   transform: translateX(-50%);
   width: 85.43vw;
@@ -158,11 +137,9 @@ html,
   background-color: var(--progress-bar-trans-bg);
 }
 .progressbar-steps {
-  /* position: relative; */
-  /* width: 92.96vw; */
   display: flex;
   width: 82.94vw;
-  /* flex-direction: row; */
+
   justify-content: space-between;
   align-self: center;
 
@@ -182,22 +159,17 @@ html,
   display: flex;
   align-items: center;
   justify-content: center;
-  /* justify-self: start; */
+
   color: rgb(255, 255, 255);
   font-size: var(--tablet-large-label);
 
   transition: all 0.3s ease;
-
-  /* z-index: 10; */
 }
 
 .progressbar-step.up {
   background-color: var(--progress-bar-opq-bg);
 }
 .progressbar-step.active {
-  /* margin-top: -5px; 
-  width: 60px;
-  height: 60px; */
   background-color: #81247b;
   transition: all 0.3s ease;
   color: rgb(255, 255, 255);
@@ -229,18 +201,6 @@ html,
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* position: absolute;
-  top: 50%;
-  left: 100%;
-  width: 96px;
-  height: 4px;
-  background-color: rgba(0, 0, 0, 0.25);
-  border-radius: 2px;
-  transform: translateY(-50%);
-  z-index: 0;
-
-  transition: width 0.2s ease; */
 }
 .progressbar-track.up {
   background-color: var(--progress-bar-opq-bg);
@@ -251,8 +211,7 @@ html,
 
 .progressbar-progress {
   position: absolute;
-  /* left: 50%; */
-  /* transform: translate(-50%, -50%); */
+
   height: 100%;
   background-color: #81247b;
   border-radius: 2px;
@@ -270,49 +229,31 @@ html,
 
   width: 224px;
   height: auto;
-  z-index: 200; /*⚠️ tutorial z-index*/
-  /* height: 300px; */
+  z-index: 200;
 }
 
 .tutorial-comp-parent {
   position: absolute;
-  /* position: relative; */
-  /* top: 0;
-  left: 0; */
-  /* width: 223px;
-  height: auto; */
+
   z-index: 100;
   background-color: var(--textbox-background);
-  /* border-style: solid;
-  border-width: 1px; */
+
   border-radius: 0px;
-  /* border-image: linear-gradient(to right, #81247b 0%, #9b889a 100%) 1; */
 
   display: flex;
   flex-direction: column;
 }
 
 .tutorial-comp-background {
-  /*炫彩边框*/
   position: absolute;
-  /* top: 0;
-      left: 0; */
+
   top: -1px;
   left: -1px;
   right: -1px;
   bottom: -1px;
-  /* width: 225px;
-  height: 300px; */
+
   z-index: 1;
   background: var(--colorful-border);
-  /* background: linear-gradient(210deg, #81247b, #9b889a); */
-
-  /* border-style: solid;
-    border-width: 1px; */
-  /* border-radius: 10px; */
-
-  /* display: flex;
-    flex-direction: column; */
 }
 .tutorial-comp-text {
   margin: 20px;
@@ -326,10 +267,6 @@ html,
   justify-content: space-between;
   align-items: center;
   z-index: 5;
-
-  /* padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 15px; */
 
   margin-left: 20px;
   margin-right: 20px;
@@ -491,14 +428,12 @@ html,
   transform: translate(-50%, -50%);
   width: 800px;
   height: 450px;
-  /* background-color: var(--progress-bar-trans-bg); */
+
   z-index: 200;
 
   display: flex;
   justify-content: center;
   align-items: center;
-  /* color: white;
-  font-size: var(--tablet-h1); */
 }
 
 /* ----- */

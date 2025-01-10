@@ -10,24 +10,18 @@ const InformationPanel = () => {
   const { modalExpanded, setModalExpanded, currentStep, tutorialStep, tutorialActive } =
     useStore();
   const [isTutorial, setIsTutorial] = useState(false);
-  // console.info(InformationPanelContent[1][0].title);
-  //   console.info(currentStep);
-  //console.info(InformationPanelContent[currentStep][0].title);
+
 
   const handleExpand = () => {
-    // console.log("expand");
     setExpanded(!expanded);
   };
 
   useEffect(() => {
-
     if (tutorialStep === 1 && tutorialActive) {
       setExpanded(false);
       setIsTutorial(true);
     }
-    //reading tutorial steps, setting blurry overlay
     else {
-      // console.info(tutorialStep);
       setExpanded(false);
       setIsTutorial(false);
     }

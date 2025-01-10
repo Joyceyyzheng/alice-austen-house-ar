@@ -25,12 +25,9 @@ const ProgressBar = () => {
 
   const handleStepClick = (step) => {
     setCurrentStep(step);
-    // console.info("currentStep", currentStep);
   };
   return (
     <>
-
-
       <div className={`progressbar-parent ${isTutorial ? "up" : ""}`}>
         {isTutorial && <div className="progressbar-parent-bg"></div>}
         <div className="progressbar-steps">
@@ -46,7 +43,7 @@ const ProgressBar = () => {
                   } ${isTutorial ? "up" : ""}`}
                 onClick={() => handleStepClick(index + 1)}
               >
-                {/* Conditionally render icon or number */}
+
                 {index + 1 === 3 ? (
                   <img
                     src={index + 1 <= currentStep ? threeIcon : threeIcon}
@@ -67,7 +64,6 @@ const ProgressBar = () => {
                 )}
               </div>
 
-              {/* Track */}
               {index < 7 && (
                 <div
                   className={`progressbar-track ${currentStep > index + 1

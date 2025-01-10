@@ -16,10 +16,7 @@ const ExampleModel = () => {
       setIsTutorial(false);
     }
   }, [tutorialStep, tutorialActive]);
-  //only for tutorials
-  //console.info("Example Model mounted", ModelContent[1][0].model);
 
-  //⚠️ loading model interface?
 
   return (
     // <Suspense fallback={<div>Loading model...</div>}>
@@ -39,14 +36,7 @@ const ExampleModel = () => {
 const MenuBtn = ({ onClick }) => {
   const [isTutorial, setIsTutorial] = useState(false);
   const { tutorialStep, tutorialActive } = useStore();
-  // useEffect(() => {
-  //   if (tutorialStep === 2 && tutorialActive) {
-  //     setIsTutorial(true);
 
-  //   } else {
-  //     setIsTutorial(false);
-  //   }
-  // }, [tutorialStep, tutorialActive]);
   return (
     <div className={`menu-btn`} onClick={onClick}>
       <div className="menu-btn-icon">
@@ -76,13 +66,12 @@ const ExpandedMenu = ({ onToggle }) => {
 
   const models = ModelContent[currentStep] || [];
 
-  // console.log(selectedModel.model)
+
 
   const handleModelClick = (model, index) => {
     setSelectedModel({ ...model, index });
     setSelectedModelIndex(index);
-    // console.info("Selected model index:", index);
-    // console.info("Opacity value:", ModelContent[currentStep][index].opacity);
+
   };
 
   const handleCloseViewer = () => {
@@ -124,40 +113,22 @@ const ExpandedMenu = ({ onToggle }) => {
 };
 
 const Equipment = () => {
-  //   const [expanded, setExpanded] = useState(false);
+
   const { currentStep, tutorialStep, modalExpanded, setModalExpanded, tutorialActive } =
     useStore();
   const [showModal, setShowModal] = useState(true);
   const [tutorialModel, setTutorialModel] = useState(false);
   const [isTutorial, setIsTutorial] = useState(false);
 
-  // console.log(modalExpanded)
 
-  //read tutorial steps
+
+
   useEffect(() => {
-    //console.info("tutorial step", tutorialStep);
-    // if (tutorialStep === 2 && tutorialActive) {
-    //   setIsTutorial(true);
-    //   setModalExpanded(false); // Ensure modal remains consistent
-    //   setTutorialModel(false);
-    //   //console.info("istutorial?", isTutorial, tutorialStep);
-    // }
-    // else if (tutorialStep === 3 && tutorialActive) {
-    //   //equipment step
-    //   setModalExpanded(true);
-    //   setIsTutorial(true);
-    //   //   console.info("istutorial?", isTutorial, tutorialStep);
 
-    //   //   console.info("Equipment tutorial");
-    // } else 
     if (tutorialStep === 3 && tutorialActive) {
-
       setIsTutorial(true);
       setModalExpanded(true);
-      // console.log("UPDATED EQUIPMENT TUTORIAL");
-      //setOverlay(false);
-      //  console.log("example models step");
-      //  setModalExpanded(true);
+
     } else if (tutorialActive && tutorialStep === 4) {
       setTutorialModel(true);
       setIsTutorial(false);
@@ -169,10 +140,10 @@ const Equipment = () => {
     }
   }, [tutorialStep, tutorialActive]);
 
-  //tutorail done -> real steps
+
 
   useEffect(() => {
-    //equipment gone on certain steps
+
     if (currentStep === 7 || currentStep === 3 || currentStep === 8) {
       setShowModal(false);
     } else {
@@ -182,7 +153,7 @@ const Equipment = () => {
 
   const toggleModalExpanded = () => {
     setModalExpanded(!modalExpanded);
-    //console.log("toggleModalExpanded", modalExpanded);
+
   };
 
   return (

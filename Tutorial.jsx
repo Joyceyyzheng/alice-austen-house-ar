@@ -74,7 +74,7 @@ const TutorialComp = ({
                 <p
                   key={index}
                   style={{
-                    marginBottom: index < content.length - 1 ? "16px" : "0", // Add spacing except for the last line
+                    marginBottom: index < content.length - 1 ? "16px" : "0",
                   }}
                 >
                   {line}
@@ -159,20 +159,17 @@ const GifLoader = () => {
     },
   };
 
-  // Update device type on window resize
+
   useEffect(() => {
     const handleResize = () => {
       const newDeviceType = getDeviceType(window.innerWidth);
       setDeviceType(newDeviceType);
     };
 
-    // Set initial device type
     handleResize();
 
-    // Add event listener
     window.addEventListener("resize", handleResize);
 
-    // Cleanup
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -217,8 +214,6 @@ const GifLoader = () => {
 };
 
 const Tutorial = () => {
-  // const [currentStep, setCurrentStep] = useState(0); //make this a store one
-  // const [tutorialActive, setTutorialActive] = useState(true);
 
   const { tutorialStep, setTutorialStep, tutorialActive, setTutorialActive } =
     useStore();
@@ -235,16 +230,13 @@ const Tutorial = () => {
   const handleNext = () => {
     if (tutorialStep < tutorialContent.length - 1) {
       setTutorialStep(tutorialStep + 1);
-      // console.info("Updated tutorialStep (async):", tutorialStep + 1);
     } else {
-      //setTutorialStep(0);
       setTutorialActive(false);
     }
   };
 
   const handleSkip = () => {
     setTutorialActive(false);
-    // console.info("Tutorial skipped");
   };
 
   if (!tutorialActive) return null;
