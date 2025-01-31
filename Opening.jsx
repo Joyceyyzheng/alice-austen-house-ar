@@ -58,7 +58,7 @@ const Opening = () => {
         <img className="opening-camera" src={camPreview} alt="camera preivew" />
         <div className="opening-title">Welcome to Alice Austen’s Darkroom</div>
         <div className="opening-content">
-          This is an augmented reality (AR) experience about the photo developing and printing process Alice used in her home studio during the Victorian era. Explore what happens in her dark room with our physical miniature.
+          Learn more about the photo developing and printing process in her home studio with this augmented reality (AR) experience.
         </div>
         <button
           className="opening-btn"

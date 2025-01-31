@@ -1,25 +1,26 @@
 // tutorialContent.js
 const tutorialContent = [
   {
-    title: "Steps to Alice’s Process",
+    title: "To navigate to next steps",
     content: [
-      "There are 7 steps in developing and printing a photo in the darkroom. Navigate step by step, or jump ahead or back to any step by tapping on the numbered timeline.",
+      "Click the arrow on the right to go to the next step, or jump to any step by tapping on the timeline.",
     ],
   },
   {
-    title: "Summary",
-    content:
-      "The summary shows the key actions for each step. Tap to learn more details. ",
+    title: "Watch steps reenacted and read more",
+    content: "Tap on the summary to read more about each steps.",
   },
   {
-    title: "Animated Process",
-    content: "The 3D animation reenact what happens in each step.",
-  },
-  {
-    title: "Toolbox",
+    title: "[TBD]",
     content:
       "Explore the tools used in each step of the process. Tap the arrow to minimize the shelf, or tap on individual pieces of equipment to view them in 360°.",
   },
+  {
+    title: "To see the tools used in each step",
+    content:
+      "Tap on each of the tools to view them in 360. You can minimize the window by clicking on the arrow.",
+  },
+
   {
     title: "360 degree view",
     content: "Rotate the tool to see it  in 360° view.",
