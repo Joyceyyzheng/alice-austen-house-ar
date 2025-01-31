@@ -28,8 +28,8 @@ const TextBox = () => {
     return (
         <div className="track-textbox">
             <div className="track-text">
-                <div className="track-title">Align the Edges</div>
-                <div className="track-content">Align the box with the AR target on the floor of the miniature darkroom.</div>
+                <div className="track-title">Scan the target</div>
+                <div className="track-content">Align the brackets to the target on miniature floor.</div>
             </div>
         </div >
     )
