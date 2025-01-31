@@ -538,7 +538,7 @@ html,
   width: 85px;
   height: 85px;
   /* bottom: 3%; */
-  top: 6.95%;
+  top: 2.05%; /*normal value 6.95 %*/
   left: 8.71%;
   /* left: 8.87%; */
   /* background: var(--text-container-background); */
@@ -1204,7 +1204,7 @@ tracking
   }
 
   .ar-overlay-image {
-    max-width: 95vw !important;
+    max-width: 58vw !important;
   }
 
   .tutorial-gif-loader {
