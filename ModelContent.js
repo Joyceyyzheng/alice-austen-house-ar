@@ -4,7 +4,7 @@ const modelContent = {
     {
       name: "Camera",
       image: "/assets/preview_camera.svg",
-      model: "/models/demo_camera.glb",
+      model: "/models/AAH_camera.glb",
       opacity: 1.0,
     },
     {
@@ -77,7 +77,7 @@ const modelContent = {
     {
       name: "Easel",
       image: "/assets/preview_easel.svg",
-      model: "/models/demo_contactprintingeasel.glb",
+      model: "/models/AAH_contacteasel.glb",
       opacity: 1.0,
     },
   ],

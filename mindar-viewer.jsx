@@ -33,7 +33,7 @@ export default function MindARViewer() {
 				<a-assets>
 					<a-asset-item
 						id="anim1"
-						src="models/demoanim_step01.glb"
+						src="models/AAH_step01.glb"
 					></a-asset-item>
 					<a-asset-item
 						id="anim2"
