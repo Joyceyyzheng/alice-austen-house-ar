@@ -1203,6 +1203,17 @@ tracking
     top: 25%;
   }
 
+  .ar-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .ar-overlay-image {
     max-width: 58vw !important;
   }
