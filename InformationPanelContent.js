@@ -3,7 +3,7 @@ const InformationPanelContent = {
     {
       title: "After photo are taken, glass plate is removed from camera",
       content:
-        "After a photo is captured, the image is exposed onto a chemically coated dry plate made of glass. The exposed plate must then be removed in complete darkness to preserve the image. Alice sourced boxes of ready-to-use dry plates from stores in Lower Manhattan and Brooklyn, often choosing popular brands like Seed and Stanley.",
+        "Alice purchased boxes of dry, chemical-coated glass plates from several stores in lower Manhattan and Brooklyn, which purchased them from manufacturers such as Seed and Stanley. After picture taken, the plate got removed in complete darkness.",
     },
   ],
   2: [
@@ -46,12 +46,6 @@ const InformationPanelContent = {
   7: [
     {
       title: "Finished albumen paper prints",
-      content: "",
-    },
-  ],
-  8: [
-    {
-      title: "Alice’s photo negatives and albumen paper prints",
       content: "",
     },
   ],

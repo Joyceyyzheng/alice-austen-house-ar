@@ -16,6 +16,8 @@
   --tablet-body: 1rem;
   --mobile-h4: 1rem;
   --mobile-body: 0.875rem;
+  --mobile-small-body: 0.75rem;
+  --small-label: 0.625rem;
   --textbox-background: rgba(0, 0, 0, 0.75);
   --container-background: rgba(23, 23, 23, 0.7);
   --timeline-background: rgba(9, 9, 9, 0.7);
@@ -25,6 +27,11 @@
   --progress-bar-trans-bg: rgba(0, 0, 0, 0.25);
   --progress-bar-opq-bg: #535353;
   --tutorial-stroke-color: #ffffff;
+
+  --object-background: rgba(78, 78, 78, 0.4);
+  --object-blur: blur(15px);
+  --primary-color: #81247b;
+
   /* --progress-bar-opq-bg: #a19e93; */
 }
 
@@ -170,12 +177,12 @@ html,
   background-color: var(--progress-bar-opq-bg);
 }
 .progressbar-step.active {
-  background-color: #81247b;
+  background-color: var(--primary-color);
   transition: all 0.3s ease;
   color: rgb(255, 255, 255);
 }
 .progressbar-step.completed {
-  background-color: #4c0848;
+  background-color: var(--primary-color);
   transition: all 0.3s ease;
 }
 
@@ -192,7 +199,7 @@ html,
   left: 0%;
   margin: 2px;
   transform: translateY(-50%);
-  width: 8.04vw; /* Width of each track segment */
+  width: 10.64vw; /* Width of each track segment */
   height: 4px;
   background-color: var(--progress-bar-trans-bg);
   border-radius: 2px;
@@ -982,7 +989,7 @@ tracking
   /* Progress bar */
   .progressbar-parent {
     height: 60px;
-    top: 90%;
+    top: 2.8%;
     width: fit-content;
   }
 
@@ -1005,13 +1012,14 @@ tracking
   }
 
   .progressbar-step {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     font-size: var(--tablet-small-label);
+    backdrop-filter: var(--object-blur);
   }
   .progressbar-step img {
-    width: 12px;
-    height: 12px;
+    width: 20px;
+    height: 20px;
   }
 
   .progressbar-track {
@@ -1055,20 +1063,46 @@ tracking
 
   /* Equipment menu */
   .equipment {
-    bottom: 5%;
-    width: auto;
-    height: 100px;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    right: 4.07%;
+    bottom: 6.57%;
+    top: auto;
+    left: auto;
   }
 
   .menu-btn {
-    width: 74px;
-    height: 74px;
+    position: absolute;
+    /* right: 2%;
+    bottom: 6.57%; */
+    width: 64px;
+    height: 64px;
+
+    border-radius: 4px;
+    background-color: var(--object-background);
+    backdrop-filter: var(--object-blur);
   }
 
   .expanded-menu {
-    height: 74px;
+    /* height: 74px;
     max-width: 82vw;
-    overflow-x: auto;
+    overflow-x: auto; */
+    position: absolute;
+    top: auto;
+    left: auto;
+
+    right: 4.07%;
+    bottom: 6.57%;
+
+    width: 64px;
+    height: auto;
+
+    display: flex;
+    flex-direction: column-reverse;
+
+    position: fixed;
+
     border-radius: 4px;
   }
 
@@ -1077,6 +1111,8 @@ tracking
     align-self: center;
     justify-self: center;
     margin: auto;
+
+    background-image: url("public/assets/expand_more.svg");
   }
 
   .expanded-menu-item {
@@ -1085,30 +1121,81 @@ tracking
   }
 
   .expanded-model-container {
-    height: 70px;
+    /* height: 70px;
     padding-left: 8px;
     padding-right: 8px;
-    gap: 8px;
+    gap: 8px; */
+    display: flex;
+    height: auto;
+    flex-direction: column; /* 改为垂直排列 */
+    align-items: center; /* 水平居中 */
+    gap: 10px;
+  }
+
+  .menu-btn-text {
+    font-size: var(--small-label);
   }
 
   /* Information panel */
   .info-panel-parent {
-    width: 92%;
-    bottom: 10.8%;
+    width: 72%;
+    bottom: 6.57%;
+    left: 4.07%;
+    transform: translateX(0);
+
+    backdrop-filter: var(--object-blur);
+    background-color: var(--object-background);
+    border-radius: 4px;
+  }
+
+  .info-panel-parent.center {
+    width: 91.86%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* left: 0%; */
+    /* transform: translateX(50%); */
   }
 
   .info-panel-header {
-    margin: 14px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 16px;
+    margin-right: 16px;
+
+    /* margin: 0; */
   }
 
   .info-panel-content {
     margin: 14px;
     margin-top: 0px;
-    font-size: var(--mobile-body);
+
+    font-size: var(--mobile-small-body);
   }
 
   .info-panel-title {
-    font-size: var(--mobile-h4);
+    /* font-size: var(--mobile-h4); */
+    font-size: var(--mobile-body);
+    text-align: center;
+    /* max-width: 90%; */
+  }
+
+  .info-panel-close-btn {
+    background-image: url("public/assets/expand_less.svg");
+  }
+
+  .info-panel-close-btn.expanded {
+    background-image: url("public/assets/expand_more.svg");
+  }
+
+  .info-panel-close-btn,
+  .info-panel-close-btn.expanded {
+    background-size: 14px 14px;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 0;
   }
 
   /* Opening screen */
@@ -1184,23 +1271,41 @@ tracking
   /* Navigation buttons */
   .nextBtn,
   .prevBtn {
-    width: 40px;
-    height: 36px;
-    background-size: 10px 20px;
+    width: 30px;
+    height: 30px;
+    /* background-size: 10px 20px; */
+    background-color: var(--object-background);
+
+    border-radius: 100px;
+    backdrop-filter: var(--object-blur);
   }
 
   .nextBtn {
     right: 2%;
+    background-image: url("public/assets/arrow_forward_ios.svg");
   }
 
   .prevBtn {
     left: 2%;
+    background-image: url("public/assets/arrow_back_ios.svg");
   }
 
   .photo-loader {
     width: 56%;
     height: 50%;
     top: 25%;
+  }
+  .photo-loader-alt {
+    width: 213px;
+    height: 34px;
+
+    position: absolute;
+    bottom: 36.26%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: var(--mobile-body);
+    color: white;
+    text-align: center;
   }
 
   .ar-overlay {

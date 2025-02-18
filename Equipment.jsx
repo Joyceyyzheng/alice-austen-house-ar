@@ -1,6 +1,7 @@
 import { Suspense, useEffect, useState } from "react";
 import React from "react";
 import equipBtn from "./public/assets/toolbox_icon.svg";
+import equipBtnMobile from "./public/assets/equipment_mobile.svg";
 import useStore from "./store";
 import ModelContent from "./ModelContent";
 import ModelViewer from "./ModelViewer";
@@ -37,12 +38,24 @@ const MenuBtn = ({ onClick }) => {
   const [isTutorial, setIsTutorial] = useState(false);
   const { tutorialStep, tutorialActive } = useStore();
 
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 767);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 767);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div className={`menu-btn`} onClick={onClick}>
       <div className="menu-btn-icon">
-        <img src={equipBtn} alt="equipBtn" />
+        <img src={isMobile ? equipBtnMobile : equipBtn} alt="equipBtn" />
       </div>
-      <div className="menu-btn-text">Tool</div>
+      <div className="menu-btn-text">Tools</div>
     </div>
   );
 };

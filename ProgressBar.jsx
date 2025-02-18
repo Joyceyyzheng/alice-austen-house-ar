@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import useStore from "./store";
-import threeIcon from "./public/assets/iconThree.svg";
-import sevenIcon from "./public/assets/iconSeven.svg";
+import threeIcon from "./public/assets/progressbar_icon1.svg";
+import sevenIcon from "./public/assets/progressbar_icon2.svg";
 import eightIcon from "./public/assets/photo_progresseight_icon.svg";
 import threeActiveIcon from "./public/assets/photo_progressthree_active_icon.svg";
 import sevenActiveIcon from "./public/assets/photo_progressseven_active_icon.svg";
@@ -31,7 +31,7 @@ const ProgressBar = () => {
       <div className={`progressbar-parent ${isTutorial ? "up" : ""}`}>
         {isTutorial && <div className="progressbar-parent-bg"></div>}
         <div className="progressbar-steps">
-          {[...Array(8)].map((_, index) => (
+          {[...Array(7)].map((_, index) => (
             <div key={index} className="progressbar-segment">
               {/* Step */}
               <div
@@ -64,7 +64,7 @@ const ProgressBar = () => {
                 )}
               </div>
 
-              {index < 7 && (
+              {index < 6 && (
                 <div
                   className={`progressbar-track ${currentStep > index + 1
                     ? "completed"
