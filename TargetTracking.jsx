@@ -8,9 +8,7 @@ const styles = {
         position: 'absolute',
         top: 0,
         left: 0,
-        // right: 0,
-        // bottom: 0,
-        // zIndex: 10,
+
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -29,16 +27,7 @@ const styles = {
 
 };
 
-// const TextBox = () => {
-//     return (
-//         <div className="track-textbox">
-//             <div className="track-text">
-//                 <div className="track-title">Scan the target</div>
-//                 <div className="track-content">Align the brackets to the target on miniature floor.</div>
-//             </div>
-//         </div >
-//     )
-// }
+
 
 const TextBox = ({ title = "", content = "" }) => {
     return (
@@ -80,7 +69,6 @@ const TargetTracking = ({ sceneRef }) => {
                 activeTargets.delete(index);
 
                 if (activeTargets.size === 0) {
-                    //add a delay
                     setTimeout(() => {
                         setIsAnyTargetFound(false);
                     }, 1500);
@@ -105,7 +93,7 @@ const TargetTracking = ({ sceneRef }) => {
 
         if (!firstTargetFound) {
             clearTimeout(timer);
-            // console.log('Tutorial active');
+
         }
 
         return () => clearTimeout(timer);
@@ -118,12 +106,12 @@ const TargetTracking = ({ sceneRef }) => {
             if (window.innerWidth <= 767) {
                 setGifSource("/assets/ARPhone-ezgif.com-reverse.gif");
             } else {
-                setGifSource("/assets/ARipad-ezgif.com-reverse.gif"); // Desktop version
+                setGifSource("/assets/ARipad-ezgif.com-reverse.gif");
             }
         };
 
-        checkScreenSize(); // Run on mount
-        window.addEventListener("resize", checkScreenSize); // Update on resize
+        checkScreenSize();
+        window.addEventListener("resize", checkScreenSize);
 
         return () => {
             window.removeEventListener("resize", checkScreenSize);

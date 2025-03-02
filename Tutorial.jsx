@@ -93,17 +93,15 @@ const TutorialComp = ({
       setIsMobile(window.innerWidth <= 767);
     };
 
-    // Initial check
     handleResize();
 
-    // Add resize event listener
     window.addEventListener("resize", handleResize);
 
-    // Cleanup
+
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Choose appropriate styles based on device type
+
   const currentStyles = stepStyles;
 
   return (
@@ -183,9 +181,6 @@ const TutorialComp = ({
   );
 };
 
-const Overlay = () => {
-  // return <div className="tutorial-overlay"></div>;
-};
 
 const Dots = ({ currentStep }) => {
   return (
@@ -303,13 +298,13 @@ const Tutorial = () => {
       setIsMobile(window.innerWidth <= 767);
     };
 
-    // Initial check
+
     handleResize();
 
-    // Add resize event listener
+
     window.addEventListener("resize", handleResize);
 
-    // Cleanup
+
     return () => window.removeEventListener("resize", handleResize);
   });
 
@@ -337,7 +332,6 @@ const Tutorial = () => {
 
   return (
     <div>
-      <Overlay />
       <GifLoader />
       <Dots currentStep={tutorialStep} />
       {icon && <RotationIcon />}

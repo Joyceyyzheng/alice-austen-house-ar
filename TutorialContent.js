@@ -1,4 +1,3 @@
-// tutorialContent.js
 const tutorialContent = [
   {
     title: "Navigation to next steps",
@@ -8,7 +7,8 @@ const tutorialContent = [
   },
   {
     title: "Summary",
-    content: "See key actions for each step at a glance. Watch the animated process or tap a step for more details.",
+    content:
+      "See key actions for each step at a glance. Watch the animated process or tap a step for more details.",
   },
   {
     title: "Tools used in each step",

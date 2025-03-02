@@ -37,7 +37,7 @@ const OnBoarding = ({ onSkip, onNext }) => {
 const Opening = () => {
 
   const { setProgramStart, tutorialStep, setTutorialStep, tutorialActive, setTutorialActive } = useStore();
-  // const [nextPage, setNextPage] = useState(false);
+
 
   const handleSkip = () => {
     setTutorialActive(false);

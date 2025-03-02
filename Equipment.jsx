@@ -22,7 +22,7 @@ const ExampleModel = () => {
 
 
   return (
-    // <Suspense fallback={<div>Loading model...</div>}>
+
     <Suspense >
       <div className={`sample-model-viewer-container${isTutorial ? "up" : ""}`}>
         <ModelViewer
@@ -111,7 +111,7 @@ const ExpandedMenu = ({ onToggle }) => {
         <div className="expanded-menu-btn" onClick={onToggle}></div>
       </div>
       {selectedModel && (
-        // <Suspense fallback={<div>Loading model...</div>}>
+
         <Suspense>
           <div className="model-viewer-container">
             <ModelViewer

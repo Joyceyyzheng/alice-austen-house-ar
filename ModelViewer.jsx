@@ -1,4 +1,4 @@
-// ModelViewer.jsx
+
 import React, { useRef, useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
@@ -22,7 +22,7 @@ const ModelViewer = ({ model, onClose, showBtn = true, opacityValue, name }) => 
   }, [tutorialStep]);
 
   return (
-    // <div className={`model-viewer${isTutorial ? "up" : ""}`}>
+
     <div className="model-viewer">
       {showBtn && (
         <button className="model-viewer-close-btn" onClick={onClose}>
