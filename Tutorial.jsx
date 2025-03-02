@@ -43,6 +43,42 @@ const stepStyles = [
   },
 ];
 
+const mobileStepStyles = [
+  {
+    outerW: "311px",
+    outerH: "161px",
+    width: "271px",
+    height: "126px",
+    position: { bottom: "64px", left: "50%", transform: "translate(-50%, 0)" },
+  },
+  {
+    outerW: "283px",
+    outerH: "178px",
+    width: "243px",
+    height: "143px",
+    position: { bottom: "235px", left: "10%",  },
+  },
+  {
+    outerW: "283px",
+    outerH: "177px",
+    width: "243px",
+    height: "142px",
+    position: { bottom: "64px", left: "5%", },
+  },
+  {
+    outerW: "311px",
+    outerH: "127px",
+     width: "271px",
+    height: "92px",
+    position: { bottom: "64px", left: "50%", transform: "translate(-50%, 0)" },
+  },
+  {
+    width: "311px",
+    height: "161px",
+    position: { bottom: "64px", left: "50%", transform: "translate(-50%, 0)" },
+  },
+];
+
 const TutorialComp = ({
   title,
   content,
@@ -52,29 +88,68 @@ const TutorialComp = ({
   position,
   stepStyles,
 }) => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 767);
+    };
+
+    // Initial check
+    handleResize();
+
+    // Add resize event listener
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Choose appropriate styles based on device type
+  const currentStyles = stepStyles;
+
   return (
     <div
       className="tutorial"
       style={{
         position: "absolute",
-        ...stepStyles.position,
-        width: stepStyles.width,
-        height: stepStyles.height,
+        ...(currentStyles.position || {}),
+        width: currentStyles.outerW,
+        height: currentStyles.outerH,
+        boxShadow: isMobile ? "2px 4px 10px rgba(0, 0, 0, 0.25)" : "none",
       }}
     >
       <div
         className="tutorial-comp-parent"
-        style={{ width: stepStyles.width, height: stepStyles.height }}
+        style={{
+          width: currentStyles.width,
+          height: currentStyles.height,
+          padding: isMobile ? "20px" : "0",
+          paddingBottom: isMobile ? "0px" : "0px",
+        }}
       >
         <div className="tutorial-comp-text">
-          <div className="tutorial-comp-title">{title}</div>
-          <div className="tutorial-comp-content">
+          <div
+            className="tutorial-comp-title"
+            style={{
+              padding: isMobile ? "0" : null,
+              margin: isMobile ? "0" : null,
+            }}
+          >
+            {title}
+          </div>
+          <div
+            className="tutorial-comp-content"
+            style={{
+              padding: isMobile ? "0" : null,
+              margin: isMobile ? "0" : null,
+            }}
+          >
             {Array.isArray(content) ? (
               content.map((line, index) => (
                 <p
                   key={index}
                   style={{
-                    marginBottom: index < content.length - 1 ? "16px" : "0",
+                    marginBottom: isMobile ?  '0px': (index < content.length - 1 ? "16px" : "0px"),
                   }}
                 >
                   {line}
@@ -85,7 +160,13 @@ const TutorialComp = ({
             )}
           </div>
         </div>
-        <div className="tutorial-comp-buttons">
+        <div
+          className="tutorial-comp-buttons"
+          style={{
+            margin: isMobile ? "0" : null,
+          
+          }}
+        >
           <div className="tutorial-comp-skip" onClick={onSkip}>
             Skip
           </div>
@@ -99,7 +180,6 @@ const TutorialComp = ({
           </div>
         </div>
       </div>
-      {/* <div className="tutorial-comp-background"></div> */}
     </div>
   );
 };
@@ -133,7 +213,6 @@ const GifLoader = () => {
   const { tutorialStep } = useStore();
   const [deviceType, setDeviceType] = useState("desktop");
 
-
   const BREAKPOINTS = {
     mobile: 767,
   };
@@ -142,7 +221,6 @@ const GifLoader = () => {
     if (width <= BREAKPOINTS.mobile) return "mobile";
     return "tablet";
   };
-
 
   const GIF_SOURCES = {
     step1: {
@@ -158,7 +236,6 @@ const GifLoader = () => {
       tablet: "assets/tablet_tool.gif",
     },
   };
-
 
   useEffect(() => {
     const handleResize = () => {
@@ -195,13 +272,15 @@ const GifLoader = () => {
           alt="Tutorial Step 1"
         />
       )}
-      {tutorialStep === 2 && <div className="tutorial-gif-loader-anim">
-        <img
-          className="tutorial-gif-loader-anim"
-          src={getGifSource(2)}
-          alt="Tutorial Step 2"
-        />
-      </div>}
+      {tutorialStep === 2 && (
+        <div className="tutorial-gif-loader-anim">
+          <img
+            className="tutorial-gif-loader-anim"
+            src={getGifSource(2)}
+            alt="Tutorial Step 2"
+          />
+        </div>
+      )}
       {tutorialStep === 3 && (
         <img
           className="tutorial-gif-loader-tool"
@@ -214,10 +293,26 @@ const GifLoader = () => {
 };
 
 const Tutorial = () => {
-
   const { tutorialStep, setTutorialStep, tutorialActive, setTutorialActive } =
     useStore();
   const [icon, setIcon] = useState(false);
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 767);
+    };
+
+    // Initial check
+    handleResize();
+
+    // Add resize event listener
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  });
 
   useEffect(() => {
     if (tutorialStep === 4) {
@@ -245,10 +340,12 @@ const Tutorial = () => {
     <div>
       <Overlay />
       <GifLoader />
-      {/* <Dots currentStep={tutorialStep} /> */}
+      <Dots currentStep={tutorialStep} />
       {icon && <RotationIcon />}
       <TutorialComp
-        stepStyles={stepStyles[tutorialStep]}
+        stepStyles={
+          isMobile ? mobileStepStyles[tutorialStep] : stepStyles[tutorialStep]
+        }
         title={tutorialContent[tutorialStep].title}
         content={tutorialContent[tutorialStep].content}
         onNext={handleNext}

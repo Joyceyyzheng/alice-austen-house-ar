@@ -8,9 +8,15 @@ import sevenActiveIcon from "./public/assets/photo_progressseven_active_icon.svg
 import eightActiveIcon from "./public/assets/photo_progresseight_active_icon.svg";
 
 const ProgressBar = () => {
-  const { currentStep, nextStep, prevStep, setCurrentStep, tutorialStep, tutorialActive } = useStore();
+  const {
+    currentStep,
+    nextStep,
+    prevStep,
+    setCurrentStep,
+    tutorialStep,
+    tutorialActive,
+  } = useStore();
   const [isTutorial, setIsTutorial] = useState(false);
-
 
   useEffect(() => {
     if (tutorialActive && tutorialStep === 0) {
@@ -18,10 +24,7 @@ const ProgressBar = () => {
     } else {
       setIsTutorial(false);
     }
-
   }, [tutorialStep, tutorialActive]);
-
-
 
   const handleStepClick = (step) => {
     setCurrentStep(step);
@@ -35,15 +38,17 @@ const ProgressBar = () => {
             <div key={index} className="progressbar-segment">
               {/* Step */}
               <div
-                className={`progressbar-step ${index + 1 === currentStep
-                  ? "active"
-                  : index + 1 < currentStep
+                className={`progressbar-step ${
+                  index + 1 === currentStep
+                    ? "active"
+                    : index + 1 < currentStep
                     ? "completed"
                     : ""
-                  } ${isTutorial ? "up" : ""}`}
-                onClick={() => handleStepClick(index + 1)}
+                } ${isTutorial ? "up" : ""}`}
+                onClick={() => {
+                  isTutorial ? null : handleStepClick(index + 1) ;
+                }}
               >
-
                 {index + 1 === 3 ? (
                   <img
                     src={index + 1 <= currentStep ? threeIcon : threeIcon}
@@ -56,7 +61,11 @@ const ProgressBar = () => {
                   />
                 ) : index + 1 === 8 ? (
                   <img
-                    src={index + 1 <= currentStep ? eightActiveIcon : eightActiveIcon}
+                    src={
+                      index + 1 <= currentStep
+                        ? eightActiveIcon
+                        : eightActiveIcon
+                    }
                     alt="8"
                   />
                 ) : (
@@ -66,17 +75,15 @@ const ProgressBar = () => {
 
               {index < 6 && (
                 <div
-                  className={`progressbar-track ${currentStep > index + 1
-                    ? "completed"
-                    : ""
-                    } ${isTutorial ? "up" : ""}`}
+                  className={`progressbar-track ${
+                    currentStep > index + 1 ? "completed" : ""
+                  } ${isTutorial ? "up" : ""}`}
                 ></div>
               )}
             </div>
           ))}
         </div>
       </div>
-
     </>
   );
 };
