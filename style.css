@@ -414,10 +414,11 @@ html,
 }
 .tutorial-gif-loader {
   position: absolute;
-  width: 60%;
+  width: 88%;
   height: auto;
   top: 77%;
-  left: 8.54%;
+  left: 50%;
+  transform: translateX(-50%);
 
   z-index: 200;
   /* background-color: rgba(0, 0, 0, 0.8); */
@@ -428,10 +429,10 @@ html,
 }
 .tutorial-gif-loader-tool {
   position: absolute;
-  width: 40%;
+  width: 43%;
   height: auto;
-  top: 6.95%;
-  left: 8.71%;
+  top: 0%;
+  left: 5.71%;
   /* transform: translateX(-50%); */
   z-index: 200;
   /* background-color: rgba(0, 0, 0, 0.8); */
@@ -441,17 +442,17 @@ html,
 }
 .tutorial-gif-loader-anim {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 800px;
-  height: 450px;
+  top: 71%;
+  left: 0.5%;
+  /* transform: translate(-50%, -50%); */
+  width: 80vw;
+  height: auto;
 
   z-index: 200;
 
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
 
 /* ----- */
@@ -1334,7 +1335,7 @@ tracking
   .tutorial-gif-loader {
     width: 90%;
     height: auto;
-    left: 5%;
+    left: 50%;
     top: 2.81%;
 
     background: none !important;
@@ -1345,10 +1346,11 @@ tracking
     height: auto;
     position: absolute;
 
-    left: 43.57% !important;
+    /* left: 43.57% !important; */
+    left: 2%;
     /* transform: translate(-50%, -50%); */
     /* translate: transformX(-50%); */
-    top: 82.57% !important;
+    top: 74.57%;
   }
 
   .tutorial-gif-loader-tool {
