@@ -1217,12 +1217,13 @@ tracking
   }
 
   .opening-content {
-    font-size: 1rem;
+    font-size: var(--mobile-body);
   }
 
   .opening-btn {
     padding: 12px 32px;
-    font-size: 1rem;
+    font-size: var(--mobile-body);
+    font-weight: 600;
   }
 
   .opening-tutorial-title {

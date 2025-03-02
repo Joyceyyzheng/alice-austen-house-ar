@@ -58,13 +58,13 @@ const Opening = () => {
         <img className="opening-camera" src={camPreview} alt="camera preivew" />
         <div className="opening-title">Welcome to Alice Austen’s Darkroom</div>
         <div className="opening-content">
-          Learn more about the photo developing and printing process in her home studio with this augmented reality (AR) experience.
+          Step into Alice’s darkroom. Explore the 7 stages of developing and printing a photograph in Alice’s home studio with this augmented reality (AR) experience.
         </div>
         <button
           className="opening-btn"
           onClick={handleNext}
         >
-          Try now
+          Let's Start
         </button>
         {/* {nextPage && <OnBoarding onSkip={handleSkip} onNext={handleNext} />} */}
       </div>

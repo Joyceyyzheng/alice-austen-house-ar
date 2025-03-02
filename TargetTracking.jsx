@@ -29,22 +29,36 @@ const styles = {
 
 };
 
-const TextBox = () => {
+// const TextBox = () => {
+//     return (
+//         <div className="track-textbox">
+//             <div className="track-text">
+//                 <div className="track-title">Scan the target</div>
+//                 <div className="track-content">Align the brackets to the target on miniature floor.</div>
+//             </div>
+//         </div >
+//     )
+// }
+
+const TextBox = ({ title = "", content = "" }) => {
     return (
         <div className="track-textbox">
             <div className="track-text">
-                <div className="track-title">Scan the target</div>
-                <div className="track-content">Align the brackets to the target on miniature floor.</div>
+                <div className="track-title">{title}</div>
+                <div className="track-content">{content}</div>
             </div>
-        </div >
-    )
-}
+        </div>
+    );
+};
 
 const TargetTracking = ({ sceneRef }) => {
 
     const [isAnyTargetFound, setIsAnyTargetFound] = useState(false);
     const [firstTargetFound, setFirstTargetFound] = useState(false);
     const { tutorialActive } = useStore();
+    const [showGif, setShowGif] = useState(true);
+    const [gifSource, setGifSource] = useState("/assets/ARipad-ezgif.com-reverse.gif");
+
 
     useEffect(() => {
         if (!sceneRef.current) return;
@@ -84,12 +98,63 @@ const TargetTracking = ({ sceneRef }) => {
         };
     }, []);
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowGif(false);
+        }, 7500);
+
+        if (!firstTargetFound) {
+            clearTimeout(timer);
+            // console.log('Tutorial active');
+        }
+
+        return () => clearTimeout(timer);
+
+    }, [firstTargetFound]);
+
+    useEffect(() => {
+
+        const checkScreenSize = () => {
+            if (window.innerWidth <= 767) {
+                setGifSource("/assets/ARPhone-ezgif.com-reverse.gif");
+            } else {
+                setGifSource("/assets/ARipad-ezgif.com-reverse.gif"); // Desktop version
+            }
+        };
+
+        checkScreenSize(); // Run on mount
+        window.addEventListener("resize", checkScreenSize); // Update on resize
+
+        return () => {
+            window.removeEventListener("resize", checkScreenSize);
+        };
+    }, [window.innerWidth]);
+
     return (
         <div>
-            {!isAnyTargetFound && !tutorialActive && !firstTargetFound && (<TextBox />)}
+            {!isAnyTargetFound && !tutorialActive && !firstTargetFound && (<>
+                <TextBox title="Scan the target" content="Point your camera at the QR code to continue." />
+            </>)}
+            {firstTargetFound && showGif && (
+                <>  <TextBox title="Lower your device to watch the animation" content="Keep the floor target in frame at all times!" />
+                    <img
+                        className="intro-gif"
+                        src={gifSource}
+                        alt="Intro Animation"
+                        style={{
+                            position: "absolute",
+                            top: "70%",
+                            left: "50%",
+                            transform: "translate(-50%, -50%)",
+                            width: "40rem",
+                            height: "auto",
+                            zIndex: 1000,
+                        }}
+                    /></>
+
+            )}
             {!isAnyTargetFound && !tutorialActive && (
                 <>
-
                     <div className='ar-overlay' style={styles.overlay}>
                         <img
                             className="ar-overlay-image"

@@ -146,7 +146,7 @@ const GifLoader = () => {
 
   const GIF_SOURCES = {
     step1: {
-      mobile: "assets/mobile_textbox.gif",
+      mobile: "assets/Tablet_Textbox_expand.mov",
       tablet: "assets/tablet_textbox.gif",
     },
     step2: {
