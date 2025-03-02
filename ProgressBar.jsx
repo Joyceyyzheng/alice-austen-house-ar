@@ -20,7 +20,7 @@ const ProgressBar = () => {
 
   useEffect(() => {
     if (tutorialActive && tutorialStep === 0) {
-      setIsTutorial(true);
+      // setIsTutorial(true);
     } else {
       setIsTutorial(false);
     }
@@ -38,15 +38,14 @@ const ProgressBar = () => {
             <div key={index} className="progressbar-segment">
               {/* Step */}
               <div
-                className={`progressbar-step ${
-                  index + 1 === currentStep
+                className={`progressbar-step ${index + 1 === currentStep
                     ? "active"
                     : index + 1 < currentStep
-                    ? "completed"
-                    : ""
-                } ${isTutorial ? "up" : ""}`}
+                      ? "completed"
+                      : ""
+                  } ${isTutorial ? "up" : ""}`}
                 onClick={() => {
-                  isTutorial ? null : handleStepClick(index + 1) ;
+                  isTutorial ? null : handleStepClick(index + 1);
                 }}
               >
                 {index + 1 === 3 ? (
@@ -75,9 +74,8 @@ const ProgressBar = () => {
 
               {index < 6 && (
                 <div
-                  className={`progressbar-track ${
-                    currentStep > index + 1 ? "completed" : ""
-                  } ${isTutorial ? "up" : ""}`}
+                  className={`progressbar-track ${currentStep > index + 1 ? "completed" : ""
+                    } ${isTutorial ? "up" : ""}`}
                 ></div>
               )}
             </div>

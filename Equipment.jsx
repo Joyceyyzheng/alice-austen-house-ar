@@ -10,9 +10,11 @@ import ModelViewer from "./ModelViewer";
 const ExampleModel = () => {
   const [isTutorial, setIsTutorial] = useState(false);
   const { tutorialStep, tutorialActive } = useStore();
+
   useEffect(() => {
-    if (tutorialStep === 4 && tutorialActive) {
+    if (tutorialStep === 3 && tutorialActive) {
       setIsTutorial(true);
+
     } else {
       setIsTutorial(false);
     }
@@ -141,9 +143,10 @@ const Equipment = () => {
     if (tutorialStep === 3 && tutorialActive) {
       setIsTutorial(true);
       setModalExpanded(true);
+      setTutorialModel(true);
 
     } else if (tutorialActive && tutorialStep === 4) {
-      setTutorialModel(true);
+      setTutorialModel(false);
       setIsTutorial(false);
     } else {
       setModalExpanded(true);
@@ -190,6 +193,7 @@ const Equipment = () => {
       </div>
 
       {tutorialModel && tutorialActive && <ExampleModel />}
+      {/* {tutorialActive && <ExampleModel />} */}
     </>
   );
 };

@@ -19,7 +19,7 @@
   --mobile-body: 0.875rem;
   --mobile-small-body: 0.75rem;
   --small-label: 0.625rem;
-  --textbox-background: rgba(0, 0, 0, 0.75);
+  --textbox-background: rgba(0, 0, 0, 0.9);
   --container-background: rgba(23, 23, 23, 0.7);
   --timeline-background: rgba(9, 9, 9, 0.7);
   --background-blur: blur(30px);
@@ -407,6 +407,11 @@ html,
   z-index: 13;
 }
 
+.tutorial-gif-loader,
+.tutorial-gif-loader-tool,
+.tutorial-gif-loader-anim {
+  background: none !important;
+}
 .tutorial-gif-loader {
   position: absolute;
   width: 60%;
@@ -415,7 +420,8 @@ html,
   left: 8.54%;
 
   z-index: 200;
-  background-color: rgba(0, 0, 0, 0.8);
+  /* background-color: rgba(0, 0, 0, 0.8); */
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -428,7 +434,7 @@ html,
   left: 8.71%;
   /* transform: translateX(-50%); */
   z-index: 200;
-  background-color: rgba(0, 0, 0, 0.8);
+  /* background-color: rgba(0, 0, 0, 0.8); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -711,7 +717,7 @@ html,
   z-index: 5;
 }
 .sample-model-viewer-container.up {
-  /* z-index: 200; */
+  z-index: 200;
   /* filter: blur(0.8px); */
   /* pointer-events: none; */
 }
@@ -1051,11 +1057,11 @@ tracking
     margin: 0px !important;
   }
 
-
   .tutorial-comp-content {
     font-size: var(--mobile-body);
     word-wrap: break-word;
     margin: 0px;
+    margin-bottom: 5px;
   }
 
   .tutorial-dots {
@@ -1329,12 +1335,27 @@ tracking
     width: 90%;
     height: auto;
     left: 5%;
+    top: 2.81%;
+
+    background: none !important;
+  }
+
+  .tutorial-gif-loader-anim {
+    width: 72vw;
+    height: auto;
+    position: absolute;
+
+    left: 43.57% !important;
+    /* transform: translate(-50%, -50%); */
+    /* translate: transformX(-50%); */
+    top: 82.57% !important;
   }
 
   .tutorial-gif-loader-tool {
-    width: 80vw;
+    width: 16.28vw;
     height: auto;
-    left: 10%;
+    left: 79.64%;
+    top: 70.48%;
   }
 }
 

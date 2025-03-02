@@ -56,7 +56,7 @@ const mobileStepStyles = [
     outerH: "178px",
     width: "243px",
     height: "143px",
-    position: { bottom: "235px", left: "10%",  },
+    position: { bottom: "235px", left: "4.07%", },
   },
   {
     outerW: "283px",
@@ -68,7 +68,7 @@ const mobileStepStyles = [
   {
     outerW: "311px",
     outerH: "127px",
-     width: "271px",
+    width: "271px",
     height: "92px",
     position: { bottom: "64px", left: "50%", transform: "translate(-50%, 0)" },
   },
@@ -149,7 +149,7 @@ const TutorialComp = ({
                 <p
                   key={index}
                   style={{
-                    marginBottom: isMobile ?  '0px': (index < content.length - 1 ? "16px" : "0px"),
+                    marginBottom: isMobile ? '0px' : (index < content.length - 1 ? "16px" : "0px"),
                   }}
                 >
                   {line}
@@ -164,7 +164,7 @@ const TutorialComp = ({
           className="tutorial-comp-buttons"
           style={{
             margin: isMobile ? "0" : null,
-          
+
           }}
         >
           <div className="tutorial-comp-skip" onClick={onSkip}>
@@ -224,16 +224,16 @@ const GifLoader = () => {
 
   const GIF_SOURCES = {
     step1: {
-      mobile: "assets/Tablet_Textbox_expand.mov",
-      tablet: "assets/tablet_textbox.gif",
+      mobile: "assets/Mobile_Timeline.gif",
+      tablet: "assets/Tablet_Timeline.gif",
     },
     step2: {
-      mobile: "assets/mobile_anim.gif",
-      tablet: "assets/mobile_anim.gif",
+      mobile: "assets/Mobile_Textbox.gif",
+      tablet: "assets/Tablet_Textbox.gif",
     },
     step3: {
-      mobile: "assets/mobile_tool.gif",
-      tablet: "assets/tablet_tool.gif",
+      mobile: "assets/mobile_toolbox.gif",
+      tablet: "assets/Tablet_Tool_Expand.gif",
     },
   };
 
@@ -265,14 +265,14 @@ const GifLoader = () => {
 
   return (
     <div>
-      {tutorialStep === 1 && (
+      {tutorialStep === 0 && (
         <img
           className="tutorial-gif-loader"
           src={getGifSource(1)}
           alt="Tutorial Step 1"
         />
       )}
-      {tutorialStep === 2 && (
+      {tutorialStep === 1 && (
         <div className="tutorial-gif-loader-anim">
           <img
             className="tutorial-gif-loader-anim"
@@ -281,7 +281,7 @@ const GifLoader = () => {
           />
         </div>
       )}
-      {tutorialStep === 3 && (
+      {tutorialStep === 2 && (
         <img
           className="tutorial-gif-loader-tool"
           src={getGifSource(3)}
