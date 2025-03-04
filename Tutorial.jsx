@@ -309,7 +309,7 @@ const Tutorial = () => {
   });
 
   useEffect(() => {
-    if (tutorialStep === 4) {
+    if (tutorialStep === 3) {
       setIcon(true);
     } else {
       setIcon(false);
