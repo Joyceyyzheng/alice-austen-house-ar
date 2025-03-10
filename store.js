@@ -25,6 +25,9 @@ const useStore = create((set) => ({
 
   selectedModelIndex: null,
   setSelectedModelIndex: (index) => set({ selectedModelIndex: index }),
+
+  firstTargetTracked: false,
+  setFirstTargetTracked: (value) => set({ firstTargetTracked: value }),
 }));
 
 export default useStore;

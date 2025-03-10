@@ -26,7 +26,7 @@ const ExampleModel = () => {
     <Suspense >
       <div className={`sample-model-viewer-container${isTutorial ? "up" : ""}`}>
         <ModelViewer
-          model={ModelContent[1][0].model}
+          model="public/models/AAH_camera.glb"
           showBtn={false}
           opacityValue={1.0}
         // onClose={handleCloseViewer}
@@ -104,7 +104,7 @@ const ExpandedMenu = ({ onToggle }) => {
               onClick={() => handleModelClick(model, index)}
             >
               <img src={model.image} alt={model.name} />
-              {/* <p>{model.name}</p> */}
+
             </div>
           ))}
         </div>
@@ -175,7 +175,7 @@ const Equipment = () => {
   return (
     <>
 
-      {/* <div className={`equipment ${isTutorial ? "up" : ""}`}> */}
+
       <div className={`equipment`}>
         {showModal && (
           <>
@@ -193,7 +193,7 @@ const Equipment = () => {
       </div>
 
       {tutorialModel && tutorialActive && <ExampleModel />}
-      {/* {tutorialActive && <ExampleModel />} */}
+
     </>
   );
 };

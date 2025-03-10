@@ -10,7 +10,7 @@ import PhotoLoader from './PhotoLoader';
 import MindARViewer from './mindar-viewer';
 
 const App = () => {
-	const { currentStep, nextStep, prevStep, programStart } = useStore();
+	const { currentStep, nextStep, prevStep, programStart, firstTargetTracked } = useStore();
 
 	const modelRefs = {
 		camera: useRef(null),
@@ -169,12 +169,15 @@ const App = () => {
 			{programStart ? (
 				<>
 					<Tutorial />
-					<InformationPanel />
-					<ProgressBar />
+					{firstTargetTracked && (
+						<>
+							<InformationPanel />
+							<ProgressBar />
+						</>
+					)}
 					<Equipment />
 					<BlurOverlay />
 					<PhotoLoader />
-					{/* <div className="mainLogo" /> */}
 					{currentStep < 7 ? <button className="nextBtn" onClick={nextStep} /> : null}
 					<button className="prevBtn" onClick={prevStep} />
 				</>

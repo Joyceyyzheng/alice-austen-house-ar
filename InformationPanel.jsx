@@ -7,6 +7,7 @@ import BlurOverlay from "./BlurOverlay";
 const InformationPanel = () => {
   const [expanded, setExpanded] = useState(false);
   const [content, setContent] = useState(true);
+  const [title, setTitle] = useState(true);
   const { modalExpanded, setModalExpanded, currentStep, tutorialStep, tutorialActive } =
     useStore();
   const [isTutorial, setIsTutorial] = useState(false);
@@ -35,29 +36,38 @@ const InformationPanel = () => {
     }
   }, [currentStep]);
 
+  useEffect(() => {
+    if (currentStep === 8) {
+      setTitle(false);
+    } else {
+      setTitle(true);
+    }
+  }, [currentStep]);
+
   return (
     <>
 
-      {/* {isTutorial && <div className="info-panel-parent-bg"></div>} */}
-      {/* <div className={`info-panel-parent ${isTutorial ? "up" : ""}`}> */}
-      <div className={`info-panel-parent ${!content ? "center" : ""}`}>
-        <div className="info-panel-header">
-          <div className="info-panel-title">
-            {InformationPanelContent[currentStep][0].title}
+
+      {title && (
+        <div className={`info-panel-parent ${!content ? "center" : ""}`}>
+          <div className="info-panel-header">
+            <div className="info-panel-title">
+              {InformationPanelContent[currentStep][0].title}
+            </div>
+            {content && (
+              <div
+                className={`info-panel-close-btn ${expanded ? "expanded" : ""}`}
+                onClick={handleExpand}
+              ></div>
+            )}
           </div>
-          {content && (
-            <div
-              className={`info-panel-close-btn ${expanded ? "expanded" : ""}`}
-              onClick={handleExpand}
-            ></div>
+          {expanded && content && (
+            <div className="info-panel-content">
+              {InformationPanelContent[currentStep][0].content}
+            </div>
           )}
         </div>
-        {expanded && content && (
-          <div className="info-panel-content">
-            {InformationPanelContent[currentStep][0].content}
-          </div>
-        )}
-      </div>
+      )}
     </>
   );
 };

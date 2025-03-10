@@ -36,13 +36,13 @@ const ProgressBar = () => {
         <div className="progressbar-steps">
           {[...Array(7)].map((_, index) => (
             <div key={index} className="progressbar-segment">
-              {/* Step */}
+
               <div
                 className={`progressbar-step ${index + 1 === currentStep
-                    ? "active"
-                    : index + 1 < currentStep
-                      ? "completed"
-                      : ""
+                  ? "active"
+                  : index + 1 < currentStep
+                    ? "completed"
+                    : ""
                   } ${isTutorial ? "up" : ""}`}
                 onClick={() => {
                   isTutorial ? null : handleStepClick(index + 1);

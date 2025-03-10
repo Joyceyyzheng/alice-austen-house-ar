@@ -48,6 +48,12 @@ const InformationPanelContent = {
       content: "",
     },
   ],
+  8: [
+    {
+      title: "",
+      content: "",
+    },
+  ],
 };
 
 export default InformationPanelContent;

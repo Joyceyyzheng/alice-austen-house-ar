@@ -9,7 +9,7 @@ const OnBoarding = ({ onSkip, onNext }) => {
 
   return (
     <>
-      {/* <div className="opening-tutorial-title">Before we start...</div> */}
+
       <div className="tutorial-comp-parent-op">
         <div className="tutorial-comp-text-op">
           <div className="tutorial-comp-title">On-boarding</div>
@@ -66,7 +66,7 @@ const Opening = () => {
         >
           Let's Start
         </button>
-        {/* {nextPage && <OnBoarding onSkip={handleSkip} onNext={handleNext} />} */}
+
       </div>
 
 

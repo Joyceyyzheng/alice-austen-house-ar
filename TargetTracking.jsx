@@ -24,10 +24,7 @@ const styles = {
 
     },
 
-
 };
-
-
 
 const TextBox = ({ title = "", content = "" }) => {
     return (
@@ -44,7 +41,7 @@ const TargetTracking = ({ sceneRef }) => {
 
     const [isAnyTargetFound, setIsAnyTargetFound] = useState(false);
     const [firstTargetFound, setFirstTargetFound] = useState(false);
-    const { tutorialActive } = useStore();
+    const { tutorialActive, firstTargetTracked, setFirstTargetTracked } = useStore();
     const [showGif, setShowGif] = useState(true);
     const [gifSource, setGifSource] = useState("/assets/ARipad-ezgif.com-reverse.gif");
 
@@ -60,7 +57,8 @@ const TargetTracking = ({ sceneRef }) => {
             target.addEventListener('targetFound', () => {
                 activeTargets.add(index);
                 setIsAnyTargetFound(true);
-                setFirstTargetFound(true);
+                // setFirstTargetFound(true);
+                setFirstTargetTracked(true);
 
             });
 
@@ -91,14 +89,14 @@ const TargetTracking = ({ sceneRef }) => {
             setShowGif(false);
         }, 7500);
 
-        if (!firstTargetFound) {
+        if (!firstTargetTracked) {
             clearTimeout(timer);
 
         }
 
         return () => clearTimeout(timer);
 
-    }, [firstTargetFound]);
+    }, [firstTargetTracked]);
 
     useEffect(() => {
 
@@ -120,10 +118,10 @@ const TargetTracking = ({ sceneRef }) => {
 
     return (
         <div>
-            {!isAnyTargetFound && !tutorialActive && !firstTargetFound && (<>
+            {!isAnyTargetFound && !tutorialActive && !firstTargetTracked && (<>
                 <TextBox title="Scan the target" content="Point your camera at the QR code to continue." />
             </>)}
-            {firstTargetFound && showGif && (
+            {firstTargetTracked && showGif && (
                 <>  <TextBox title="Lower your device to watch the animation" content="Keep the floor target in frame at all times!" />
                     <img
                         className="intro-gif"
@@ -150,9 +148,7 @@ const TargetTracking = ({ sceneRef }) => {
                             alt="Please scan a target"
                             style={styles.overlayImage}
                         />
-                        {/* <video autoPlay loop muted playsInline className="ar-overlay-video">
-                            <source src="/assets/test_expanding.mov" type="video/mov" />
-                        </video> */}
+
                     </div>
                 </>
             )}

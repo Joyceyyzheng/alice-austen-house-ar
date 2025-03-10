@@ -61,15 +61,9 @@ export default function MindARViewer() {
 
 				<a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-				{/* Room Model */}
+
 				<a-entity mindar-image-target="targetIndex: 0">
-					{/* <a-gltf-model
-					rotation="80 0 0"
-					position="0 4.9 -7.2"
-					scale="0.05 0.05 0.05"
-					src="#roomModel"
-					animation-mixer
-				></a-gltf-model> */}
+
 					<a-gltf-model
 						rotation="80 0 0"
 						position="0 1.4 0.05"
@@ -97,9 +91,7 @@ export default function MindARViewer() {
 						animation-mixer
 					></a-gltf-model>
 				</a-entity>
-				{/* <a-entity mindar-image-target="targetIndex: 1">
-          <a-gltf-model rotation="0 95 90" position="0 2.85 -1.0" scale="0.28 0.28 0.28" src="#newCamModel" visible="false" animation-mixer></a-gltf-model>
-      </a-entity> */}
+
 
 				{/* Cup Model */}
 				<a-entity mindar-image-target="targetIndex: 2">
