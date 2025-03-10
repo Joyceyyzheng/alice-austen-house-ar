@@ -18,7 +18,7 @@ const styles = {
     },
     overlayImage: {
         maxWidth: '500px',
-        width: '80%',
+        width: '42%',
         padding: '1rem',
         objectFit: 'contain',
 
@@ -61,7 +61,7 @@ const TargetTracking = ({ sceneRef }) => {
                 activeTargets.add(index);
                 setIsAnyTargetFound(true);
                 setFirstTargetFound(true);
-                console.log('Target found');
+
             });
 
             target.addEventListener('targetLost', () => {
@@ -73,7 +73,7 @@ const TargetTracking = ({ sceneRef }) => {
                         setIsAnyTargetFound(false);
                     }, 1500);
                     setIsAnyTargetFound(false);
-                    console.log('Target lost');
+
                 }
             });
         });
@@ -84,7 +84,7 @@ const TargetTracking = ({ sceneRef }) => {
                 target.removeEventListener('targetLost', () => { });
             });
         };
-    }, []);
+    }, [isAnyTargetFound]);
 
     useEffect(() => {
         const timer = setTimeout(() => {

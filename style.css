@@ -1334,9 +1334,10 @@ tracking
     justify-content: center;
   }
 
-  .ar-overlay-image {
-    max-width: 58vw !important;
-  }
+  /* .ar-overlay-image {
+    width: 30vw;
+    max-width: 42vw !important;
+  } */
 
   .tutorial-gif-loader {
     width: 90%;

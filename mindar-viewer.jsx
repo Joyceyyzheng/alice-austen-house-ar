@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import 'aframe';
 import 'aframe-extras';
 import 'mind-ar/dist/mindar-image-aframe.prod.js';
@@ -51,10 +51,7 @@ export default function MindARViewer() {
 						id="anim6"
 						src="models/AAH_step06_opt.glb"
 					></a-asset-item>
-					{/* <a-asset-item
-						id="roomModel"
-						src="models/darkroom_noceilling01.glb"
-					></a-asset-item> */}
+
 					<a-asset-item
 						id="cameraModel"
 						src="models/AAH_camera.glb"
