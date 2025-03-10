@@ -164,9 +164,10 @@ const TutorialComp = ({
 
           }}
         >
-          <div className="tutorial-comp-skip" onClick={onSkip}>
-            Skip
-          </div>
+          {!isLastStep && (<div className="tutorial-comp-skip" onClick={onSkip}>
+            Skip Tutorial
+          </div>)}
+
           <div className="tutorial-comp-next-container">
             <div className="tutorial-comp-next" onClick={onNext}>
               {isLastStep ? "Finish" : "Next"}

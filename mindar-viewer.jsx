@@ -41,15 +41,15 @@ export default function MindARViewer() {
 					></a-asset-item>
 					<a-asset-item
 						id="anim4"
-						src="models/AAH_step01_opt.glb"
+						src="models/AAH_step04_opt.glb"
 					></a-asset-item>
 					<a-asset-item
 						id="anim5"
-						src="models/AAH_step01_opt.glb"
+						src="models/AAH_step05_opt.glb"
 					></a-asset-item>
 					<a-asset-item
 						id="anim6"
-						src="models/AAH_step01_opt.glb"
+						src="models/AAH_step06_opt.glb"
 					></a-asset-item>
 					{/* <a-asset-item
 						id="roomModel"
@@ -59,27 +59,7 @@ export default function MindARViewer() {
 						id="cameraModel"
 						src="models/AAH_camera.glb"
 					></a-asset-item>
-					{/* <a-asset-item id="newCamModel" src="models/demo_camerabacking.glb"></a-asset-item> */}
-					<a-asset-item
-						id="cupModel"
-						src="models/demo_graduatedcylinder.glb"
-					></a-asset-item>
-					<a-asset-item
-						id="contactModel"
-						src="models/demo_contactprintingeasel.glb"
-					></a-asset-item>
-					<a-asset-item
-						id="tankModel"
-						src="models/demo_developingtank.glb"
-					></a-asset-item>
-					<a-asset-item
-						id="trayModel"
-						src="models/demo_tray.glb"
-					></a-asset-item>
-					<a-asset-item
-						id="spoonModel"
-						src="models/demo_woodenspoon.glb"
-					></a-asset-item>
+
 				</a-assets>
 
 				<a-camera position="0 0 0" look-controls="enabled: false"></a-camera>

@@ -442,7 +442,7 @@ html,
 }
 .tutorial-gif-loader-anim {
   position: absolute;
-  top: 71%;
+  top: 69.5%;
   left: 0.5%;
   /* transform: translate(-50%, -50%); */
   width: 80vw;
@@ -492,6 +492,7 @@ html,
 }
 
 .opening-content {
+  max-width: 80vw;
   font-size: 1.25rem;
   text-align: center;
 }
@@ -1355,7 +1356,7 @@ tracking
     left: 2%;
     /* transform: translate(-50%, -50%); */
     /* translate: transformX(-50%); */
-    top: 74.57%;
+    top: 72.57%;
   }
 
   .tutorial-gif-loader-tool {
