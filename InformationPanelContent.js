@@ -1,7 +1,7 @@
 const InformationPanelContent = {
   1: [
     {
-      title: "After photo are taken, glass plate is removed from camera",
+      title: "After photos are taken, glass plate is removed from camera",
       content:
         "Alice purchased boxes of dry, chemical-coated glass plates from several stores in lower Manhattan and Brooklyn, which purchased them from manufacturers such as Seed and Stanley. After picture taken, the plate got removed in complete darkness.",
     },

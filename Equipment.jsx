@@ -26,7 +26,7 @@ const ExampleModel = () => {
     <Suspense >
       <div className={`sample-model-viewer-container${isTutorial ? "up" : ""}`}>
         <ModelViewer
-          model="public/models/AAH_camera.glb"
+          model={ModelContent[1][0].model}
           showBtn={false}
           opacityValue={1.0}
         // onClose={handleCloseViewer}

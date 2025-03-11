@@ -725,6 +725,7 @@ html,
 
   display: flex;
   flex-direction: column;
+
   color: white;
   border-radius: 4px;
 }
@@ -739,7 +740,7 @@ html,
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 15px;
   margin-bottom: 15px;
   margin-left: 12px;
@@ -1318,6 +1319,8 @@ tracking
     font-size: var(--mobile-body);
     color: white;
     text-align: center;
+
+    margin-top: 1rem;
   }
 
   .ar-overlay {

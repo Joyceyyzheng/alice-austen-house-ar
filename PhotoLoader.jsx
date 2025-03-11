@@ -147,7 +147,7 @@ const PhotoLoader = () => {
 				</div>
 			)}
 			{isPositive && (
-				<div>
+				<div className="photo-loader-container">
 					<img className="photo-loader" src={positivePhoto} alt="positive" />
 					<div className="photo-loader-alt">Alice Austen and Julia Martin sitting in trees with dogs, 1885</div>
 				</div>
