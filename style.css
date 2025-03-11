@@ -795,13 +795,27 @@ html,
 /* --------------------
 ending / photo loader
 -------------------- */
-.photo-loader {
+
+.photo-loader-container {
   position: absolute;
   width: 55.86%;
   height: 53.11%;
   top: 18.89%;
   left: 50%;
   transform: translateX(-50%);
+
+  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: flex-start;
+
+  color: white;
+  font-size: var(--tablet-body);
+}
+.photo-loader-title {
+  font-weight: 600;
+  /* width: 55.86%; */
 }
 
 .carrousel-parent {
@@ -1306,23 +1320,33 @@ tracking
     background-image: url("public/assets/arrow_back_ios.svg");
   }
 
+  .photo-loader-container {
+    position: absolute;
+    width: 76%;
+    /* height: 53.11%; */
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    color: white;
+    font-size: var(--tablet-body);
+  }
+
   .photo-loader {
     width: 76%;
     /* height: 50%; */
-    top: 25%;
   }
   .photo-loader-alt {
     width: 76%;
     height: 34px;
 
-    position: absolute;
-    bottom: 30.26%;
-    left: 50%;
-    transform: translateX(-50%);
     font-size: var(--mobile-body);
-    color: white;
-    text-align: center;
-
     margin-top: 1rem;
     text-align: left;
   }
@@ -1332,12 +1356,6 @@ tracking
     font-size: var(--mobile-body);
     font-weight: 600;
     color: #fff;
-
-    position: absolute;
-    top: 35.26%;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: left;
   }
 
   .ar-overlay {
