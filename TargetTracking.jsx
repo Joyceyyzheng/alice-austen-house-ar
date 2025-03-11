@@ -18,7 +18,7 @@ const styles = {
     },
     overlayImage: {
         maxWidth: '500px',
-        width: '42%',
+        width: '30%',
         padding: '1rem',
         objectFit: 'contain',
 
@@ -40,6 +40,7 @@ const TextBox = ({ title = "", content = "" }) => {
 const TargetTracking = ({ sceneRef }) => {
 
     const [isAnyTargetFound, setIsAnyTargetFound] = useState(false);
+
     const [firstTargetFound, setFirstTargetFound] = useState(false);
     const { tutorialActive, firstTargetTracked, setFirstTargetTracked } = useStore();
     const [showGif, setShowGif] = useState(true);
@@ -66,11 +67,12 @@ const TargetTracking = ({ sceneRef }) => {
 
                 activeTargets.delete(index);
 
+
                 if (activeTargets.size === 0) {
                     setTimeout(() => {
                         setIsAnyTargetFound(false);
-                    }, 1500);
-                    setIsAnyTargetFound(false);
+                    }, 3000);
+
 
                 }
             });
@@ -119,7 +121,7 @@ const TargetTracking = ({ sceneRef }) => {
     return (
         <div>
             {!isAnyTargetFound && !tutorialActive && !firstTargetTracked && (<>
-                <TextBox title="Scan the target" content="Point your camera at the QR code to continue." />
+                <TextBox title="Scan the target" content="Point your camera at the target to continue." />
             </>)}
             {firstTargetTracked && showGif && (
                 <>  <TextBox title="Lower your device to watch the animation" content="Keep the floor target in frame at all times!" />
@@ -129,12 +131,13 @@ const TargetTracking = ({ sceneRef }) => {
                         alt="Intro Animation"
                         style={{
                             position: "absolute",
-                            top: "70%",
+                            top: "60%",
                             left: "50%",
                             transform: "translate(-50%, -50%)",
                             width: "40rem",
                             height: "auto",
                             zIndex: 1000,
+                            pointerEvents: "none",
                         }}
                     /></>
 

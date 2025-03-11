@@ -143,11 +143,14 @@ const PhotoLoader = () => {
 			)}
 			{isNegative && (
 				<div>
+					<div className="photo-loader-title">Negative image on glass plate</div>
 					<img className="photo-loader" src={negativePhoto} alt="negative" />
+					<div className="photo-loader-alt">Alice Austen and Julia Martin sitting in trees with dogs, 1885</div>
 				</div>
 			)}
 			{isPositive && (
 				<div className="photo-loader-container">
+					<div className="photo-loader-title">Printed image on paper</div>
 					<img className="photo-loader" src={positivePhoto} alt="positive" />
 					<div className="photo-loader-alt">Alice Austen and Julia Martin sitting in trees with dogs, 1885</div>
 				</div>

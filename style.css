@@ -978,7 +978,7 @@ tracking
 
 .link-to-website {
   position: absolute;
-  bottom: 18%;
+  bottom: 15%;
 
   width: 60%;
   text-align: center;
@@ -1185,6 +1185,9 @@ tracking
     margin: 14px;
     margin-top: 0px;
 
+    max-height: 4rem;
+    overflow-y: auto;
+
     font-size: var(--mobile-small-body);
   }
 
@@ -1304,16 +1307,16 @@ tracking
   }
 
   .photo-loader {
-    width: 56%;
-    height: 50%;
+    width: 76%;
+    /* height: 50%; */
     top: 25%;
   }
   .photo-loader-alt {
-    width: 213px;
+    width: 76%;
     height: 34px;
 
     position: absolute;
-    bottom: 36.26%;
+    bottom: 30.26%;
     left: 50%;
     transform: translateX(-50%);
     font-size: var(--mobile-body);
@@ -1321,6 +1324,20 @@ tracking
     text-align: center;
 
     margin-top: 1rem;
+    text-align: left;
+  }
+
+  .photo-loader-title {
+    width: 76%;
+    font-size: var(--mobile-body);
+    font-weight: 600;
+    color: #fff;
+
+    position: absolute;
+    top: 35.26%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: left;
   }
 
   .ar-overlay {

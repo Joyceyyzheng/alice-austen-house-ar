@@ -56,9 +56,9 @@ const Opening = () => {
 
       <div className="opening-container">
         <img className="opening-camera" src={camPreview} alt="camera preivew" />
-        <div className="opening-title">Welcome to Alice Austen’s Darkroom</div>
+        <div className="opening-title">Step into Alice Austen’s Darkroom</div>
         <div className="opening-content">
-          Step into Alice’s darkroom. Explore the 7 stages of developing and printing a photograph in Alice’s home studio with this augmented reality (AR) experience.
+          Explore the 7 stages of developing and printing a photograph in Alice’s home studio with this augmented reality (AR) experience.
         </div>
         <button
           className="opening-btn"

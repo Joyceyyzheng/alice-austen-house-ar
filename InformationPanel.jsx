@@ -31,18 +31,14 @@ const InformationPanel = () => {
   useEffect(() => {
     if (currentStep === 3 || currentStep === 7 || currentStep === 8) {
       setContent(false);
-    } else {
-      setContent(true);
-    }
-  }, [currentStep]);
-
-  useEffect(() => {
-    if (currentStep === 8) {
       setTitle(false);
     } else {
+      setContent(true);
       setTitle(true);
     }
   }, [currentStep]);
+
+
 
   return (
     <>
