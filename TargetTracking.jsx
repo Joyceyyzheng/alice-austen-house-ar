@@ -123,7 +123,7 @@ const TargetTracking = ({ sceneRef }) => {
             {!isAnyTargetFound && !tutorialActive && !firstTargetTracked && (<>
                 <TextBox title="Scan the target" content="Point your camera at the target to continue." />
             </>)}
-            {firstTargetTracked && showGif && (
+            {/* {firstTargetTracked && showGif && (
                 <>  <TextBox title="Lower your device to watch the animation" content="Keep the floor target in frame at all times!" />
                     <img
                         className="intro-gif"
@@ -141,7 +141,7 @@ const TargetTracking = ({ sceneRef }) => {
                         }}
                     /></>
 
-            )}
+            )} */}
             {!isAnyTargetFound && !tutorialActive && (
                 <>
                     <div className='ar-overlay' style={styles.overlay}>

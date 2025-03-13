@@ -46,9 +46,9 @@ const stepStyles = [
 const mobileStepStyles = [
   {
     outerW: "311px",
-    outerH: "161px",
+    outerH: "141px",
     width: "271px",
-    height: "126px",
+    height: "101px",
     position: { bottom: "64px", left: "50%", transform: "translate(-50%, 0)" },
   },
   {
@@ -62,7 +62,7 @@ const mobileStepStyles = [
     outerW: "283px",
     outerH: "177px",
     width: "243px",
-    height: "142px",
+    height: "112px",
     position: { bottom: "64px", left: "5%", },
   },
   {

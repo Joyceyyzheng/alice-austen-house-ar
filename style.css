@@ -800,7 +800,7 @@ ending / photo loader
   position: absolute;
   width: 55.86%;
   height: 53.11%;
-  top: 18.89%;
+  top: 10.89%;
   left: 50%;
   transform: translateX(-50%);
 
@@ -1087,6 +1087,7 @@ tracking
     font-size: var(--mobile-body);
     padding: 0px !important;
     margin: 0px !important;
+    /* margin-bottom: 5px; */
   }
 
   .tutorial-comp-content {
@@ -1094,6 +1095,10 @@ tracking
     word-wrap: break-word;
     margin: 0px;
     margin-bottom: 5px;
+  }
+
+  .tutorial-comp-buttons {
+    /* margin-top: 5px !important; */
   }
 
   .tutorial-dots {
@@ -1397,7 +1402,7 @@ tracking
 
   .photo-loader-popup {
     width: 80vw;
-    height: 24.17vh;
+    height: 18.17vh;
 
     position: absolute;
     z-index: 100;
@@ -1409,27 +1414,29 @@ tracking
   }
 
   .photo-loader-popup-content {
-    margin: 2rem;
-    margin-top: 4rem;
+    /* margin: 1rem; */
+    margin-top: 2rem;
+    margin-bottom: 1rem;
 
     display: flex;
     flex-direction: column;
     justify-self: center;
     align-items: center;
-    gap: 2rem;
+    /* gap: 2rem; */
 
     color: white;
     font-size: var(--mobile-body);
     text-align: center;
   }
+
   .photo-loader-popup-close {
     background-color: rgba(0, 0, 0, 0);
     border: none;
-    width: 10px;
-    height: 10px;
+    width: 5px;
+    height: 5px;
     position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
+    top: 1rem;
+    right: 1rem;
 
     background-repeat: no-repeat;
     background-position: center;

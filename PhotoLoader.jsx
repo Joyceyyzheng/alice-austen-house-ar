@@ -72,7 +72,7 @@ const PhotoLoader = () => {
 		if (isPositive) {
 			setTimeout(() => {
 				setPopUp(true);
-			}, 3000);
+			}, 7000);
 		}
 	}, [isPositive]);
 

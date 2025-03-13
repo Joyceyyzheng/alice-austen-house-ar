@@ -2,7 +2,7 @@ const tutorialContent = [
   {
     title: "Navigation to next steps",
     content: [
-      "Click the arrow on the right to proceed, or jump to any step by tapping on the timeline.",
+      "Tap the right arrow to proceed. Jump to any step through the timeline. ",
     ],
   },
   {
